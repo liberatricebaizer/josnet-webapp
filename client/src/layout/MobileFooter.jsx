@@ -23,10 +23,10 @@ const MobileFooter = () => {
       </div>
       <footer className="lg:hidden fixed z-50 bottom-0 w-full px-1">
         <div className=" bg-dry rounded-md flex-btn w-full p-1">
-          <NavLink to="/browser-movies" className={Hover}>
+          <NavLink to="/browser-Products" className={Hover}>
             <BsCollectionPlay />
           </NavLink>
-          <NavLink to="/favorites" className={Hover}>
+          <NavLink to="/Favorite" className={Hover}>
             <div className="relative">
               <div className="w-5 h-5 flex-colo rounded-full text-xs bg-groon text-white absolute -top-5 -right-1">
                 2
@@ -34,7 +34,7 @@ const MobileFooter = () => {
               <FiHeart className="" />
             </div>
           </NavLink>
-          <NavLink to="/login" className={Hover}>
+          <NavLink to="/signIn" className={Hover}>
             <FiUserCheck />
           </NavLink>
           <button onClick={toggleDrawer} className={inActive}>

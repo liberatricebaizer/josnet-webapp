@@ -7,11 +7,11 @@ const Movie = ({ movie }) => {
   return (
     <>
       <div className="    hover:scale-95 transitions   border shadow-md rounded-md overflow-hidden">
-        <Link to={`/movie/${movie?.name}`} className="w-full ">
+        <Link to={`/movie/${movie?.name}`} className="w-full h-full ">
           <img
-            src={`/images/${movie?.titleImage}`}
+            src={`${movie?.titleImage}`}
             alt={movie?.name}
-            className="w-full h-36   object-cover"
+            className="w-full h-48  object-cover"
           />
         </Link>
         <div className="p-4">
@@ -25,8 +25,8 @@ const Movie = ({ movie }) => {
             <h3 className="font-semibold truncate">{movie?.name}</h3>
           </div>
           <div className="flex gap-4 pt-4  text-sm  font-bold">
-            <p className="line-through">{movie?.estMoney}</p>
-            <p className="text-[#FF3F07]">{movie?.money}</p>
+            <p className="line-through">${movie?.estMoney}</p>
+            <p className="text-[#FF3F07]">${movie?.money}</p>
           </div>
         </div>
       </div>

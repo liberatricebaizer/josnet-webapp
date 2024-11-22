@@ -11,7 +11,7 @@ const ProductFea = ({ movie }) => {
         <div className="flex justify-between items-start">
           <Link to={`/movie/${movie?.name}`} className=" bg-black ">
             <img
-              src={`/images/${movie?.titleImage}`}
+              src={`${movie?.titleImage}`}
               alt={movie?.name}
               className="w-28 h-28   object-cover"
             />

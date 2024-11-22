@@ -2,9 +2,10 @@ import React from "react";
 
 import { BsCollectionFill } from "react-icons/bs";
 // import Movie from "./Movie";
-import { Movies } from "../data/MovieData";
+import { FeaturedProducts } from "../data/MovieData";
 import ProductFea from "./ProductFea";
 import AvatarImage from "../images/watch.png";
+
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
 import { GrView } from "react-icons/gr";
 const FeaturedPro = () => {
@@ -26,7 +27,7 @@ const FeaturedPro = () => {
           </div>
         </div>
         <div className="grid   xl:grid-cols-2 pt-8 lg:grid-cols-4  sm:grid-cols-2 grid-cols-1 gap-4">
-          {Movies.slice(0, 6).map((movie, index) => (
+          {FeaturedProducts.slice(0, 6).map((movie, index) => (
             <ProductFea key={index} movie={movie} />
           ))}
         </div>
@@ -76,7 +77,11 @@ const FeaturedPro = () => {
             </button>
           </div>
           <div className=" flex justify-end">
-            <img src={AvatarImage} alt="" className=" w-32 h-32" />
+            <img
+              src="https://m.media-amazon.com/images/I/71KEG1lRMUL._AC_SL1500_.jpg"
+              alt="smart watch"
+              className=" w-32 h-32"
+            />
           </div>
         </div>
       </div>

@@ -9,9 +9,18 @@ import "swiper/css/navigation";
 import "aos";
 import "aos/dist/aos.css";
 import { BrowserRouter } from "react-router-dom";
+import { CartProvider } from "./context/CartContext"; // Import CartProvider
+import { Provider } from "react-redux";
+import store from "./redux/store.js";
+// import { createStore } from "redux";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <App />
+    {/* Wrap App with CartProvider */}
+    <CartProvider>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </CartProvider>
   </BrowserRouter>
 );

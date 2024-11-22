@@ -13,11 +13,11 @@ import { NavLink } from "react-router-dom";
 
 const SideBar = ({ children }) => {
   const SideLinks = [
-    { name: "Women", link: "/women" },
+    { name: "Women", link: "/Women" },
     { name: "Men", link: "/men" },
     { name: "Wedding", link: "/wedding" },
     { name: "Shoes&Bags", link: "/shoesAndBags" },
-    { name: "Home", link: "/home" },
+    { name: "Home", link: "/homeProduct" },
     { name: "Hobbies", link: "/hobbies" },
     { name: "Electronics", link: "/electronics" },
     { name: "Kids", link: "/kids" },

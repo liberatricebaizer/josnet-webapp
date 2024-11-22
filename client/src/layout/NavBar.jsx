@@ -1,49 +1,26 @@
-import { FaAngleDown, FaSearch } from "react-icons/fa";
-import Logo from "../images/LOGO.png";
-import { Link, NavLink } from "react-router-dom";
-const NavBar = () => {
-  const hover = "hover:text-groon transitions text-black";
-  const Hover = ({ isActive }) => (isActive ? "text-groon" : hover);
-  return (
-    <div className="bg-white">
-      <div className="flex justify-between items-center p-8">
-        <div>
-          <NavLink to="/">
-            <img src={Logo} alt="" />
-          </NavLink>
-        </div>
-        <div className="flex justify-between  gap-28">
-          <div className="flex  gap-2   w-96  h-10 rounded border-[#86CCFF]  border">
-            <input
-              type="text"
-              className=" bg-transparent     w-full outline-none px-2"
-            />
-            <div className="flex items-center w-16 justify-center   rounded-s-[4px]    bg-[#5DBBFF]">
-              {/* <span className="text-white">Search</span> */}
-              <FaSearch className="text-white" />
-            </div>
-          </div>
+import React from "react";
+import { Link } from "react-router-dom";
+import { navItems } from "../static/data";
+import styles from "../styles/styles";
 
-          <div className="flex justify-center items-center gap-10">
-            <NavLink to="/SignIn" className={Hover}>
-              Sign In
-            </NavLink>
-            <NavLink to="/Favorite" className={Hover}>
-              My favorites
-            </NavLink>
-            <NavLink to="/Cart" className={Hover}>
-              Cart
-            </NavLink>
-            <div
-              className={Hover}
-              style={{ display: "flex", gap: "2px", alignItems: "center" }}
+const NavBar = ({ active }) => {
+  return (
+    <div className="block md:flex pt-8 md:pt-0 items-center text-sm justify-center gap-6">
+      {navItems &&
+        navItems.map((i, index) => (
+          <div className="flex ">
+            <Link
+              to={i.url}
+              className={`${
+                active === index + 1
+                  ? "text-[#17dd1f]"
+                  : "text-black 800px:text-[#fff]"
+              }  800px:pb-0 font-[500] pb-3 md:pb-0 flex gap-8 cursor-pointer}`}
             >
-              <span>English</span>
-              <FaAngleDown />
-            </div>
+              {i.title}
+            </Link>
           </div>
-        </div>
-      </div>
+        ))}
     </div>
   );
 };

@@ -81,9 +81,9 @@ const Footer = () => {
             <span className=" bg-[#FF3F07] h-[1px] w-14  mx-1  :content-[''] inline-block font-semibold"></span>
 
             <div className="pt-4 flex gap-4 text-[#B7B7BA] flex-col">
-              <NavLink to="">About Us</NavLink>
-              <NavLink to="">Order Tracking</NavLink>
-              <NavLink to="">Contact Us</NavLink>
+              <NavLink to="/about">About Us</NavLink>
+              <NavLink to="/order-tracking">Order Tracking</NavLink>
+              <NavLink to="/contact-us">Contact Us</NavLink>
               <NavLink to="">Blog & News</NavLink>
               <NavLink to="">Best Sellers</NavLink>
               <NavLink to="">Shipping & Return</NavLink>
