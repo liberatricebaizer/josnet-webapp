@@ -3,6 +3,15 @@ const mongoose = require("mongoose");
 const app = require("./app");
 // const cloudinary = require("cloudinary");
 const dotenv = require("dotenv");
+const cors = require("cors");
+
+// CORS configuration
+app.use(
+  cors({
+    origin: ["http://localhost:5173"],
+    credentials: true,
+  })
+);
 
 // Load environment variables from .env file
 if (process.env.NODE_ENV !== "PRODUCTION") {
