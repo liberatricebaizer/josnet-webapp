@@ -34,7 +34,8 @@ const Product = ({ data, isEvent }) => {
     discountPrice,
     sold_out,
     shop,
-  } = data; // const { cartItems, addToCart, removeFromCart } = useCart();
+  } = data;
+  // const { cartItems, addToCart, removeFromCart } = useCart();
   // const { favorites, removeFromFavorites, addToFavorites } = useFavorites();
   // const navigate = useNavigate();
   const { wishlist } = useSelector((state) => state.wishlist);

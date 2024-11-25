@@ -23,6 +23,9 @@ import Movie from "../components/Movie";
 import DesignTestimonial from "../components/DesignTestimonial";
 import Hero from "../components/Hero/Hero";
 import Header from "../layout/Header";
+import BestDeals from "../components/BestDeals/BestDeals";
+import Events from "../components/Events/Events";
+import Sponsored from "../components/Sponsored";
 const Home = ({ toggleDrawer }) => {
   const [currentPage, setCurrentPage] = useState("women");
   const navigateToPage = (page) => {
@@ -40,6 +43,9 @@ const Home = ({ toggleDrawer }) => {
     <>
       <Header activeHeading={1} />
       <Hero />
+      <BestDeals />
+      <Events />
+      <Sponsored />
       <div className=" md:flex px-8  py-20  gap-14">
         <div className="shadow bg-[#FFF5E1] p-4 hidden  md:flex gap-8 ">
           <div className="">

@@ -1,7 +1,21 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import NavBar from "./layout/NavBar";
-import { LoginPage, SignupPage, ActivationPage } from "./routes/Routes";
+import {
+  LoginPage,
+  SignupPage,
+  ActivationPage,
+  EventsPage,
+  FAQPage,
+  ProductsPage,
+  SellerActivationPage,
+  BestSellingPage,
+  ProductDetailsPage,
+  ProfilePage,
+  OrderDetailsPage,
+  TrackOrderPage,
+  UserInbox,
+} from "./routes/Routes";
 import Home from "./screens/Home";
 // import Login from "./screens/Login";
 // import SignUp from "./screens/SignUp";
@@ -28,7 +42,7 @@ import "react-toastify/dist/ReactToastify.css";
 import OrderTracking from "./screens/OrderTracking";
 import AboutUs from "./screens/AboutUs";
 import ContactUs from "./screens/ContactUs";
-
+import ProtectedRoute from "./routes/ProtectedRoute";
 function App() {
   return (
     // <BrowserRouter>
@@ -43,6 +57,48 @@ function App() {
           <Route
             path="/activation/:activation_token"
             element={<ActivationPage />}
+          />
+          <Route
+            path="/seller/activation/:activation_token"
+            element={<SellerActivationPage />}
+          />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/faq" element={<FAQPage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/product/:id" element={<ProductDetailsPage />} />
+          <Route path="/best-selling" element={<BestSellingPage />} />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <ProfilePage />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/inbox"
+            element={
+              <ProtectedRoute>
+                <UserInbox />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/user/order/:id"
+            element={
+              <ProtectedRoute>
+                <OrderDetailsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/user/track/order/:id"
+            element={
+              <ProtectedRoute>
+                <TrackOrderPage />
+              </ProtectedRoute>
+            }
           />
           <Route path="/Favorite" element={<Favorite />} />
           <Route path="/Cart" element={<Cart />} />

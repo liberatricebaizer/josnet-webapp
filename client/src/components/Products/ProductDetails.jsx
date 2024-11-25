@@ -11,10 +11,10 @@ import { getAllProductsShop } from "../../redux/actions/product";
 import { server } from "../../server";
 import styles from "../../styles/styles";
 import {
-  addToWishlist,
-  removeFromWishlist,
+  addToWishlistAsync,
+  removeFromWishlistAsync,
 } from "../../redux/actions/wishlist";
-import { addTocart } from "../../redux/actions/cart";
+import { addToCartAction } from "../../redux/actions/cart";
 import { toast } from "react-toastify";
 import Ratings from "./Ratings";
 import axios from "axios";
@@ -50,12 +50,12 @@ const ProductDetails = ({ data }) => {
 
   const removeFromWishlistHandler = (data) => {
     setClick(!click);
-    dispatch(removeFromWishlist(data));
+    dispatch(removeFromWishlistAsync(data));
   };
 
   const addToWishlistHandler = (data) => {
     setClick(!click);
-    dispatch(addToWishlist(data));
+    dispatch(addToWishlistAsync(data));
   };
 
   const addToCartHandler = (id) => {
@@ -67,7 +67,7 @@ const ProductDetails = ({ data }) => {
         toast.error("Product stock limited!");
       } else {
         const cartData = { ...data, qty: count };
-        dispatch(addTocart(cartData));
+        dispatch(addToCartAction(cartData));
         toast.success("Item added to cart successfully!");
       }
     }
@@ -85,10 +85,9 @@ const ProductDetails = ({ data }) => {
       0
     );
 
-  const avg =  totalRatings / totalReviewsLength || 0;
+  const avg = totalRatings / totalReviewsLength || 0;
 
   const averageRating = avg.toFixed(2);
-
 
   const handleMessageSubmit = async () => {
     if (isAuthenticated) {

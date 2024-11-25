@@ -4,14 +4,14 @@ import cartReducer from "./reducers/cart"; // Ensure this is correct
 import wishlistReducer from "./reducers/wishlist"; // Ensure this is correct
 import seller from "./reducers/seller";
 import productReducer from "./reducers/product";
-import event from "./reducers/event";
+import eventReducer from "./reducers/event";
 
 const Store = configureStore({
   reducer: {
     user: userReducer,
     seller: seller,
     products: productReducer,
-    event: event,
+    events: eventReducer, // This should match the slice name
     cart: cartReducer,
     wishlist: wishlistReducer,
   },
