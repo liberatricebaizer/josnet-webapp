@@ -122,13 +122,17 @@ const Header = ({ activeHeading }) => {
   // Fetch countries on mount
   useEffect(() => {
     const fetchCountries = async () => {
-      const data = await getCountries(); // Ensure this function fetches the countries correctly
-      setCountries(data);
-      setLoading(false); // Set loading to false after fetching
+      try {
+        const data = await getCountries();
+        setCountries(data);
+      } catch (error) {
+        console.error("Error fetching countries:", error);
+      } finally {
+        setLoading(false); // Ensure loading is set to false
+      }
     };
     fetchCountries();
   }, []);
-
   // Fetch user's current country based on their location
   useEffect(() => {
     const fetchCurrentCountry = async () => {

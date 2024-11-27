@@ -11,6 +11,9 @@ import ProfilePage from "../screens/ProfilePage";
 import OrderDetailsPage from "../screens/OrderDetailsPage";
 import TrackOrderPage from "../screens/TrackOrderPage";
 import UserInbox from "../screens/UserInbox.jsx";
+import ShopCreatePage from "../screens/ShopCreate";
+import ShopLoginPage from "../screens/ShopLoginPage";
+import OrderSuccessPage from "../screens/OrderSuccessPage";
 
 export {
   LoginPage,
@@ -26,4 +29,7 @@ export {
   OrderDetailsPage,
   TrackOrderPage,
   UserInbox,
+  ShopCreatePage,
+  ShopLoginPage,
+  OrderSuccessPage,
 };

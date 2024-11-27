@@ -1,17 +1,22 @@
 const express = require("express");
+const socketIo = require("socket.io");
 const mongoose = require("mongoose");
 const app = require("./app");
+const server = require("http").createServer(app);
+const WebSocket = require("./websocket");
 // const cloudinary = require("cloudinary");
 const dotenv = require("dotenv");
 const cors = require("cors");
-
-// CORS configuration
-app.use(
+const io = socketIo(
+  server,
   cors({
     origin: ["http://localhost:5173"],
     credentials: true,
   })
 );
+const socket = new WebSocket();
+socket.init(io);
+socket.connection();
 
 // Load environment variables from .env file
 if (process.env.NODE_ENV !== "PRODUCTION") {
@@ -79,21 +84,21 @@ connectDatabase();
 // });
 
 // Create server
-const server = app.listen(process.env.PORT, () => {
+server.listen(process.env.PORT, () => {
   console.log(`Server is running on http://localhost:${process.env.PORT}`);
 });
 
-// Handling uncaught exceptions
-process.on("uncaughtException", (err) => {
-  console.log(`Error: ${err.message}`);
-  console.log(`Shutting down the server for handling uncaught exception`);
-  process.exit(1);
-});
+// // Handling uncaught exceptions
+// process.on("uncaughtException", (err) => {
+//   console.log(`Error: ${err.message}`);
+//   console.log(`Shutting down the server for handling uncaught exception`);
+//   process.exit(1);
+// });
 
-// Unhandled promise rejection
-process.on("unhandledRejection", (err) => {
-  console.log(`Shutting down the server for ${err.message}`);
-  server.close(() => {
-    process.exit(1);
-  });
-});
+// // Unhandled promise rejection
+// process.on("unhandledRejection", (err) => {
+//   console.log(`Shutting down the server for ${err.message}`);
+//   server.close(() => {
+//     process.exit(1);
+//   });
+// });

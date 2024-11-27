@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { server } from "../../server";
 import styles from "../../styles/styles";
 import { DataGrid } from "@mui/x-data-grid";
-// import { <button></button> } from "@material-ui/core";
+import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { MdTrackChanges } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
@@ -423,9 +423,9 @@ const TrackOrder = () => {
         return (
           <>
             <Link to={`/user/track/order/${params.id}`}>
-              <button>
+              <Button>
                 <MdTrackChanges size={20} />
-              </button>
+              </Button>
             </Link>
           </>
         );

@@ -1,6 +1,8 @@
 const express = require("express");
+
 const ErrorHandler = require("./middleware/error");
 const app = express();
+
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser"); // Ensure this line is present
 const cors = require("cors");

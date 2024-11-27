@@ -9,8 +9,10 @@ import { useNavigate } from "react-router-dom";
 import { AiOutlineArrowRight, AiOutlineSend } from "react-icons/ai";
 import { TfiGallery } from "react-icons/tfi";
 import styles from "../styles/styles";
-const ENDPOINT = "https://socket-ecommerce-tu68.onrender.com/";
-const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
+const ENDPOINT = "https://josnet-webapp.onrender.com"; //for web socket
+const socketIo = socketIO("http://localhost:8000", {
+  transports: ["websocket"],
+});
 
 const UserInbox = () => {
   const { user, loading } = useSelector((state) => state.user);
@@ -27,11 +29,13 @@ const UserInbox = () => {
   const scrollRef = useRef(null);
 
   useEffect(() => {
-    socketId.on("getMessage", (data) => {
-      setArrivalMessage({
-        sender: data.senderId,
-        text: data.text,
-        createdAt: Date.now(),
+    socketIo.on("connect", () => {
+      socketIo.on("getMessage", (data) => {
+        setArrivalMessage({
+          sender: data.senderId,
+          text: data.text,
+          createdAt: Date.now(),
+        });
       });
     });
   }, []);

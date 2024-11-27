@@ -98,6 +98,7 @@
     "sift": "^17.1.3",
     "signal-exit": "^3.0.7",
     "simple-update-notifier": "^2.0.0",
+    "socket.io": "^4.8.1",
     "sparse-bitfield": "^3.0.3",
     "string_decoder": "^1.3.0",
     "string-width": "^4.2.3",

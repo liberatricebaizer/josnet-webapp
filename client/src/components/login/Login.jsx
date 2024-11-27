@@ -1,17 +1,30 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
+import socketIO from "socket.io-client";
 
 import { FcGoogle } from "react-icons/fc";
+const socketIo = socketIO("http://localhost:8000", {
+  transports: ["websocket"],
+});
 const Login = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    socketIo.on("connect", () => {
+      console.log("actually it works !");
+
+      socketIo.on("test", (ms) => {
+        console.log(ms);
+      });
+    });
+  }, []);
 
   const loginHandler = async (e) => {
     e.preventDefault();
