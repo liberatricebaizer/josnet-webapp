@@ -9,7 +9,7 @@ import styles from "../../styles/styles";
 import { TfiGallery } from "react-icons/tfi";
 import socketIO from "socket.io-client";
 import { format } from "timeago.js";
-const ENDPOINT = "https://josnet-webapp.onrender.com"; // socket endpoint
+const ENDPOINT = "https://josnet-api.onrender.com"; // socket endpoint
 const socketIo = socketIO("http://localhost:8000", {
   transports: ["websocket"],
 });

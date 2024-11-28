@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { AiOutlineArrowRight, AiOutlineSend } from "react-icons/ai";
 import { TfiGallery } from "react-icons/tfi";
 import styles from "../styles/styles";
-const ENDPOINT = "https://josnet-webapp.onrender.com"; //for web socket
+const ENDPOINT = "https://josnet-api.onrender.com"; //for web socket
 const socketIo = socketIO("http://localhost:8000", {
   transports: ["websocket"],
 });
