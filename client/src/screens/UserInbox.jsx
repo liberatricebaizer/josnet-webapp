@@ -10,7 +10,7 @@ import { AiOutlineArrowRight, AiOutlineSend } from "react-icons/ai";
 import { TfiGallery } from "react-icons/tfi";
 import styles from "../styles/styles";
 const ENDPOINT = "https://josnet-api.onrender.com"; //for web socket
-const socketIo = socketIO("http://localhost:8000", {
+const socketIo = socketIO("https://josnet-api.onrender.com", {
   transports: ["websocket"],
 });
 

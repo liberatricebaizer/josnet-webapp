@@ -10,7 +10,7 @@ import { TfiGallery } from "react-icons/tfi";
 import socketIO from "socket.io-client";
 import { format } from "timeago.js";
 const ENDPOINT = "https://josnet-api.onrender.com"; // socket endpoint
-const socketIo = socketIO("http://localhost:8000", {
+const socketIo = socketIO("https://josnet-api.onrender.com", {
   transports: ["websocket"],
 });
 
