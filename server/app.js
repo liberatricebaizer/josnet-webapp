@@ -10,7 +10,7 @@ const cors = require("cors");
 // CORS configuration
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["http://josnet.vercel.app"],
     credentials: true,
   })
 );

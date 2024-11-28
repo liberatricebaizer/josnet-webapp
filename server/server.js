@@ -10,7 +10,7 @@ const cors = require("cors");
 const io = socketIo(
   server,
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["http://josnet.vercel.app"],
     credentials: true,
   })
 );
