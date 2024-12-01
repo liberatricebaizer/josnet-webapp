@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import socketIO from "socket.io-client";
 
 import { FcGoogle } from "react-icons/fc";
-const socketIo = socketIO("http://localhost:8000", {
+const socketIo = socketIO("https://josnet-api.onrender.com", {
   transports: ["websocket"],
 });
 const Login = () => {
