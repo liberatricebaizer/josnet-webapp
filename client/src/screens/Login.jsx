@@ -5,14 +5,14 @@ import { useNavigate } from "react-router-dom";
 import Login from "../components/login/Login";
 
 const LoginPage = () => {
-  // const navigate = useNavigate();
-  // const { isAuthenticated } = useSelector((state) => state.user);
+  const navigate = useNavigate();
+  const { isAuthenticated } = useSelector((state) => state.user);
 
-  // useEffect(() => {
-  //   if (isAuthenticated === true) {
-  //     navigate("/");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (isAuthenticated === true) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <div>

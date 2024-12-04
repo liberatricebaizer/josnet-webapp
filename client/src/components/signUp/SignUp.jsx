@@ -103,7 +103,7 @@ const SignUp = () => {
               </label>
               <input
                 type="text"
-                placeholder="First name"
+                placeholder="Name"
                 className="w-full py-3 px-3 text-sm rounded mt-1 border bg-transparent border-[#424248] hover:border-[#87878f] placeholder-[#6B6A5D] outline-none text-white"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
