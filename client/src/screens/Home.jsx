@@ -1,31 +1,23 @@
 import React, { useState } from "react";
-import SideBar from "./dashboard/SideBar";
-import Table from "../components/Table";
-import { Movies, Testimonials } from "../data/MovieData";
 import { GrPrevious, GrNext } from "react-icons/gr";
-import { FcBusinessman, FcMoneyTransfer } from "react-icons/fc";
 import "./Home.css";
 import Footer from "../layout/Footer";
-import AvatarImage from "../images/avatar.jpeg";
-import AvatarImage2 from "../images/avatar2.jpeg";
 import AvatarImage3 from "../images/avatar2.jpeg";
-import { FaCar, FaHome, FaRegMinusSquare } from "react-icons/fa";
-import { BsBorderBottom } from "react-icons/bs";
+import { FaRegMinusSquare } from "react-icons/fa";
 import FeatureProducts from "../components/FeatureProducts";
 import NewProducts from "../components/NewProducts";
 import TopProducts from "../components/TopProducts";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import FriendlyPage from "../components/FriendlyPage";
-import NavBar from "../layout/NavBar";
 import Testimonial from "../components/Testimonial";
 import FeaturedPro from "../components/FeaturedPro";
-import Movie from "../components/Movie";
-import DesignTestimonial from "../components/DesignTestimonial";
 import Hero from "../components/Hero/Hero";
 import Header from "../layout/Header";
 import BestDeals from "../components/BestDeals/BestDeals";
 import Events from "../components/Events/Events";
 import Sponsored from "../components/Sponsored";
+import { Testimo } from "../components/Testimo";
+import Services from "../components/Services";
 const Home = ({ toggleDrawer }) => {
   const [currentPage, setCurrentPage] = useState("women");
   const navigateToPage = (page) => {
@@ -46,62 +38,12 @@ const Home = ({ toggleDrawer }) => {
       <BestDeals />
       <Events />
       <Sponsored />
-      <div className=" md:flex px-8  py-20  gap-14">
-        <div className="shadow bg-[#FFF5E1] p-4 hidden  md:flex gap-8 ">
-          <div className="">
-            <div className="flex items-center ">
-              <span className=" bg-groon h-[1px] w-16  mx-1 my-2 :content-[''] inline-block font-semibold"></span>
-              <span className="text-black italic text-sm   font-bold">
-                Special Offer
-              </span>
-            </div>
-            <h2 className=" mt-2 text-black text-lg">
-              Best styles accessories
-            </h2>
-            <p className="text-sm   text-gray-400">
-              Let what you wear describe you
-            </p>
-            <button className="px-4  rounded py-2 bg-black text-white text-sm  mt-4  ">
-              Shop Now
-            </button>
-          </div>
-          {/* <div className="bg-red-300"> */}{" "}
-          <img src={AvatarImage} alt="" className="h-28" />
-          {/* </div> */}
-        </div>
-        <div className="shadow bg-white md:w-[20%] p-4">
-          <div className=" flex items-center text-3xl  justify-center">
-            <FaCar className="text-[#F3B600]" />
-          </div>
-          <h2 className="text-center  font-bold pt-4">Quick Response</h2>
-          <p className="text-sm text-center pt-4">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, amet.
-          </p>
-        </div>{" "}
-        <div className="shadow bg-white md:w-[20%] p-4  ">
-          <div className=" flex items-center text-3xl  justify-center">
-            <FcBusinessman />
-          </div>
-          <h2 className="text-center font-bold pt-4">Customer Value</h2>
-          <p className="text-sm text-center pt-4">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, amet.
-          </p>
-        </div>{" "}
-        <div className="shadow bg-white md:w-[20%] p-4  ">
-          <div className=" flex items-center text-3xl  justify-center">
-            <FcMoneyTransfer />
-          </div>
-          <h2 className="text-center font-bold pt-4">Money Quarantee</h2>
-          <p className="text-sm text-center pt-4">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, amet.
-          </p>
-        </div>{" "}
-      </div>
-      <div className="flex my-10 px-8 ">
+
+      <Services />
+      <div className="flex my-10 px-[10px] lg:px-8 ">
         <div className="flex  justify-between  gap-2   ">
-          <div className="flex gap-3">
-            <div className="col-span-2 sticky bg-white shadow  border border-gray-100   rounded-md">
-              {" "}
+          <div className=" hidden lg:flex gap-3">
+            <div className=" col-span-2 sticky bg-white shadow  border border-gray-100   rounded-md">
               <div className="flex bg-[#F3B600] justify-center items-center py-2 px-4">
                 <div className="flex justify-center items-center gap-2">
                   <FaRegMinusSquare />
@@ -158,10 +100,12 @@ const Home = ({ toggleDrawer }) => {
             </div>
           </div>
           <div className="">
-            <div className="flex  gap-[24.5rem]">
+            <div className="lg:flex  md:gap-[24.5rem]">
               {" "}
-              <div>Deals of the Week</div>
-              <div className="flex gap-10">
+              <p className="text-xl mb-8 lg:mb-0 text-[#17dd1f]">
+                Deals of the Week
+              </p>
+              <div className="flex gap-2 lg:gap-10">
                 <Link className={Hover} onClick={() => navigateToPage("women")}>
                   Featured Products
                 </Link>
@@ -205,7 +149,7 @@ const Home = ({ toggleDrawer }) => {
         <FeaturedPro />
       </div>
       <div className="my-16">
-        <div className="flex justify-around ">
+        <div className="md:flex px-4 md:px-0 justify-around ">
           <div>
             {" "}
             <div className="flex items-center ">
@@ -218,7 +162,7 @@ const Home = ({ toggleDrawer }) => {
               Stay Update With Us
             </h2>
           </div>
-          <div className="text-sm w-[30%]">
+          <div className="text-sm pt-4 md:pt-0  md:w-[30%]">
             <p>
               if you're in e-commerce, you already know the value of online SMS
               marketinh ensures your customers have direct access to use those
@@ -226,36 +170,7 @@ const Home = ({ toggleDrawer }) => {
             </p>
           </div>
         </div>
-        <div className="grid gap-4 m-auto  w-[80%] pt-8 grid-cols-3 ">
-          {Testimonials.map((testimo, index) => (
-            <div
-              key={index}
-              className=" hover:scale-95 transitions   border shadow-md bg-white overflow-hidden"
-            >
-              <img
-                src={`/images/${testimo?.image}`}
-                alt={testimo?.name}
-                className="  object-cover"
-              />
-              <div className="p-4">
-                <h2 className="text-black text-lg pt-4 font-semibold">
-                  {testimo.title}
-                </h2>
-                <p className="pt-4 text-sm">{testimo.description}</p>
-                <div className="flex pt-4 items-center justify-between">
-                  <img
-                    src={`/images/${testimo?.profileImage}`}
-                    alt={testimo?.name}
-                    className="w-20 h-20 rounded-full  object-cover"
-                  />
-                  <h3 className="text-[16px] font-bold ">{testimo.name}</h3>
-                  <span className=" bg-[#FF3F07] h-[1px] w-8  mx-1 my-2 :content-[''] inline-block font-semibold"></span>
-                  <p className="text-sm">{testimo.comment} comments</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <Testimo />
       </div>
 
       <Footer />

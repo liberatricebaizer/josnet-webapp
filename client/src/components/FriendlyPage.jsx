@@ -27,8 +27,8 @@ const FriendlyPage = () => {
     isActive ? `${active} ${inActive}` : `${inActive} ${hover}`;
   return (
     <Fragment>
-      <div className="flex px-8  py-20 gap-8">
-        <div className="py-10  rounded  px-4  shadow-md  w-[27rem]   ">
+      <div className="lg:flex px-8  py-20 gap-8">
+        <div className="py-10  rounded  px-4  shadow-md   border mb-8 lg:mb-0  lg:w-[27rem]   ">
           <h2 className="text-3xl  font-semibold">
             JosNetExpress Use Friendly App Available
           </h2>
@@ -36,7 +36,7 @@ const FriendlyPage = () => {
             Appropriately monetize one-to-one interfaces rather than Competently
             disinter mediate backward
           </p>
-          <div className="flex pt-8    gap-8">
+          <div className="lg:flex pt-8    gap-8">
             <div className="flex px-8   gap-2 rounded py-2 items-center bg-[#F3B600]">
               <FaGooglePlay />
               <div>
@@ -44,7 +44,7 @@ const FriendlyPage = () => {
                 <h3 className="text-sm">Google Play</h3>
               </div>
             </div>
-            <div className="flex px-8   gap-2 text-white py-2 rounded  items-center bg-[#121328]">
+            <div className="flex px-8 mt-4 lg:mt-0    gap-2 text-white py-2 rounded  items-center bg-[#121328]">
               <FaApple />
               <div>
                 <h3 className="text-[10px]">Download on the</h3>
@@ -53,7 +53,7 @@ const FriendlyPage = () => {
             </div>
           </div>
         </div>
-        <div className="py-10 rounded flex gap-60 px-20 bg-[#070707] w-[55rem] ">
+        <div className="py-10 rounded flex gap-60 px-8 lg:px-20 bg-[#070707] lg:w-[55rem] ">
           <div>
             <div className="flex items-center   gap-2 ">
               <span className=" bg-[#F3B600] h-[1px] w-16  mx-1 my-2 :content-[''] inline-block font-semibold"></span>
@@ -102,11 +102,13 @@ const FriendlyPage = () => {
           </div>
         </div>
       </div>
-      <div className="p-12">
-        <div className="flex  gap-[24.5rem]">
+      <div className=" py-12 px-4 lg:p-12">
+        <div className="lg:flex  lg:gap-[24.5rem]">
           {" "}
-          <div>Top Categories Products</div>
-          <div className="flex gap-10">
+          <p className="mb-8 lg:mb-0 text-[#17dd1f] text-xl">
+            Top Categories Products
+          </p>
+          <div className="flex gap-4 lg:gap-10">
             <Link
               className={Hover}
               onClick={() => navigateToPage("AllProducts")}

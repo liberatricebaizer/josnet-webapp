@@ -64,7 +64,7 @@ const SignUp = () => {
             <p>Buy anything with our web Application</p>
           </div>
         </div>
-        <div className="py-20 md:py-10 px-8 md:px-28 flex flex-col justify-center h-screen">
+        <div className="py-20 md:py-10 px-8 md:px-16 flex flex-col justify-center h-screen">
           <h3 className="text-3xl font-bold text-[#EEEEF1]">Sign Up</h3>
           <form onSubmit={submitHandler} className="mt-6">
             <div className="m-auto flex items-center flex-col">

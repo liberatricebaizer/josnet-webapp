@@ -27,9 +27,9 @@ const SideBar = ({ children }) => {
     { name: "Phones", link: "/phones " },
   ];
   const active = "bg-dryGray text-groon";
-  const hover = "hover:text-white hover:bg-main";
+  const hover = " hover:text-[#17dd1f] lg:hover:text-white  lg:hover:bg-main";
   const inActive =
-    "rounded font-medium text-sm transitions flex gap-1 items-center py-2 px-20";
+    "rounded font-medium text-sm transitions flex lg:gap-1 items-center py-2 mx-1 lg:px-20";
   const Hover = ({ isActive }) =>
     isActive ? `${active} ${inActive}` : `${inActive} ${hover}`;
 
@@ -40,7 +40,7 @@ const SideBar = ({ children }) => {
           <h1 className="bg-[#5DBBFF] p-2 flex text-2xl    font-medium items-center justify-center">
             All Categories
           </h1>
-          <div className="px-10    py-4 ">
+          <div className="lg:px-10  flex lg:block justify-center flex-wrap lg:flex-row py-4 ">
             {SideLinks.map((link, index) => (
               <NavLink to={link.link} key={index} className={Hover}>
                 <p>{link.name}</p>

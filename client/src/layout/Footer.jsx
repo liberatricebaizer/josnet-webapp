@@ -21,9 +21,9 @@ const Footer = () => {
 
   return (
     <div className="bg-[#06070E] pt-24 pb-12 border-t-2 border-black">
-      <div className="container max-auto mx-8 ">
-        <div className="flex justify-between p-8">
-          <div className=" sm:pb-0 col-span-1 md:col-span-2 lg:col-span-3">
+      <div className="container max-auto lg:mx-8 ">
+        <div className="flex flex-wrap  justify-between p-8">
+          <div className=" sm:pb-0 col-span-1 mb-8 md:mb-0 md:col-span-2 lg:col-span-3">
             <NavLink to="/" className="text-groon">
               {/* <h1 className="">Cineverse</h1> */}
               <img
@@ -64,7 +64,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="text-white">
+          <div className="text-white mb-8 md:mb-0">
             <h2 className="font-semibold">Quick Links</h2>
             <span className=" bg-[#FF3F07] h-[1px] w-14  mx-1  :content-[''] inline-block font-semibold"></span>
             <div className="pt-4 flex text-[#B7B7BA] flex-col gap-4">
@@ -76,7 +76,7 @@ const Footer = () => {
               <NavLink to="">Shipping & Return</NavLink>
             </div>
           </div>
-          <div className="text-white">
+          <div className="text-white mb-8 md:mb-0">
             <h2 className="font-semibold">Quick Links</h2>
             <span className=" bg-[#FF3F07] h-[1px] w-14  mx-1  :content-[''] inline-block font-semibold"></span>
 
@@ -89,7 +89,7 @@ const Footer = () => {
               <NavLink to="">Shipping & Return</NavLink>
             </div>
           </div>
-          <div className="text-white">
+          <div className="text-white ">
             <h2 className="font-semibold">Newsletter</h2>
             <span className=" bg-[#FF3F07] h-[1px] w-14  mx-1  :content-[''] inline-block font-semibold"></span>
 
@@ -128,14 +128,14 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="border-t mx-8 flex justify-between items-center mt-8 border-t-[#2e2120]">
+      <div className="border-t mx-8 flex justify-between flex-wrap items-center mt-8 border-t-[#2e2120]">
         <div className="pt-4">
           <span className="text-white">
             &copy; All rights reserved.Made by_
           </span>
           <span className="text-[#FE4B3B]">liberatriceB</span>
         </div>
-        <div className="flex pt-4 gap-8">
+        <div className="flex pt-4 flex-wrap gap-8">
           <div className="bg-[#262626] px-4 rounded-md">
             <svg
               width="40"

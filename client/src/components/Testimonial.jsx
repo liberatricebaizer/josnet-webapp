@@ -5,8 +5,8 @@ import { Testimonials } from "../data/MovieData";
 const Testimonial = () => {
   return (
     <div>
-      <div className="flex  justify-around py-20 bg-[#FAFAFA]">
-        <div className="py-[8rem] px-[10rem">
+      <div className="lg:flex px-8 justify-around py-20 bg-[#FAFAFA]">
+        <div className="py-[8rem]  lg:mb-0 lg:px-[10rem">
           <div className="flex items-center ">
             <span className=" bg-[#FFC12E] h-[1px] w-16  mx-1 my-2 :content-[''] inline-block font-semibold"></span>
             <span className="text-[#FFC12E] italic text-sm   font-bold">
@@ -18,7 +18,7 @@ const Testimonial = () => {
             <br />
             Our <span className="text-[#FFAF00]">Customer</span>
           </h2>
-          <p className="text-sm w-96 pt-4">
+          <p className="text-sm lg:w-96 pt-4">
             It's why SMS marketing is the perfect way to diversify your
             marketing channels.As the battle for directly with customers.
           </p>
@@ -26,7 +26,7 @@ const Testimonial = () => {
             Shop Now
           </button>
         </div>
-        <img src={Group} alt="" className="w-[40%]" />
+        <img src={Group} alt="" className="lg:w-[40%]" />
       </div>
     </div>
   );

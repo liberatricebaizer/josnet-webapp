@@ -59,12 +59,12 @@ const Login = () => {
             <p>Buy anything with our web Application</p>
           </div>
         </div>
-        <div className="py-20 md:py-10 px-8 md:px-28 flex flex-col justify-center h-screen ">
+        <div className="py-20 md:py-10 px-8    md:px-16  flex flex-col justify-center  h-screen ">
           <h3 className="text-3xl font-bold text-[#EEEEF1]">Welcome Back</h3>
           <p className="text-[#B7B7B7] text-sm pt-2">
             Enter the information you entered while registering
           </p>{" "}
-          <form onSubmit={loginHandler} className="text-white  pt-4">
+          <form onSubmit={loginHandler} className="text-white   pt-4">
             <div className=" ">
               <div className="272F3F">
                 <input

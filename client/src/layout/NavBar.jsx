@@ -14,7 +14,7 @@ const NavBar = ({ active }) => {
               className={`${
                 active === index + 1
                   ? "text-[#17dd1f]"
-                  : "text-black 800px:text-[#fff]"
+                  : "text-black 800px:text-[#black]"
               }  800px:pb-0 font-[500] pb-3 md:pb-0 flex gap-8 cursor-pointer}`}
             >
               {i.title}

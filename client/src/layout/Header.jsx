@@ -191,7 +191,7 @@ const Header = ({ activeHeading }) => {
       {/* // <div className="bg-white border-b-[0.1px] border-b-[#ebeaea]">
     //   <div className="flex justify-between items-center p-8"> */}
       {/* Language Selector */}
-      <div className="flex justify-end gap-32 pr-4 text-sm p-2 w-full bg-slate-200">
+      <div className="flex lg:justify-end gap-2 lg:gap-32 pr-4 text-sm p-2 w-full bg-slate-200">
         <p>Help Center</p>
         <div className="flex items-center gap-2 ">
           Ship to :{" "}

@@ -32,7 +32,7 @@ const FeaturedPro = () => {
           ))}
         </div>
       </div>
-      <div className="">
+      <div className="hidden lg:block">
         <div className="bg-black py-8 rounded px-4">
           {" "}
           <div className="">
