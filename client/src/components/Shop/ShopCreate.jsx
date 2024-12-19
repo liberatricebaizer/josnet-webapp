@@ -6,7 +6,7 @@ import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
 import { RxAvatar } from "react-icons/rx";
-
+import { Spinner } from "react-bootstrap";
 const ShopCreate = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -16,12 +16,12 @@ const ShopCreate = () => {
   const [avatar, setAvatar] = useState();
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
-
+  const [loading, setLoading] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    axios
-      .post(`${server}/shop/create-shop`, {
+    setLoading(true);
+    try {
+      const res = await axios.post(`${server}/shop/create-shop`, {
         name,
         email,
         password,
@@ -29,20 +29,31 @@ const ShopCreate = () => {
         zipCode,
         address,
         phoneNumber,
-      })
-      .then((res) => {
-        toast.success(res.data.message);
-        setName("");
-        setEmail("");
-        setPassword("");
-        setAvatar();
-        setZipCode();
-        setAddress("");
-        setPhoneNumber();
-      })
-      .catch((error) => {
-        toast.error(error.response.data.message);
       });
+      toast.success(res.data.message);
+      setName("");
+      setEmail("");
+      setPassword("");
+      setAvatar();
+      setZipCode();
+      setAddress("");
+      setPhoneNumber();
+    } catch (error) {
+      console.error(error);
+      if (error.response) {
+        toast.error(
+          error.response.data.message || "SignUp failed.please try again"
+        );
+      } else if (error.request) {
+        toast.error(
+          "No response from server. Please check your network connection."
+        );
+      } else {
+        toast.error("Error" + error.message);
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleFileInputChange = (e) => {
@@ -232,9 +243,19 @@ const ShopCreate = () => {
             <div>
               <button
                 type="submit"
-                className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+                disabled={loading} // Disable button while loading
+                className={`w-full py-2 bg-gradient-to-r from-[#FFE27F] to-[#F8A81C] rounded-sm text-sm cursor-pointer ${
+                  loading ? "opacity-50" : ""
+                }`}
               >
-                Submit
+                {loading ? (
+                  <div className="flex gap-2 justify-center text-main">
+                    <Spinner animation="border" size="sm" /> loading..
+                  </div>
+                ) : (
+                  "Submit"
+                )}{" "}
+                {/* Show spinner or text */}
               </button>
             </div>
             <div className={`${styles.noramlFlex} w-full`}>

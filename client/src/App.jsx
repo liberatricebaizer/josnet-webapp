@@ -72,6 +72,8 @@ import ContactUs from "./screens/ContactUs";
 import ProtectedRoute from "./routes/ProtectedRoute.jsx";
 import SellerProtectedRoute from "./routes/SellerProtectedRoute.jsx";
 import ProtectedAdminRoute from "./routes/ProtectedAdminRoute.jsx";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 function App() {
   return (
     // <BrowserRouter>

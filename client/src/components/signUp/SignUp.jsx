@@ -5,7 +5,7 @@ import { RxAvatar } from "react-icons/rx";
 import { BiShow, BiHide } from "react-icons/bi";
 import axios from "axios";
 import { server } from "../../server";
-
+import { Spinner } from "react-bootstrap";
 const SignUp = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -13,7 +13,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [avatar, setAvatar] = useState(null);
-
+  const [loading, setLoading] = useState(false); // Loading state
   const handleShowPassword = () => {
     setShowPassword((prev) => !prev);
   };
@@ -33,6 +33,7 @@ const SignUp = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const res = await axios.post(`${server}/user/create-user`, {
         name,
@@ -44,14 +45,22 @@ const SignUp = () => {
       setName("");
       setEmail("");
       setPassword("");
-      setAvatar(null);
+      setAvatar();
     } catch (error) {
       console.error(error);
       if (error.response) {
-        toast.error(error.response.data.message);
+        toast.error(
+          error.response.data.message || "SignUp failed.please try again"
+        );
+      } else if (error.request) {
+        toast.error(
+          "No response from server. Please check your network connection."
+        );
       } else {
-        toast.error("An unexpected error occurred.");
+        toast.error("Error" + error.message);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -145,9 +154,19 @@ const SignUp = () => {
               <div className="flex text-black justify-center items-center">
                 <button
                   type="submit"
-                  className="w-full py-2 bg-gradient-to-r from-[#FFE27F] to-[#F8A81C] rounded-sm text-sm cursor-pointer"
+                  disabled={loading} // Disable button while loading
+                  className={`w-full py-2 bg-gradient-to-r from-[#FFE27F] to-[#F8A81C] rounded-sm text-sm cursor-pointer ${
+                    loading ? "opacity-50" : ""
+                  }`}
                 >
-                  Sign up
+                  {loading ? (
+                    <div className="flex gap-2 justify-center text-main">
+                      <Spinner animation="border" size="sm" /> loading..
+                    </div>
+                  ) : (
+                    "Sign Up"
+                  )}{" "}
+                  {/* Show spinner or text */}
                 </button>
               </div>
               <div className="flex text-[#E5E4E9] items-center text-sm mt-4">

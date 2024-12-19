@@ -23,18 +23,18 @@ import {
 
 const Product = ({ data, isEvent }) => {
   if (!data) {
-    return <div>Loading...</div>; // Handle loading state
+    return <div className="text-black">Loading...</div>; // Handle loading state
   }
-  const {
-    _id,
-    images,
-    name,
-    ratings,
-    originalPrice,
-    discountPrice,
-    sold_out,
-    shop,
-  } = data;
+  // const {
+  //   _id,
+  //   images,
+  //   name,
+  //   ratings,
+  //   originalPrice,
+  //   discountPrice,
+  //   sold_out,
+  //   shop,
+  // } = data;
   // const { cartItems, addToCart, removeFromCart } = useCart();
   // const { favorites, removeFromFavorites, addToFavorites } = useFavorites();
   // const navigate = useNavigate();
@@ -196,17 +196,17 @@ const Product = ({ data, isEvent }) => {
       <div className="p-4">
         <div className="flex gap-2 text-sm">
           <div className="flex gap-1 text-star">
-            <Ratings value={movie.rate} />
+            <Ratings value={data?.ratings} />
           </div>
-          <p className="text-[#989EAF]">{movie?.reviews}K Reviews</p>
+          <p className="text-[#989EAF]">{data?.reviews}K Reviews</p>
         </div>
         <div className="flex-btn text-sm gap-2 pt-2 text-black">
-          <h3 className="font-semibold truncate">{movie?.name}</h3>
+          <h3 className="font-semibold truncate">{data?.name}</h3>
         </div>
         <div className="flex gap-8 items-center">
           <div className="flex gap-4 pt-4 text-sm font-bold">
-            <p className="line-through">{movie?.estMoney}</p>
-            <p className="text-[#FF3F07]">{movie?.money}</p>
+            <p className="line-through">{data?.estMoney}</p>
+            <p className="text-[#FF3F07]">{data?.money}</p>
           </div>
           <button
             onClick={handleAddToCart}

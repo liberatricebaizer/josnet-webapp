@@ -182,9 +182,9 @@ const Header = ({ activeHeading }) => {
     setIsOpen(!isOpen);
   };
 
-  if (loading) {
-    return <div>Loading...</div>; // Loading state
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>; // Loading state
+  // }
 
   return (
     <>
