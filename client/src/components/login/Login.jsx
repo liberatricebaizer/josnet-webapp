@@ -1,3 +1,4 @@
+import { useDispatch } from "react-redux";
 import { React, useState, useEffect } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,8 +7,9 @@ import { server } from "../../server";
 import { toast } from "react-toastify";
 import socketIO from "socket.io-client";
 import { FcGoogle } from "react-icons/fc";
-import { useDispatch } from "react-redux";
+
 import { Spinner } from "react-bootstrap"; // Import Spinner from Bootstrap or any other spinner component
+import { loadUser } from "../../redux/actions/user";
 
 const socketIo = socketIO("https://josnet-api.onrender.com", {
   transports: ["websocket"],
@@ -44,12 +46,12 @@ const Login = () => {
       );
 
       // Dispatch an action to update the Redux state
-      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+      dispatch(loadUser());
+      // dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       toast.success("Login Success!");
       navigate("/");
-      window.location.reload(true);
+      // window.location.reload(true);
     } catch (err) {
-      // Enhanced error handling
       if (err.response) {
         toast.error(
           err.response.data.message || "Login failed. Please try again."
@@ -62,7 +64,7 @@ const Login = () => {
         toast.error("Error: " + err.message);
       }
     } finally {
-      setLoading(false); // Set loading to false after the login attempt
+      setLoading(false);
     }
   };
 
@@ -142,14 +144,14 @@ const Login = () => {
               <div className="mt-4">
                 <button
                   type="submit"
-                  disabled={loading} // Disable button while loading
+                  disabled={loading}
                   className={`w-full py-2 bg-gradient-to-r from-[#FFE27F] to-[#F8A81C] rounded-sm text-sm cursor-pointer ${
                     loading ? "opacity-50" : ""
                   }`}
                 >
                   {loading ? (
                     <div className="flex gap-2 justify-center text-main">
-                      <Spinner animation="border" size="sm" /> loading..
+                      <Spinner animation="border" size="sm" /> loading...
                     </div>
                   ) : (
                     "LOGIN"

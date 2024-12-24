@@ -317,7 +317,7 @@ const Header = ({ activeHeading }) => {
                 />
                 <button
                   type="submit"
-                  className="flex items-center  w-16 justify-center rounded-s-[4px] bg-[#5DBBFF]"
+                  className="flex items-center  w-16 justify-center rounded-s-[4px bg-[#5DBBFF]"
                   disabled={isLoading}
                 >
                   {isLoading ? (

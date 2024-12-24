@@ -161,7 +161,7 @@ const SignUp = () => {
                 >
                   {loading ? (
                     <div className="flex gap-2 justify-center text-main">
-                      <Spinner animation="border" size="sm" /> loading..
+                      <Spinner animation="border" size="sm" /> loading...
                     </div>
                   ) : (
                     "Sign Up"
