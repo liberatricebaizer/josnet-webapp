@@ -17,10 +17,12 @@ import store from "./redux/store.js";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     {/* Wrap App with CartProvider */}
-    <CartProvider>
-      <Provider store={store}>
+    <Provider store={store}>
+      <CartProvider>
+
         <App />
-      </Provider>
-    </CartProvider>
+
+      </CartProvider>
+    </Provider>
   </BrowserRouter>
 );

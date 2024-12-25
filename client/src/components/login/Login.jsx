@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { React, useState, useEffect } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
@@ -10,6 +10,7 @@ import { FcGoogle } from "react-icons/fc";
 
 import { Spinner } from "react-bootstrap"; // Import Spinner from Bootstrap or any other spinner component
 import { loadUser } from "../../redux/actions/user";
+import { loadUserSuccess } from "../../redux/reducers/user";
 
 const socketIo = socketIO("https://josnet-api.onrender.com", {
   transports: ["websocket"],
@@ -18,6 +19,7 @@ const socketIo = socketIO("https://josnet-api.onrender.com", {
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { isAuthenticated, user } = useSelector((state) => state.user);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
@@ -46,10 +48,13 @@ const Login = () => {
       );
 
       // Dispatch an action to update the Redux state
-      dispatch(loadUser());
-      // dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+
+      dispatch(loadUserSuccess(res.data));
+
       toast.success("Login Success!");
-      navigate("/");
+      await dispatch(loadUser()).then(() => {
+        navigate("/");
+      });
       // window.location.reload(true);
     } catch (err) {
       if (err.response) {
@@ -145,9 +150,8 @@ const Login = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`w-full py-2 bg-gradient-to-r from-[#FFE27F] to-[#F8A81C] rounded-sm text-sm cursor-pointer ${
-                    loading ? "opacity-50" : ""
-                  }`}
+                  className={`w-full py-2 bg-gradient-to-r from-[#FFE27F] to-[#F8A81C] rounded-sm text-sm cursor-pointer ${loading ? "opacity-50" : ""
+                    }`}
                 >
                   {loading ? (
                     <div className="flex gap-2 justify-center text-main">

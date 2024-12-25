@@ -51,6 +51,8 @@ const languages = {
 };
 
 const Header = ({ activeHeading }) => {
+  // const [isAuthenticated, setIsAuthenticated] = useState(() => JSON.parse(sessionStorage.getItem("isAuthenticated")) || false);
+  // const [user, setUser] = useState(() => JSON.parse(sessionStorage.getItem("user") || null));
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const { isSeller } = useSelector((state) => state.seller);
   const { wishlist } = useSelector((state) => state.wishlist);
@@ -76,6 +78,17 @@ const Header = ({ activeHeading }) => {
   const hover = "hover:text-groon transitions text-black";
   const Hover = ({ isActive }) => (isActive ? "text-groon" : hover);
 
+  console.log(user);
+  // useEffect(() => {
+  //   const user = JSON.parse(sessionStorage.getItem("user"));
+  //   const isAuthenticated = sessionStorage.getItem("isAuthenticated");
+
+  //   if (user && isAuthenticated) {
+  //     setIsAuthenticated(isAuthenticated);
+  //     setUser(user);
+  //   }
+
+  // }, []);
   const handleSearch = async (e) => {
     e.preventDefault();
     if (!searchTerm.trim()) return;
@@ -213,9 +226,8 @@ const Header = ({ activeHeading }) => {
                 <div className="text-gray-500">Select a country</div>
               )}
               <svg
-                className={`fill-current h-4 w-4 ml-auto transition-transform ${
-                  isOpen ? "transform rotate-180" : ""
-                }`}
+                className={`fill-current h-4 w-4 ml-auto transition-transform ${isOpen ? "transform rotate-180" : ""
+                  }`}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
               >
@@ -292,9 +304,8 @@ const Header = ({ activeHeading }) => {
         </div>
       </div>
       <div
-        className={`${
-          active === true ? "shadow-sm fixed  top-0 left-0 z-10" : null
-        } transition hidden  md:flex  items-center  w-full bg-white border-b h-[70px]`}
+        className={`${active === true ? "shadow-sm fixed  top-0 left-0 z-10" : null
+          } transition hidden  md:flex  items-center  w-full bg-white border-b h-[70px]`}
       >
         <div className="w-full px-4">
           <div className=" md:h-[50px]  md:my-[20px]  flex gap-8 items-center ">
@@ -414,9 +425,8 @@ const Header = ({ activeHeading }) => {
 
       {/* mobile header */}
       <div
-        className={`${
-          active === true ? "shadow-sm  fixed top-0 left-0 z-10" : null
-        }
+        className={`${active === true ? "shadow-sm  fixed top-0 left-0 z-10" : null
+          }
       w-full h-[60px] bg-[#fff] md:hidden z-50 p-4 top-0 left-0 shadow-sm`}
       >
         <div className="w-full flex  items-center justify-between">

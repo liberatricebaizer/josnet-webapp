@@ -22,7 +22,9 @@ const userSlice = createSlice({
     loadUserSuccess: (state, action) => {
       state.isAuthenticated = true;
       state.loading = false;
-      state.user = action.payload;
+      state.user = action.payload.user;
+      sessionStorage.setItem("user", JSON.stringify(action.payload));
+      sessionStorage.setItem("isAuthenticated", true);
     },
     loadUserFail: (state, action) => {
       state.loading = false;
