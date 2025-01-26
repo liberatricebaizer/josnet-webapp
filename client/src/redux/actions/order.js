@@ -12,7 +12,8 @@ export const getAllOrdersOfUser = createAsyncThunk(
       );
       return response.data.orders;
     } catch (error) {
-      return rejectWithValue(error.response.data.message);
+      return rejectWithValue(error?.response?.data?.message || error.message);
+      // return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -27,7 +28,8 @@ export const getAllOrdersOfShop = createAsyncThunk(
       );
       return response.data.orders;
     } catch (error) {
-      return rejectWithValue(error.response.data.message);
+      return rejectWithValue(error?.response?.data?.message || error.message);
+      // return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -42,7 +44,8 @@ export const getAllOrdersOfAdmin = createAsyncThunk(
       });
       return response.data.orders;
     } catch (error) {
-      return rejectWithValue(error.response.data.message);
+      return rejectWithValue(error?.response?.data?.message || error.message);
+      // return rejectWithValue(error.response.data.message);
     }
   }
 );

@@ -226,8 +226,9 @@ const Header = ({ activeHeading }) => {
                 <div className="text-gray-500">Select a country</div>
               )}
               <svg
-                className={`fill-current h-4 w-4 ml-auto transition-transform ${isOpen ? "transform rotate-180" : ""
-                  }`}
+                className={`fill-current h-4 w-4 ml-auto transition-transform ${
+                  isOpen ? "transform rotate-180" : ""
+                }`}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
               >
@@ -304,8 +305,9 @@ const Header = ({ activeHeading }) => {
         </div>
       </div>
       <div
-        className={`${active === true ? "shadow-sm fixed  top-0 left-0 z-10" : null
-          } transition hidden  md:flex  items-center  w-full bg-white border-b h-[70px]`}
+        className={`${
+          active === true ? "shadow-sm fixed  top-0 left-0 z-10" : null
+        } transition hidden  md:flex  items-center  w-full bg-white border-b h-[70px]`}
       >
         <div className="w-full px-4">
           <div className=" md:h-[50px]  md:my-[20px]  flex gap-8 items-center ">
@@ -394,7 +396,7 @@ const Header = ({ activeHeading }) => {
                   </div>
                 </div>
                 <div className={`${styles.noramlFlex}`}>
-                  <div className="relative cursor-pointer mr-[15px]">
+                  <div className="relative flex object-cover cursor-pointer mr-[15px]">
                     {isAuthenticated ? (
                       <Link to="/profile">
                         <img
@@ -425,8 +427,9 @@ const Header = ({ activeHeading }) => {
 
       {/* mobile header */}
       <div
-        className={`${active === true ? "shadow-sm  fixed top-0 left-0 z-10" : null
-          }
+        className={`${
+          active === true ? "shadow-sm  fixed top-0 left-0 z-10" : null
+        }
       w-full h-[60px] bg-[#fff] md:hidden z-50 p-4 top-0 left-0 shadow-sm`}
       >
         <div className="w-full flex  items-center justify-between">

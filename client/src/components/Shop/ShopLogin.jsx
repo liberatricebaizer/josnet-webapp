@@ -1,3 +1,4 @@
+import { useDispatch, useSelector } from "react-redux";
 import { React, useEffect, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "../../styles/styles";
@@ -5,33 +6,50 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
+import { loadSeller, loadUser } from "../../redux/actions/user";
+import { LoadSellerSuccess } from "../../redux/reducers/seller";
 
+import { Spinner } from "react-bootstrap";
 const ShopLogin = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
-
+  const [loading, setLoading] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    await axios
-      .post(
+    setLoading(true);
+    try {
+      const res = await axios.post(
         `${server}/shop/login-shop`,
         {
           email,
           password,
         },
         { withCredentials: true }
-      )
-      .then((res) => {
-        toast.success("Login Success!");
+      );
+
+      dispatch(LoadSellerSuccess(res.data));
+      toast.success("Login Success!");
+      await dispatch(loadSeller()).then(() => {
         navigate("/dashboard");
-        window.location.reload(true); 
-      })
-      .catch((err) => {
-        toast.error(err.response.data.message);
       });
+    } catch (err) {
+      if (err.response) {
+        toast.error(
+          err.response.data.message || "Login failed. Please try again."
+        );
+      } else if (err.request) {
+        toast.error(
+          "No response from server. Please check your network connection."
+        );
+      } else {
+        toast.error("Error: " + err.message);
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -122,9 +140,19 @@ const ShopLogin = () => {
             <div>
               <button
                 type="submit"
-                className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+                disabled={loading}
+                className={`w-full py-2 bg-gradient-to-r from-[#FFE27F] to-[#F8A81C] rounded-sm text-sm cursor-pointer ${
+                  loading ? "opacity-50" : ""
+                }`}
               >
-                Submit
+                {loading ? (
+                  <div className="flex gap-2 justify-center text-main">
+                    <Spinner animation="border" size="sm" /> loading...
+                  </div>
+                ) : (
+                  "Submit"
+                )}{" "}
+                {/* Show spinner or text */}
               </button>
             </div>
             <div className={`${styles.noramlFlex} w-full`}>

@@ -77,7 +77,13 @@ const ShopSettings = () => {
         <div className="w-full flex items-center justify-center">
           <div className="relative">
             <img
-              src={avatar ? avatar : `${seller.avatar?.url}`}
+              src={
+                avatar
+                  ? avatar
+                  : seller && seller.avatar
+                  ? seller.avatar.url
+                  : ""
+              }
               alt=""
               className="w-[200px] h-[200px] rounded-full cursor-pointer"
             />
@@ -107,7 +113,7 @@ const ShopSettings = () => {
             </div>
             <input
               type="name"
-              placeholder={`${seller.name}`}
+              placeholder={name}
               value={name}
               onChange={(e) => setName(e.target.value)}
               className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -120,11 +126,7 @@ const ShopSettings = () => {
             </div>
             <input
               type="name"
-              placeholder={`${
-                seller?.description
-                  ? seller.description
-                  : "Enter your shop description"
-              }`}
+              placeholder={description}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -136,7 +138,7 @@ const ShopSettings = () => {
             </div>
             <input
               type="name"
-              placeholder={seller?.address}
+              placeholder={address}
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -150,7 +152,7 @@ const ShopSettings = () => {
             </div>
             <input
               type="number"
-              placeholder={seller?.phoneNumber}
+              placeholder={phoneNumber}
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
               className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -164,7 +166,7 @@ const ShopSettings = () => {
             </div>
             <input
               type="number"
-              placeholder={seller?.zipCode}
+              placeholder={zipCode}
               value={zipCode}
               onChange={(e) => setZipcode(e.target.value)}
               className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}

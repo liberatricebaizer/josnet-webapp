@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Rating from "./Star";
-import { FaArrowRightArrowLeft, FaHeart } from "react-icons/fa6";
-import { GrView } from "react-icons/gr";
-import { useCart } from "../context/CartContext";
-import { toast } from "react-toastify"; // Import react-toastify
-import { useFavorites } from "../context/FavoritesContext";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import Ratings from "../components/Products/Ratings";
 import ProductDetailsCard from "../components/ProductDetailsCard/ProductDetailsCard";
 import {
@@ -22,22 +17,6 @@ import {
 } from "react-icons/ai";
 
 const Product = ({ data, isEvent }) => {
-  if (!data) {
-    return <div className="text-black">Loading...</div>; // Handle loading state
-  }
-  // const {
-  //   _id,
-  //   images,
-  //   name,
-  //   ratings,
-  //   originalPrice,
-  //   discountPrice,
-  //   sold_out,
-  //   shop,
-  // } = data;
-  // const { cartItems, addToCart, removeFromCart } = useCart();
-  // const { favorites, removeFromFavorites, addToFavorites } = useFavorites();
-  // const navigate = useNavigate();
   const { wishlist } = useSelector((state) => state.wishlist);
   const { cart } = useSelector((state) => state.cart);
   const [click, setClick] = useState(false);
@@ -50,7 +29,8 @@ const Product = ({ data, isEvent }) => {
     } else {
       setClick(false);
     }
-  }, [wishlist]);
+  }, [wishlist, data]);
+  // }, [wishlist]);
 
   const removeFromWishlistHandler = (data) => {
     setClick(!click);
@@ -77,28 +57,9 @@ const Product = ({ data, isEvent }) => {
     }
   };
 
-  // const handleAddToCart = () => {
-  //   const isAdded = addToCart(movie);
-  //   if (isAdded) {
-  //     toast.success("Item added to cart!");
-  //   } else {
-  //     toast.error("Item is already in the cart!");
-  //   }
-  // };
-
-  // const handleToggleFavorite = () => {
-  //   const isFavorite = addToFavorites(movie);
-  //   if (isFavorite) {
-  //     toast.success("Item added to favorites!");
-  //   } else {
-  //     // If the product is already in favorites, show a toast message.
-  //     toast.error("This item is already in your favorites!");
-  //   }
-  // };
-
-  // const handleView = () => {
-  //   navigate(`/movie/${movie?.name}`);
-  // };
+  if (!data || Object.keys(data).length === 0) {
+    return null;
+  }
 
   return (
     <div className="hover:scale-95 transitions border shadow-md rounded-md overflow-hidden">
@@ -160,7 +121,7 @@ const Product = ({ data, isEvent }) => {
             <button
               onClick={() => removeFromWishlistHandler(data)}
               className="h-9 w-9 text-sm flex-colo transitions border-subMain border rounded "
-              color={click ? "red" : "#333"}
+              // color={click ? "red" : "#333"}
               title="Remove from wishlist"
             >
               <AiFillHeart />
@@ -170,13 +131,12 @@ const Product = ({ data, isEvent }) => {
               size={22}
               className="cursor-pointer absolute right-2 top-5"
               onClick={() => addToWishlistHandler(data)}
-              color={click ? "red" : "#333"}
+              // color={click ? "red" : "#333"}
               title="Add to wishlist"
             />
           )}
           <button
             onClick={() => setOpen(!open)}
-            color="#333"
             title="Quick view"
             className="h-9 w-9 text-sm flex-colo transitions border-subMain border rounded hover:bg-subMain hover:text-white"
           >
@@ -184,7 +144,6 @@ const Product = ({ data, isEvent }) => {
           </button>
           <button
             onClick={() => addToCartHandler(data._id)}
-            color="#444"
             title="Add to cart"
             className="h-9 w-9 text-sm flex-colo transitions border-subMain border rounded hover:bg-subMain hover:text-white"
           >
@@ -209,7 +168,8 @@ const Product = ({ data, isEvent }) => {
             <p className="text-[#FF3F07]">{data?.money}</p>
           </div>
           <button
-            onClick={handleAddToCart}
+            onClick={() => addToCartHandler(data._id)}
+            // onClick={handleAddToCart}
             className="text-sm flex-colo transitions py-2 px-4 border-[#989EAF] border rounded hover:bg-[#000000] hover:text-white"
           >
             Add to Cart

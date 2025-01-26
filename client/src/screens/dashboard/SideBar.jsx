@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsFillGridFill } from "react-icons/bs";
 import { FaHeart, FaListAlt, FaUsers } from "react-icons/fa";
 import {
@@ -10,8 +10,13 @@ import { HiViewGridAdd } from "react-icons/hi";
 import { FiSettings } from "react-icons/fi";
 // import Layout from "../../layout/Layout";
 import { NavLink } from "react-router-dom";
+import { IoIosArrowDown } from "react-icons/io";
+import { BiMenuAltLeft } from "react-icons/bi";
+import DropDown from "../../layout/DropDown";
+import { categoriesData } from "../../static/data";
 
 const SideBar = ({ children }) => {
+  // const [dropDown, setDropDown] = useState(false);
   const SideLinks = [
     { name: "Women", link: "/Women" },
     { name: "Men", link: "/men" },
@@ -26,17 +31,36 @@ const SideBar = ({ children }) => {
     { name: "Computer", link: "/computer" },
     { name: "Phones", link: "/phones " },
   ];
-  const active = "bg-dryGray text-groon";
-  const hover = " hover:text-[#17dd1f] lg:hover:text-white  lg:hover:bg-main";
-  const inActive =
-    "rounded font-medium text-sm transitions flex lg:gap-1 items-center py-2 mx-1 lg:px-20";
-  const Hover = ({ isActive }) =>
-    isActive ? `${active} ${inActive}` : `${inActive} ${hover}`;
+  // const active = "bg-dryGray text-groon";
+  // const hover = " hover:text-[#17dd1f] lg:hover:text-white  lg:hover:bg-main";
+  // const inActive =
+  //   "rounded font-medium text-sm transitions flex lg:gap-1 items-center py-2 mx-1 lg:px-20";
+  // const Hover = ({ isActive }) =>
+  //   isActive ? `${active} ${inActive}` : `${inActive} ${hover}`;
 
   return (
     <div className="">
       <div className=" gap-10 items-start  ">
-        <div className="col-span-2 sticky bg-white shadow  border border-gray-100  rounded-md ">
+        {/* categories */}
+        {/* <div onClick={() => setDropDown(!dropDown)}> */}
+        <div className="relative h-[50px] mt-[px] w-[270px] hiden 1000px:block">
+          <div className="bg-groon text-white p-2 flex items-center">
+            <BiMenuAltLeft size={30} className="" />
+            <button
+              className={`h-[100%] w-full flex  items-center pl-10  font-sans text-lg font-[500] select-none rounded-t-md`}
+            >
+              All Categories
+            </button>
+          </div>
+          {/* {dropDown ? ( */}
+          <DropDown
+            categoriesData={categoriesData}
+            // setDropDown={setDropDown}
+          />
+          {/* ) : null} */}
+        </div>
+        {/* </div> */}
+        {/* <div className="col-span-2 sticky bg-white shadow  border border-gray-100  rounded-md ">
           <h1 className="bg-[#5DBBFF] p-2 flex text-2xl    font-medium items-center justify-center">
             All Categories
           </h1>
@@ -47,7 +71,7 @@ const SideBar = ({ children }) => {
               </NavLink>
             ))}
           </div>
-        </div>
+        </div> */}
         <div
           data-aos="fade-up"
           data-aos-duration="1000"

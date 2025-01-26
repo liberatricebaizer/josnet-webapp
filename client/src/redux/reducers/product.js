@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 const initialState = {
   isLoading: true,
   products: [],
@@ -11,7 +10,7 @@ const initialState = {
 };
 
 const productSlice = createSlice({
-  name: "products",
+  name: "product",
   initialState,
   reducers: {
     productCreateRequest: (state) => {
@@ -19,7 +18,7 @@ const productSlice = createSlice({
     },
     productCreateSuccess: (state, action) => {
       state.isLoading = false;
-      state.product = action.payload;
+      state.product = [...action.payload];
       state.success = true;
     },
     productCreateFail: (state, action) => {
@@ -32,7 +31,7 @@ const productSlice = createSlice({
     },
     getAllProductsShopSuccess: (state, action) => {
       state.isLoading = false;
-      state.products = action.payload;
+      state.products = [...action.payload];
     },
     getAllProductsShopFailed: (state, action) => {
       state.isLoading = false;
@@ -41,6 +40,7 @@ const productSlice = createSlice({
     deleteProductRequest: (state) => {
       state.isLoading = true;
     },
+
     deleteProductSuccess: (state, action) => {
       state.isLoading = false;
       state.message = action.payload;
@@ -54,7 +54,7 @@ const productSlice = createSlice({
     },
     getAllProductsSuccess: (state, action) => {
       state.isLoading = false;
-      state.allProducts = action.payload;
+      state.allProducts = [...action.payload];
     },
     getAllProductsFailed: (state, action) => {
       state.isLoading = false;

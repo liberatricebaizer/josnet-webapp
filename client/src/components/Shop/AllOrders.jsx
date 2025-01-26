@@ -8,14 +8,15 @@ import { getAllOrdersOfShop } from "../../redux/actions/order";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
 const AllOrders = () => {
-  const { orders, isLoading } = useSelector((state) => state.order);
+  const orderState = useSelector((state) => state.order);
+  const { orders, isLoading } = orderState || {};
   const { seller } = useSelector((state) => state.seller);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllOrdersOfShop(seller._id));
-  }, [dispatch]);
+    dispatch(getAllOrdersOfShop(seller?._id));
+  }, [dispatch, seller]);
 
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 150, flex: 0.7 },

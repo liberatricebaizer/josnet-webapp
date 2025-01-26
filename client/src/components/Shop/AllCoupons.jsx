@@ -27,7 +27,7 @@ const AllCoupons = () => {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get(`${server}/coupon/get-coupon/${seller._id}`, {
+      .get(`${server}/coupon/get-coupon/${seller?._id}`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -60,7 +60,7 @@ const AllCoupons = () => {
           maxAmount,
           selectedProducts,
           value,
-          shopId: seller._id,
+          shopId: seller?._id,
         },
         { withCredentials: true }
       )
@@ -112,9 +112,9 @@ const AllCoupons = () => {
   coupouns &&
     coupouns.forEach((item) => {
       row.push({
-        id: item._id,
-        name: item.name,
-        price: item.value + " %",
+        id: item?._id,
+        name: item?.name,
+        price: item?.value + " %",
         sold: 10,
       });
     });

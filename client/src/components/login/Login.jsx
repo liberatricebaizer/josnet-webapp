@@ -32,7 +32,7 @@ const Login = () => {
         console.log(ms);
       });
     });
-  }, []);
+  }, [dispatch, navigate]);
 
   const loginHandler = async (e) => {
     e.preventDefault();
@@ -47,6 +47,7 @@ const Login = () => {
         { withCredentials: true }
       );
 
+      localStorage.setItem("user", JSON.stringify(res.data));
       // Dispatch an action to update the Redux state
 
       dispatch(loadUserSuccess(res.data));
@@ -150,8 +151,9 @@ const Login = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`w-full py-2 bg-gradient-to-r from-[#FFE27F] to-[#F8A81C] rounded-sm text-sm cursor-pointer ${loading ? "opacity-50" : ""
-                    }`}
+                  className={`w-full py-2 bg-gradient-to-r from-[#FFE27F] to-[#F8A81C] rounded-sm text-sm cursor-pointer ${
+                    loading ? "opacity-50" : ""
+                  }`}
                 >
                   {loading ? (
                     <div className="flex gap-2 justify-center text-main">

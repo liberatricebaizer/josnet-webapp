@@ -11,16 +11,17 @@ import { DataGrid } from "@mui/x-data-grid";
 
 const DashboardHero = () => {
   const dispatch = useDispatch();
-  const { orders } = useSelector((state) => state.order);
+  const orderState = useSelector((state) => state.order);
+  const { orders, orderLoading } = orderState || {};
   const { seller } = useSelector((state) => state.seller);
-  const { products } = useSelector((state) => state.products);
+  const { products, productLoading } = useSelector((state) => state.products);
 
   useEffect(() => {
-    dispatch(getAllOrdersOfShop(seller._id));
-    dispatch(getAllProductsShop(seller._id));
+    dispatch(getAllOrdersOfShop(seller?._id));
+    dispatch(getAllProductsShop(seller?._id));
   }, [dispatch]);
 
-  const availableBalance = seller?.availableBalance.toFixed(2);
+  const availableBalance = seller?.availableBalance?.toFixed(2);
 
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 150, flex: 0.7 },
@@ -78,10 +79,10 @@ const DashboardHero = () => {
   orders &&
     orders.forEach((item) => {
       row.push({
-        id: item._id,
-        itemsQty: item.cart.reduce((acc, item) => acc + item.qty, 0),
-        total: "US$ " + item.totalPrice,
-        status: item.status,
+        id: item?._id,
+        itemsQty: item?.cart.reduce((acc, item) => acc + item.qty, 0),
+        total: "US$ " + item?.totalPrice,
+        status: item?.status,
       });
     });
   return (
@@ -120,7 +121,7 @@ const DashboardHero = () => {
             </h3>
           </div>
           <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">
-            {orders && orders.length}
+            {orders?.length}
           </h5>
           <Link to="/dashboard-orders">
             <h5 className="pt-4 pl-2 text-[#077f9c]">View Orders</h5>
@@ -141,7 +142,7 @@ const DashboardHero = () => {
             </h3>
           </div>
           <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">
-            {products && products.length}
+            {products?.length}
           </h5>
           <Link to="/dashboard-products">
             <h5 className="pt-4 pl-2 text-[#077f9c]">View Products</h5>

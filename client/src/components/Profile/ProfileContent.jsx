@@ -491,7 +491,7 @@ const ChangePassword = () => {
         <form
           aria-required
           onSubmit={passwordChangeHandler}
-          className="flex flex-col w-[80%] m-auto px-5 mx-8 mt-32  items-center"
+          className="flex flex-col  m-auto px-5 mx-8 mt-32  items-center"
         >
           <div className=" w-[100%] 800px:w-[50%] mt-5">
             <label className="block pb-2">Enter your old password</label>
