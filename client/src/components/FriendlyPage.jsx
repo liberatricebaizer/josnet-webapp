@@ -9,11 +9,12 @@ import {
 import Watch from "../images/watch.png";
 
 import { Link } from "react-router-dom";
-import AllProducts from "./AllProducts";
+// import AllProducts from "./AllProducts";
 import HeadPhone from "./HeadPhone";
 import Skirts from "./Skirts";
 import Computer from "./Computer";
 import Speaker from "./Speaker";
+import AllProducts from "./Shop/AllProducts";
 const FriendlyPage = () => {
   const [currentPage, setCurrentPage] = useState("AllProducts");
   const navigateToPage = (page) => {

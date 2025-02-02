@@ -9,7 +9,7 @@ const ReusableSlider = ({ images, delay = 3000 }) => {
   return (
     <div
       className="slider-container"
-      style={{ maxWidth: "1020px", margin: "0 auto" }}
+      style={{ maxWidth: "", margin: "0 auto" }}
     >
       <Swiper
         modules={[Navigation, Autoplay]}

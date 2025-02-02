@@ -185,88 +185,496 @@ export const brandingData = [
 
 // categories data
 export const categoriesData = [
+  { id: 1, title: "Women", link: "/women" },
+  { id: 2, title: "Men", link: "/men" },
+  { id: 3, title: "Wedding", link: "/wedding" },
+  { id: 4, title: "Shoes & Bags", link: "/shoesAndBags" },
+  { id: 5, title: "Home", link: "/homeProduct" },
+  { id: 6, title: "Hobbies", link: "/hobbies" },
+  { id: 7, title: "Electronics", link: "/electronics" },
+  { id: 8, title: "Kids", link: "/kids" },
+  { id: 9, title: "Sports", link: "/sports" },
+  { id: 10, title: "Beauty & Hair", link: "/beautyHair" },
+  { id: 11, title: "Computer", link: "/computer" },
+  { id: 12, title: "Phones", link: "/phones" },
+];
+
+export const womenItems = [
+  { id: 1, title: "shop-by-occasion", subTitle: "" },
+  { id: 2, title: "womens-tops", subTitle: "" },
+  { id: 3, title: "womens-outerwear", subTitle: "" },
+  { id: 4, title: "sweaters-cardigans", subTitle: "" },
+  { id: 5, title: "womens-dresses", subTitle: "" },
+  { id: 6, title: "womens-bottoms", subTitle: "" },
+  { id: 7, title: "plus-size-collection", subTitle: "" },
+  { id: 8, title: "sleep-lounge", subTitle: "" },
+  { id: 9, title: "accessories", subTitle: "" },
+  { id: 10, title: "swimwear", subTitle: "" },
+  { id: 11, title: "skirts", subTitle: "" },
+  { id: 12, title: "jumpsuits-rompers", subTitle: "" },
+  { id: 13, title: "sporty-chic", subTitle: "" },
+  { id: 14, title: "womens-christmas", subTitle: "" },
+];
+
+export const menItems = [
+  { id: 1, title: "tees-tank-tops", subTitle: "Men's Tees & Tank Tops" },
+  { id: 2, title: "shirts", subTitle: "Men's Shirts" },
+  { id: 3, title: "pants", subTitle: "Men's Pants" },
+  { id: 4, title: "polos", subTitle: "Men's Polos" },
+  { id: 5, title: "graphic-collection", subTitle: "Graphic Collection" },
+  { id: 6, title: "active", subTitle: "Men's Active" },
+  { id: 7, title: "shorts", subTitle: "Men's Shorts" },
+  { id: 8, title: "chic-collection", subTitle: "Men's Chic Collection" },
   {
-    id: 1,
-    title: "Women",
-    subTitle: "",
-    image_Url:
-      "https://cdn.shopify.com/s/files/1/1706/9177/products/NEWAppleMacbookProwithM1ProChip14InchLaptop2021ModelMKGQ3LL_A_16GB_1TBSSD_custommacbd.jpg?v=1659592838",
+    id: 9,
+    title: "hoodies-sweatshirts",
+    subTitle: "Men's Hoodies & Sweatshirts",
   },
+  { id: 10, title: "outerwear", subTitle: "Men's Outerwear" },
   {
-    id: 2,
-    title: "Men",
-    subTitle: "",
-    image_Url:
-      "https://indian-retailer.s3.ap-south-1.amazonaws.com/s3fs-public/2021-07/kosme1.png",
+    id: 11,
+    title: "sweaters-cardigans",
+    subTitle: "Men's Sweaters & Cardigans",
   },
+  { id: 12, title: "plus-size", subTitle: "Men's Plus Size" },
   {
-    id: 3,
-    title: "Wedding",
-    subTitle: "",
-    image_Url:
-      "https://img.freepik.com/free-vector/ordering-goods-online-internet-store-online-shopping-niche-e-commerce-website-mother-buying-babies-clothes-footwear-toys-infant-accessories_335657-2345.jpg?w=2000",
+    id: 13,
+    title: "sleepwear-loungewear",
+    subTitle: "Men's Sleepwear & Loungewear",
   },
+  { id: 14, title: "accessories", subTitle: "Men's Accessories" },
+  { id: 15, title: "underwear", subTitle: "Men's Underwear" },
+  { id: 16, title: "clearance", subTitle: "Clearance" },
+  { id: 17, title: "custom-clothing", subTitle: "Men's Custom Clothing" },
+  { id: 18, title: "christmas", subTitle: "Men's Christmas Clothing" },
+];
+
+export const weddingItems = [
+  { id: 1, title: "mother-of-the-bride", subTitle: "Mother of the Bride" },
+  { id: 2, title: "wedding-store", subTitle: "The Wedding Store" },
+  { id: 3, title: "tuxedos-suits", subTitle: "Tuxedos & Suits" },
   {
     id: 4,
-    title: "Shoes&Bags",
-    subTitle: "",
-    image_Url:
-      "https://www.shift4shop.com/2015/images/industries/clothing/clothing-apparel.png",
+    title: "special-occasion-dresses",
+    subTitle: "Special Occasion Dresses",
   },
   {
     id: 5,
-    title: "Home",
-    subTitle: "",
-    image_Url:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvBQPQMVNRd6TtDkGs2dCri0Y-rxKkFOiEWw&usqp=CAU",
+    title: "wedding-party-accessories",
+    subTitle: "Wedding & Party Accessories",
   },
   {
     id: 6,
-    title: "Hobbies",
-    subTitle: "",
-    image_Url:
-      "https://securecdn.pymnts.com/wp-content/uploads/2014/11/Gifts-Photo-700x489.jpg",
+    title: "dancewear-dance-shoes",
+    subTitle: "Dancewear & Dance Shoes",
   },
+  { id: 7, title: "new-arrivals", subTitle: "New Arrivals" },
+  { id: 8, title: "hot-sale", subTitle: "Hot Sale" },
+  { id: 9, title: "trending-2024", subTitle: "Trending 2024" },
+];
+
+export const shoesbagsItems = [
+  { id: 1, title: "hot-sale", subTitle: "Hot Sale" },
+  { id: 2, title: "women-shoes", subTitle: "Women's Shoes" },
+  { id: 3, title: "men-shoes", subTitle: "Men's Shoes" },
+  { id: 4, title: "bags", subTitle: "Bags" },
+  { id: 5, title: "dance-shoes", subTitle: "Dance Shoes" },
+  { id: 6, title: "kids-shoes", subTitle: "Kids' Shoes" },
   {
     id: 7,
-    title: "Electronics",
-    subTitle: "",
-    image_Url: "https://cdn.openpr.com/T/c/Tc15444071_g.jpg",
+    title: "graphic-printShoes&Bags",
+    subTitle: "Graphic Print Shoes & Bags",
   },
+  { id: 8, title: "fashion-accessories", subTitle: "Fashion Accessories" },
+  { id: 9, title: "shoes-accessories", subTitle: "Shoes Accessories" },
+  { id: 10, title: "boots", subTitle: "Boots" },
+];
+
+export const homeItems = [
+  {
+    id: 1,
+    title: "tees-tank-tops",
+    subTitle: "HomeProduct's Tees & Tank Tops",
+  },
+  { id: 2, title: "shirts", subTitle: "HomeProduct's Shirts" },
+  { id: 3, title: "pants", subTitle: "HomeProduct's Pants" },
+  { id: 4, title: "polos", subTitle: "HomeProduct's Polos" },
+  { id: 5, title: "graphic-collection", subTitle: "Graphic Collection" },
+  { id: 6, title: "active", subTitle: "HomeProduct's Active" },
+  { id: 7, title: "shorts", subTitle: "HomeProduct's Shorts" },
   {
     id: 8,
-    title: "Mobile and Tablets",
-    subTitle: "",
-    image_Url:
-      "https://st-troy.mncdn.com/mnresize/1500/1500/Content/media/ProductImg/original/mpwp3tua-apple-iphone-14-256gb-mavi-mpwp3tua-637986832343472449.jpg",
+    title: "chic-collection",
+    subTitle: "HomeProduct's Chic Collection",
   },
   {
     id: 9,
-    title: "Kids",
-    subTitle: "",
-    image_Url:
-      "https://static.vecteezy.com/system/resources/previews/011/996/555/original/3d-black-headphone-illustration-ecommerce-icon-png.png",
+    title: "hoodies-sweatshirts",
+    subTitle: "HomeProduct's Hoodies & Sweatshirts",
+  },
+  { id: 10, title: "outerwear", subTitle: "HomeProduct's Outerwear" },
+  {
+    id: 11,
+    title: "sweaters-cardigans",
+    subTitle: "HomeProduct's Sweaters & Cardigans",
+  },
+  { id: 12, title: "plus-size", subTitle: "HomeProduct's Plus Size" },
+  {
+    id: 13,
+    title: "sleepwear-loungewear",
+    subTitle: "HomeProduct's Sleepwear & Loungewear",
+  },
+  { id: 14, title: "accessories", subTitle: "HomeProduct's Accessories" },
+  { id: 15, title: "underwear", subTitle: "HomeProduct's Underwear" },
+  { id: 16, title: "clearance", subTitle: "Clearance" },
+  {
+    id: 17,
+    title: "custom-clothing",
+    subTitle: "HomeProduct's Custom Clothing",
+  },
+  { id: 18, title: "christmas", subTitle: "HomeProduct's Christmas Clothing" },
+];
+
+export const hobbiesItems = [
+  { id: 1, title: "tees-tank-tops", subTitle: "Hobbies's Tees & Tank Tops" },
+  { id: 2, title: "shirts", subTitle: "Hobbies's Shirts" },
+  { id: 3, title: "pants", subTitle: "Hobbies's Pants" },
+  { id: 4, title: "polos", subTitle: "Hobbies's Polos" },
+  { id: 5, title: "graphic-collection", subTitle: "Graphic Collection" },
+  { id: 6, title: "active", subTitle: "Hobbies's Active" },
+  { id: 7, title: "shorts", subTitle: "Hobbies's Shorts" },
+  { id: 8, title: "chic-collection", subTitle: "Hobbies's Chic Collection" },
+  {
+    id: 9,
+    title: "hoodies-sweatshirts",
+    subTitle: "Hobbies's Hoodies & Sweatshirts",
+  },
+  { id: 10, title: "outerwear", subTitle: "Hobbies's Outerwear" },
+  {
+    id: 11,
+    title: "sweaters-cardigans",
+    subTitle: "Hobbies's Sweaters & Cardigans",
+  },
+  { id: 12, title: "plus-size", subTitle: "Hobbies's Plus Size" },
+  {
+    id: 13,
+    title: "sleepwear-loungewear",
+    subTitle: "Hobbies's Sleepwear & Loungewear",
+  },
+  { id: 14, title: "accessories", subTitle: "Hobbies's Accessories" },
+  { id: 15, title: "underwear", subTitle: "Hobbies's Underwear" },
+  { id: 16, title: "clearance", subTitle: "Clearance" },
+  { id: 17, title: "custom-clothing", subTitle: "Hobbies's Custom Clothing" },
+  { id: 18, title: "christmas", subTitle: "Hobbies's Christmas Clothing" },
+];
+
+export const electronicsItems = [
+  {
+    id: 1,
+    title: "tees-tank-tops",
+    subTitle: "Electronics's Tees & Tank Tops",
+  },
+  { id: 2, title: "shirts", subTitle: "Electronics's Shirts" },
+  { id: 3, title: "pants", subTitle: "Electronics's Pants" },
+  { id: 4, title: "polos", subTitle: "Electronics's Polos" },
+  { id: 5, title: "graphic-collection", subTitle: "Graphic Collection" },
+  { id: 6, title: "active", subTitle: "Electronics's Active" },
+  { id: 7, title: "shorts", subTitle: "Electronics's Shorts" },
+  {
+    id: 8,
+    title: "chic-collection",
+    subTitle: "Electronics's Chic Collection",
+  },
+  {
+    id: 9,
+    title: "hoodies-sweatshirts",
+    subTitle: "Electronics's Hoodies & Sweatshirts",
+  },
+  { id: 10, title: "outerwear", subTitle: "Electronics's Outerwear" },
+  {
+    id: 11,
+    title: "sweaters-cardigans",
+    subTitle: "Electronics's Sweaters & Cardigans",
+  },
+  { id: 12, title: "plus-size", subTitle: "Electronics's Plus Size" },
+  {
+    id: 13,
+    title: "sleepwear-loungewear",
+    subTitle: "Electronics's Sleepwear & Loungewear",
+  },
+  { id: 14, title: "accessories", subTitle: "Electronics's Accessories" },
+  { id: 15, title: "underwear", subTitle: "Electronics's Underwear" },
+  { id: 16, title: "clearance", subTitle: "Clearance" },
+  {
+    id: 17,
+    title: "custom-clothing",
+    subTitle: "Electronics's Custom Clothing",
+  },
+  { id: 18, title: "christmas", subTitle: "Electronics's Christmas Clothing" },
+];
+
+export const kidsItems = [
+  { id: 1, title: "tees-tank-tops", subTitle: "Kids's Tees & Tank Tops" },
+  { id: 2, title: "shirts", subTitle: "Kids's Shirts" },
+  { id: 3, title: "pants", subTitle: "Kids's Pants" },
+  { id: 4, title: "polos", subTitle: "Kids's Polos" },
+  { id: 5, title: "graphic-collection", subTitle: "Graphic Collection" },
+  { id: 6, title: "active", subTitle: "Kids's Active" },
+  { id: 7, title: "shorts", subTitle: "Kids's Shorts" },
+  { id: 8, title: "chic-collection", subTitle: "Kids's Chic Collection" },
+  {
+    id: 9,
+    title: "hoodies-sweatshirts",
+    subTitle: "Kids's Hoodies & Sweatshirts",
+  },
+  { id: 10, title: "outerwear", subTitle: "Kids's Outerwear" },
+  {
+    id: 11,
+    title: "sweaters-cardigans",
+    subTitle: "Kids's Sweaters & Cardigans",
+  },
+  { id: 12, title: "plus-size", subTitle: "Kids's Plus Size" },
+  {
+    id: 13,
+    title: "sleepwear-loungewear",
+    subTitle: "Kids's Sleepwear & Loungewear",
+  },
+  { id: 14, title: "accessories", subTitle: "Kids's Accessories" },
+  { id: 15, title: "underwear", subTitle: "Kids's Underwear" },
+  { id: 16, title: "clearance", subTitle: "Clearance" },
+  { id: 17, title: "custom-clothing", subTitle: "Kids's Custom Clothing" },
+  { id: 18, title: "christmas", subTitle: "Kids's Christmas Clothing" },
+];
+
+export const sportsItems = [
+  { id: 1, title: "tees-tank-tops", subTitle: "Sports's Tees & Tank Tops" },
+  { id: 2, title: "shirts", subTitle: "Sports's Shirts" },
+  { id: 3, title: "pants", subTitle: "Sports's Pants" },
+  { id: 4, title: "polos", subTitle: "Sports's Polos" },
+  { id: 5, title: "graphic-collection", subTitle: "Graphic Collection" },
+  { id: 6, title: "active", subTitle: "Sports's Active" },
+  { id: 7, title: "shorts", subTitle: "Sports's Shorts" },
+  { id: 8, title: "chic-collection", subTitle: "Sports's Chic Collection" },
+  {
+    id: 9,
+    title: "hoodies-sweatshirts",
+    subTitle: "Sports's Hoodies & Sweatshirts",
+  },
+  { id: 10, title: "outerwear", subTitle: "Sports's Outerwear" },
+  {
+    id: 11,
+    title: "sweaters-cardigans",
+    subTitle: "Sports's Sweaters & Cardigans",
+  },
+  { id: 12, title: "plus-size", subTitle: "Sports's Plus Size" },
+  {
+    id: 13,
+    title: "sleepwear-loungewear",
+    subTitle: "Sports's Sleepwear & Loungewear",
+  },
+  { id: 14, title: "accessories", subTitle: "Sports's Accessories" },
+  { id: 15, title: "underwear", subTitle: "Sports's Underwear" },
+  { id: 16, title: "clearance", subTitle: "Clearance" },
+  { id: 17, title: "custom-clothing", subTitle: "Sports's Custom Clothing" },
+  { id: 18, title: "christmas", subTitle: "Sports's Christmas Clothing" },
+];
+
+export const beautyItems = [
+  { id: 1, title: "tees-tank-tops", subTitle: "BeautyHair's Tees & Tank Tops" },
+  { id: 2, title: "shirts", subTitle: "BeautyHair's Shirts" },
+  { id: 3, title: "pants", subTitle: "BeautyHair's Pants" },
+  { id: 4, title: "polos", subTitle: "BeautyHair's Polos" },
+  { id: 5, title: "graphic-collection", subTitle: "Graphic Collection" },
+  { id: 6, title: "active", subTitle: "BeautyHair's Active" },
+  { id: 7, title: "shorts", subTitle: "BeautyHair's Shorts" },
+  { id: 8, title: "chic-collection", subTitle: "BeautyHair's Chic Collection" },
+  {
+    id: 9,
+    title: "hoodies-sweatshirts",
+    subTitle: "BeautyHair's Hoodies & Sweatshirts",
+  },
+  { id: 10, title: "outerwear", subTitle: "BeautyHair's Outerwear" },
+  {
+    id: 11,
+    title: "sweaters-cardigans",
+    subTitle: "BeautyHair's Sweaters & Cardigans",
+  },
+  { id: 12, title: "plus-size", subTitle: "BeautyHair's Plus Size" },
+  {
+    id: 13,
+    title: "sleepwear-loungewear",
+    subTitle: "BeautyHair's Sleepwear & Loungewear",
+  },
+  { id: 14, title: "accessories", subTitle: "BeautyHair's Accessories" },
+  { id: 15, title: "underwear", subTitle: "BeautyHair's Underwear" },
+  { id: 16, title: "clearance", subTitle: "Clearance" },
+  {
+    id: 17,
+    title: "custom-clothing",
+    subTitle: "BeautyHair's Custom Clothing",
+  },
+  { id: 18, title: "christmas", subTitle: "BeautyHair's Christmas Clothing" },
+];
+
+export const computerItems = [
+  {
+    id: 1,
+    title: "Tees & Tank Tops",
+    subTitle: "Computer's Tees & Tank Tops",
+    path: "tees-tank-tops",
+  },
+  { id: 2, title: "Shirts", subTitle: "Computer's Shirts", path: "shirts" },
+  { id: 3, title: "Pants", subTitle: "Computer's Pants", path: "pants" },
+  { id: 4, title: "Polos", subTitle: "Computer's Polos", path: "polos" },
+  {
+    id: 5,
+    title: "Graphic Collection",
+    subTitle: "Graphic Collection",
+    path: "graphic-collection",
+  },
+  { id: 6, title: "Active", subTitle: "Computer's Active", path: "active" },
+  { id: 7, title: "Shorts", subTitle: "Computer's Shorts", path: "shorts" },
+  {
+    id: 8,
+    title: "Chic Collection",
+    subTitle: "Computer's Chic Collection",
+    path: "chic-collection",
+  },
+  {
+    id: 9,
+    title: "Hoodies & Sweatshirts",
+    subTitle: "Computer's Hoodies & Sweatshirts",
+    path: "hoodies-sweatshirts",
   },
   {
     id: 10,
-    title: "Sports",
-    subTitle: "",
-    image_Url:
-      "https://searchspring.com/wp-content/uploads/2022/10/Hero-Image-Platform-Others-2.png",
+    title: "Outerwear",
+    subTitle: "Computer's Outerwear",
+    path: "outerwear",
   },
   {
     id: 11,
-    title: "Beauty&Hair",
-    subTitle: "",
-    image_Url:
-      "https://searchspring.com/wp-content/uploads/2022/10/Hero-Image-Platform-Others-2.png",
+    title: "Sweaters & Cardigans",
+    subTitle: "Computer's Sweaters & Cardigans",
+    path: "sweaters-cardigans",
+  },
+  {
+    id: 12,
+    title: "Plus Size",
+    subTitle: "Computer's Plus Size",
+    path: "plus-size",
+  },
+  {
+    id: 13,
+    title: "Sleepwear & Loungewear",
+    subTitle: "Computer's Sleepwear & Loungewear",
+    path: "sleepwear-loungewear",
+  },
+  {
+    id: 14,
+    title: "Accessories",
+    subTitle: "Computer's Accessories",
+    path: "accessories",
+  },
+  {
+    id: 15,
+    title: "Underwear",
+    subTitle: "Computer's Underwear",
+    path: "underwear",
+  },
+  { id: 16, title: "Clearance", subTitle: "Clearance", path: "clearance" },
+  {
+    id: 17,
+    title: "Custom Clothing",
+    subTitle: "Computer's Custom Clothing",
+    path: "custom-clothing",
+  },
+  {
+    id: 18,
+    title: "Christmas Clothing",
+    subTitle: "Computer's Christmas Clothing",
+    path: "christmas",
+  },
+];
+
+export const phonesItems = [
+  {
+    id: 1,
+    title: "Tees & Tank Tops",
+    subTitle: "Phones's Tees & Tank Tops",
+    path: "tees-tank-tops",
+  },
+  { id: 2, title: "Shirts", subTitle: "Phones's Shirts", path: "shirts" },
+  { id: 3, title: "Pants", subTitle: "Phones's Pants", path: "pants" },
+  { id: 4, title: "Polos", subTitle: "Phones's Polos", path: "polos" },
+  {
+    id: 5,
+    title: "Graphic Collection",
+    subTitle: "Graphic Collection",
+    path: "graphic-collection",
+  },
+  { id: 6, title: "Active", subTitle: "Phones's Active", path: "active" },
+  { id: 7, title: "Shorts", subTitle: "Phones's Shorts", path: "shorts" },
+  {
+    id: 8,
+    title: "Chic Collection",
+    subTitle: "Phones's Chic Collection",
+    path: "chic-collection",
+  },
+  {
+    id: 9,
+    title: "Hoodies & Sweatshirts",
+    subTitle: "Phones's Hoodies & Sweatshirts",
+    path: "hoodies-sweatshirts",
   },
   {
     id: 10,
-    title: "Computer",
-    subTitle: "",
-    image_Url:
-      "https://searchspring.com/wp-content/uploads/2022/10/Hero-Image-Platform-Others-2.png",
+    title: "Outerwear",
+    subTitle: "Phones's Outerwear",
+    path: "outerwear",
+  },
+  {
+    id: 11,
+    title: "Sweaters & Cardigans",
+    subTitle: "Phones's Sweaters & Cardigans",
+    path: "sweaters-cardigans",
+  },
+  {
+    id: 12,
+    title: "Plus Size",
+    subTitle: "Phones's Plus Size",
+    path: "plus-size",
+  },
+  {
+    id: 13,
+    title: "Sleepwear & Loungewear",
+    subTitle: "Phones's Sleepwear & Loungewear",
+    path: "sleepwear-loungewear",
+  },
+  {
+    id: 14,
+    title: "Accessories",
+    subTitle: "Phones's Accessories",
+    path: "accessories",
+  },
+  {
+    id: 15,
+    title: "Underwear",
+    subTitle: "Phones's Underwear",
+    path: "underwear",
+  },
+  { id: 16, title: "Clearance", subTitle: "Clearance", path: "clearance" },
+  {
+    id: 17,
+    title: "Custom Clothing",
+    subTitle: "Phones's Custom Clothing",
+    path: "custom-clothing",
+  },
+  {
+    id: 18,
+    title: "Christmas Clothing",
+    subTitle: "Phones's Christmas Clothing",
+    path: "christmas",
   },
 ];
 

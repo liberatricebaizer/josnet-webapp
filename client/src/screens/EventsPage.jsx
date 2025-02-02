@@ -3,9 +3,11 @@ import { useSelector } from "react-redux";
 import EventCard from "../components/Events/EventCard";
 import Header from "../layout/Header";
 import Loader from "../layout/Loader";
+import Footer from "../layout/Footer";
 
 const EventsPage = () => {
-  const { allEvents, isLoading } = useSelector((state) => state.events);
+  const { events, isLoading } = useSelector((state) => state.events);
+  console.log("Events:", events);
   return (
     <>
       {isLoading ? (
@@ -13,7 +15,12 @@ const EventsPage = () => {
       ) : (
         <div>
           <Header activeHeading={4} />
-          <EventCard active={true} data={allEvents && allEvents[0]} />
+          <br />
+          <br />
+          <div>
+            <EventCard active={true} data={events && events[0]} />
+          </div>
+          <Footer />
         </div>
       )}
     </>

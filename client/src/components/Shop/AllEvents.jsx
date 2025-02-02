@@ -8,13 +8,15 @@ import { deleteEvent, getAllEventsShop } from "../../redux/actions/event";
 import Loader from "../../layout/Loader";
 
 const AllEvents = () => {
-  const [events, setEvents] = useState([]);
+  // const [events, setEvents] = useState([]);
+  const { events, isLoading } = useSelector((state) => state.events);
   const { seller } = useSelector((state) => state.seller);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllEventsShop(seller?._id));
-  }, [dispatch, seller]);
+    dispatch(getAllEventsShop("677fa94f054fc961fa96e386"));
+    // dispatch(getAllEventsShop(seller?._id));
+  }, [dispatch]);
 
   const handleDelete = (id) => {
     dispatch(deleteEvent(id));
@@ -99,15 +101,19 @@ const AllEvents = () => {
 
   return (
     <>
-      <div className="w-full mx-8 pt-1 mt-10 bg-white">
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          pageSize={10}
-          disableSelectionOnClick
-          autoHeight
-        />
-      </div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="w-full mx-8 pt-1 mt-10 bg-white">
+          <DataGrid
+            rows={rows}
+            columns={columns}
+            pageSize={10}
+            disableSelectionOnClick
+            autoHeight
+          />
+        </div>
+      )}
     </>
   );
 };

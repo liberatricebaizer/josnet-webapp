@@ -22,7 +22,14 @@ const ProductDetailsCard = ({ setOpen, data }) => {
   const dispatch = useDispatch();
   const [count, setCount] = useState(1);
   const [click, setClick] = useState(false);
-  //   const [select, setSelect] = useState(false);
+
+  useEffect(() => {
+    if (wishlist && wishlist.find((i) => i._id === data._id)) {
+      setClick(true);
+    } else {
+      setClick(false);
+    }
+  }, [wishlist, data]);
 
   const handleMessageSubmit = () => {};
 
@@ -50,14 +57,6 @@ const ProductDetailsCard = ({ setOpen, data }) => {
       }
     }
   };
-
-  useEffect(() => {
-    if (wishlist && wishlist.find((i) => i._id === data._id)) {
-      setClick(true);
-    } else {
-      setClick(false);
-    }
-  }, [wishlist]);
 
   const removeFromWishlistHandler = (data) => {
     setClick(!click);

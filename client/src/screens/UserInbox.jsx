@@ -67,8 +67,8 @@ const UserInbox = () => {
   useEffect(() => {
     if (user) {
       const sellerId = user?._id;
-      socketId.emit("addUser", sellerId);
-      socketId.on("getUsers", (data) => {
+      socketIo.emit("addUser", sellerId);
+      socketIo.on("getUsers", (data) => {
         setOnlineUsers(data);
       });
     }
@@ -109,7 +109,7 @@ const UserInbox = () => {
       (member) => member !== user?._id
     );
 
-    socketId.emit("sendMessage", {
+    socketIo.emit("sendMessage", {
       senderId: user?._id,
       receiverId,
       text: newMessage,
@@ -133,7 +133,7 @@ const UserInbox = () => {
   };
 
   const updateLastMessage = async () => {
-    socketId.emit("updateLastMessage", {
+    socketIo.emit("updateLastMessage", {
       lastMessage: newMessage,
       lastMessageId: user._id,
     });
@@ -169,7 +169,7 @@ const UserInbox = () => {
       (member) => member !== user._id
     );
 
-    socketId.emit("sendMessage", {
+    socketIo.emit("sendMessage", {
       senderId: user._id,
       receiverId,
       images: e,

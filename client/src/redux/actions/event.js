@@ -1,6 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { server } from "../../server";
+import {
+  getAllEventsShopFailed,
+  getAllEventsShopRequest,
+  getAllEventsShopSuccess,
+} from "../reducers/event";
 
 // Create event
 export const createEvent = createAsyncThunk(
@@ -16,19 +21,39 @@ export const createEvent = createAsyncThunk(
 );
 
 // Get all events of a shop
-export const getAllEventsShop = createAsyncThunk(
-  "events/getAllShop",
-  async (shopId, { rejectWithValue }) => {
-    try {
-      const response = await axios.get(
-        `${server}/event/get-all-events/${shopId}`
-      );
-      return response.data.events;
-    } catch (error) {
-      return rejectWithValue(error.response.data.message);
+// export const getAllEventsShop = createAsyncThunk(
+//   "events/getAllShop",
+//   async (shopId, { rejectWithValue }) => {
+//     try {
+//       const response = await axios.get(
+//         `${server}/event/get-all-events/${shopId}`
+//       );
+//       return response.data.events;
+//     } catch (error) {
+//       return rejectWithValue(error.response.data.message);
+//     }
+//   }
+// );
+
+export const getAllEventsShop = (shopId) => async (dispatch) => {
+  try {
+    dispatch(getAllEventsShopRequest());
+
+    if (!shopId) {
+      throw new Error("Shop ID is required"); // Handle missing shop ID
     }
+
+    const { data } = await axios.get(
+      `${server}/event/get-all-events/${shopId}`
+    );
+
+    dispatch(getAllEventsShopSuccess(data.events));
+  } catch (error) {
+    const errorMessage =
+      error.response?.data?.message || "Something went wrong";
+    dispatch(getAllEventsShopFailed(errorMessage));
   }
-);
+};
 
 // Delete event of a shop
 export const deleteEvent = createAsyncThunk(

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styles from "../../styles/styles";
 import SideBar from "../../screens/dashboard/SideBar";
 import AvatarImage from "../../images/avatar.jpeg";
@@ -13,10 +13,33 @@ const Hero = () => {
     // Add more images as needed
   ];
   return (
-    <div className=" lg:flex px-4 py-8  lg:p-8  gap-4">
+    <div className=" flex px-4 py-8  lgp-8  gap-2">
       <SideBar />
-      <div className="relative rounded  z-[5]">
+      <div className="relative max-w-[786px] rounded  z-[5]">
         <ReusableSlider images={images} slidesPerView={4} delay={4000} />
+      </div>
+      <div className="bg-groon rounded w-60 p-2 hidden lg:block h-52 flex-col">
+        <div className="p-4">
+          <h3 className="text-center text-xl text-white font-medium">
+            Welcome
+          </h3>
+          <p className="text-sm text-white">Trust in Us For Your Style</p>
+        </div>
+        <div className="mb-2">
+          <div className="bg-slate-50 text-center mb-2 rounded px-4 py-1">
+            <NavLink to="/SignIn" className="text-[18px]  text-[#000000b7]">
+              Sign In
+            </NavLink>
+          </div>
+          <div className="bg-main rounded-md px-4 py-1 text-center text-white">
+            <NavLink to="/sign-up" className="text-[18px]  ">
+              Register
+            </NavLink>
+          </div>
+        </div>
+        <div className="bg-slate-200 rounded w-60 p-6 text-black mt-24 h-52 ">
+          IMAGE
+        </div>
       </div>
       {/* <div className="flex mt-8 lg:mt-0  h-[30.5rem]  shadow border-gray-300  rounded-md bg-[#0B0414]">
         <div className=" p-4 lg:p-8    w-full">

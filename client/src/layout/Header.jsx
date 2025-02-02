@@ -57,7 +57,7 @@ const Header = ({ activeHeading }) => {
   const { isSeller } = useSelector((state) => state.seller);
   const { wishlist } = useSelector((state) => state.wishlist);
   const { cart } = useSelector((state) => state.cart);
-  const { allProducts } = useSelector((state) => state.products);
+  const { products } = useSelector((state) => state.products);
   const [searchData, setSearchData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [currentLang, setCurrentLang] = useState("en");
@@ -119,8 +119,8 @@ const Header = ({ activeHeading }) => {
     setSearchTerm(term);
 
     const filteredProducts =
-      allProducts &&
-      allProducts.filter((product) =>
+      products &&
+      products.filter((product) =>
         product.name.toLowerCase().includes(term.toLowerCase())
       );
     setSearchData(filteredProducts);
@@ -204,7 +204,7 @@ const Header = ({ activeHeading }) => {
       {/* // <div className="bg-white border-b-[0.1px] border-b-[#ebeaea]">
     //   <div className="flex justify-between items-center p-8"> */}
       {/* Language Selector */}
-      <div className="flex lg:justify-end gap-2 lg:gap-32 pr-4 text-sm p-2 w-full bg-slate-200">
+      <div className="flex lg:justify-end gap gap-16 pr-4 z-10 left-0 text-sm p-2 w-full bg-slate-200">
         <p>Help Center</p>
         <div className="flex items-center gap-2 ">
           Ship to :{" "}

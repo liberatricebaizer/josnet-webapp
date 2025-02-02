@@ -523,7 +523,6 @@
 // };
 
 // export default CreateProduct;
-
 import React, { useState, useEffect } from "react";
 import { FaUpload } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
@@ -551,13 +550,6 @@ const CreateProduct = () => {
   });
 
   const [imagePreview, setImagePreview] = useState("");
-  useEffect(() => {
-    if (seller) {
-      console.log("Seller data:", seller);
-    } else {
-      console.log("Seller data is not loaded yet.");
-    }
-  }, [seller]);
 
   useEffect(() => {
     if (error) {

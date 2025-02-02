@@ -29,14 +29,27 @@ const ProductDetails = ({ data }) => {
   const [select, setSelect] = useState(0);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getAllProductsShop(data && data?.shop._id));
+  //   if (wishlist && wishlist.find((i) => i._id === data?._id)) {
+  //     setClick(true);
+  //   } else {
+  //     setClick(false);
+  //   }
+  // }, [data, wishlist]);
+
+  const shopId = "677fa94f054fc961fa96e386"; // Use the provided shop ID
+
   useEffect(() => {
-    dispatch(getAllProductsShop(data && data?.shop._id));
+    // Fetch products for the specified shop ID
+    dispatch(getAllProductsShop(shopId));
+
     if (wishlist && wishlist.find((i) => i._id === data?._id)) {
       setClick(true);
     } else {
       setClick(false);
     }
-  }, [data, wishlist]);
+  }, [data, wishlist, dispatch, shopId]);
 
   const incrementCount = () => {
     setCount(count + 1);

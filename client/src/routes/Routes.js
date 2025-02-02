@@ -15,12 +15,18 @@ import ShopCreatePage from "../screens/ShopCreate";
 import ShopLoginPage from "../screens/ShopLoginPage";
 import OrderSuccessPage from "../screens/OrderSuccessPage";
 
+import CheckoutPage from "../screens/CheckoutPage";
+import PaymentPage from "../screens/PaymentPage";
+
 export {
   LoginPage,
   SignupPage,
   ActivationPage,
   EventsPage,
   FAQPage,
+  CheckoutPage,
+  PaymentPage,
+  OrderSuccessPage,
   ProductsPage,
   ProductDetailsPage,
   SellerActivationPage,
@@ -31,5 +37,4 @@ export {
   UserInbox,
   ShopCreatePage,
   ShopLoginPage,
-  OrderSuccessPage,
 };

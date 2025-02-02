@@ -28,7 +28,8 @@ const CreateEvent = () => {
     const minEndDate = new Date(startDate.getTime() + 3 * 24 * 60 * 60 * 1000);
     setStartDate(startDate);
     setEndDate(null);
-    document.getElementById("end-date").min = minEndDate.toISOString.slice(
+    document.getElementById("end-date").min = minEndDate.toISOString().slice(
+      // document.getElementById("end-date").min = minEndDate.toISOString.slice(
       0,
       10
     );
@@ -91,11 +92,13 @@ const CreateEvent = () => {
       originalPrice,
       discountPrice,
       stock,
-      images,
-      shopId: seller._id,
+      shopId: "677fa94f054fc961fa96e386",
+      // shopId: seller._id,
       start_Date: startDate?.toISOString(),
       Finish_Date: endDate?.toISOString(),
+      images,
     };
+    console.log("FormData being sent:", data);
     dispatch(createEvent(data));
   };
 

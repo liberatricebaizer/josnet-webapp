@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import NavBar from "./layout/NavBar";
 import {
@@ -7,6 +7,9 @@ import {
   ActivationPage,
   EventsPage,
   FAQPage,
+  CheckoutPage,
+  PaymentPage,
+  OrderSuccessPage,
   ProductsPage,
   SellerActivationPage,
   BestSellingPage,
@@ -73,14 +76,48 @@ import ProtectedRoute from "./routes/ProtectedRoute.jsx";
 import SellerProtectedRoute from "./routes/SellerProtectedRoute.jsx";
 import ProtectedAdminRoute from "./routes/ProtectedAdminRoute.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { getAllProducts } from "./redux/actions/product";
+import { getAllEvents } from "./redux/actions/event";
+import axios from "axios";
+import { server } from "./server";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import { loadSeller, loadUser } from "./redux/actions/user";
+import Store from "./redux/store";
 function App() {
+  const [stripeApikey, setStripeApiKey] = useState("");
+
+  async function getStripeApikey() {
+    const { data } = await axios.get(`${server}/payment/stripeapikey`);
+    setStripeApiKey(data.stripeApikey);
+  }
+  useEffect(() => {
+    Store.dispatch(loadUser());
+    Store.dispatch(loadSeller());
+    Store.dispatch(getAllProducts());
+    Store.dispatch(getAllEvents());
+    getStripeApikey();
+  }, []);
   return (
     // <BrowserRouter>
     <CartProvider>
       <FavoritesProvider>
         {/* <NavBar /> */}
         <ToastContainer />
+        {stripeApikey && (
+          <Elements stripe={loadStripe(stripeApikey)}>
+            <Routes>
+              <Route
+                path="/payment"
+                element={
+                  <ProtectedRoute>
+                    <PaymentPage />
+                  </ProtectedRoute>
+                }
+              />
+            </Routes>
+          </Elements>
+        )}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/SignIn" element={<LoginPage />} />
@@ -98,6 +135,17 @@ function App() {
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/product/:id" element={<ProductDetailsPage />} />
           <Route path="/best-selling" element={<BestSellingPage />} />
+
+          <Route
+            path="/checkout"
+            element={
+              <ProtectedRoute>
+                <CheckoutPage />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route path="/order/success" element={<OrderSuccessPage />} />
           <Route
             path="/profile"
             element={

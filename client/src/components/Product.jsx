@@ -15,6 +15,7 @@ import {
   AiOutlineHeart,
   AiOutlineShoppingCart,
 } from "react-icons/ai";
+import styles from "../styles/styles";
 
 const Product = ({ data, isEvent }) => {
   const { wishlist } = useSelector((state) => state.wishlist);
@@ -62,61 +63,27 @@ const Product = ({ data, isEvent }) => {
   }
 
   return (
-    <div className="hover:scale-95 transitions border shadow-md rounded-md overflow-hidden">
+    <div className="hover:scale-95 transitions p-4 border shadow-md rounded-md overflow-hidden">
       <div className="flex justify-between items-start">
-        <div className="bg-[#FF3F07] text-[10px] text-white w-24 flex justify-center items-center px-2 m-4 rounded">
+        {/* <div className="bg-[#FF3F07] text-[10px] text-white text-center w-24 flex items-center px-2 m-4 rounded">
           On Sale
-        </div>
+        </div> */}
         <Link
           to={`${
             isEvent === true
               ? `/product/${data._id}?isEvent=true`
               : `/product/${data._id}`
           }`}
-          className="w-full"
+          className="w-20 h-12  "
         >
           <img
             src={`${data.images && data.images[0]?.url}`}
             alt={data?.name}
-            className="w-full h-36 object-cover"
+            className="w-full object-cover"
           />
         </Link>
-        <Link to={`/shop/preview/${data?.shop._id}`}>
-          <h5 className={`${styles.shop_name}`}>{data.shop.name}</h5>
-        </Link>
-        <Link
-          to={`${
-            isEvent === true
-              ? `/product/${data._id}?isEvent=true`
-              : `/product/${data._id}`
-          }`}
-        >
-          <h4 className="pb-3 font-[500]">
-            {data.name.length > 40 ? data.name.slice(0, 40) + "..." : data.name}
-          </h4>
 
-          <div className="flex">
-            <Ratings rating={data?.ratings} />
-          </div>
-
-          <div className="py-2 flex items-center justify-between">
-            <div className="flex">
-              <h5 className={`${styles.productDiscountPrice}`}>
-                {data.originalPrice === 0
-                  ? data.originalPrice
-                  : data.discountPrice}
-                $
-              </h5>
-              <h4 className={`${styles.price}`}>
-                {data.originalPrice ? data.originalPrice + " $" : null}
-              </h4>
-            </div>
-            <span className="font-[400] text-[17px] text-[#68d284]">
-              {data?.sold_out} sold
-            </span>
-          </div>
-        </Link>
-        <div className="flex flex-col gap-2 p-4 text-black">
+        <div className="flex flex-col gap-2 p-2 text-black">
           {click ? (
             <button
               onClick={() => removeFromWishlistHandler(data)}
@@ -152,21 +119,52 @@ const Product = ({ data, isEvent }) => {
           {open ? <ProductDetailsCard setOpen={setOpen} data={data} /> : null}
         </div>
       </div>
-      <div className="p-4">
+      <Link to={`/shop/preview/${data?.shop._id}`}>
+        <h5 className={`${styles.shop_name} `}>{data.shop.name}</h5>
+      </Link>
+      <Link
+        to={`${
+          isEvent === true
+            ? `/product/${data._id}?isEvent=true`
+            : `/product/${data._id}`
+        }`}
+      >
+        <h4 className="pb-8 pt-1 text-red-600 font-[500]">
+          {data.name.length > 40 ? data.name.slice(0, 40) + "..." : data.name}
+        </h4>
         <div className="flex gap-2 text-sm">
           <div className="flex gap-1 text-star">
             <Ratings value={data?.ratings} />
           </div>
           <p className="text-[#989EAF]">{data?.reviews}K Reviews</p>
         </div>
-        <div className="flex-btn text-sm gap-2 pt-2 text-black">
-          <h3 className="font-semibold truncate">{data?.name}</h3>
-        </div>
-        <div className="flex gap-8 items-center">
-          <div className="flex gap-4 pt-4 text-sm font-bold">
-            <p className="line-through">{data?.estMoney}</p>
-            <p className="text-[#FF3F07]">{data?.money}</p>
+
+        {/* <div className="flex">
+          <Ratings rating={data?.ratings} />
+        </div> */}
+
+        <div className="py-4 flex items-center justify-between">
+          <div className="flex">
+            <h5 className={`${styles.productDiscountPrice}`}>
+              {data.originalPrice === 0
+                ? data.originalPrice
+                : data.discountPrice}
+              $
+            </h5>
+            <h4 className={`${styles.price}`}>
+              {data.originalPrice ? data.originalPrice + " $" : null}
+            </h4>
           </div>
+          <span className="font-[400] text-[17px] text-[#68d284]">
+            {data?.sold_out} sold
+          </span>
+        </div>
+      </Link>
+      <div className="px-4">
+        {/* <div className="flex-btn text-sm gap-2 pt-2 text-black">
+          <h3 className="font-semibold truncate">{data?.name}</h3>
+        </div> */}
+        <div className="flex gap-8 justify-center">
           <button
             onClick={() => addToCartHandler(data._id)}
             // onClick={handleAddToCart}

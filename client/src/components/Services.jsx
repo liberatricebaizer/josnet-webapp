@@ -26,7 +26,7 @@ const Services = () => {
         <img src={AvatarImage} alt="" className="h-28" />
         {/* </div> */}
       </div>
-      <div className="shadow bg-white border border-gray-200 mb-8 lg:w-[20%] p-4">
+      <div className="shadow bg-white border border-gray-200 mb-8 md:mb-0 lg:w-[20%] p-4">
         <div className=" flex items-center text-3xl  justify-center">
           <FaCar className="text-[#F3B600]" />
         </div>
@@ -35,7 +35,7 @@ const Services = () => {
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, amet.
         </p>
       </div>{" "}
-      <div className="shadow bg-white mb-8 border border-gray-200 lg:w-[20%] p-4  ">
+      <div className="shadow bg-white mb-8 border md:mb-0  border-gray-200 lg:w-[20%] p-4  ">
         <div className=" flex items-center text-3xl  justify-center">
           <FcBusinessman />
         </div>
