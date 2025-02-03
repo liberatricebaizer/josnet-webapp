@@ -12,12 +12,11 @@ const BeautyHair = () => {
     { url: "https://m.media-amazon.com/images/I/91rGokbdWVL._AC_SY500_.jpg" },
     { url: "https://m.media-amazon.com/images/I/51s+YXXvXYL._AC_SY575_.jpg" },
     { url: "https://m.media-amazon.com/images/I/91rGokbdWVL._AC_SY500_.jpg" },
-    // Add more images as needed
   ];
 
   const beautyHairCategory = categoriesData.find(
     (category) => category.id === 10
-  ); // Find the "Women" category
+  );
 
   const [isOpen, setIsOpen] = useState(false);
   return (
