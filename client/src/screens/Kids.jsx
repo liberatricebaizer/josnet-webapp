@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import DropdownMenu from "../components/DropdownMenu";
 import Layout from "../layout/Layout";
 import ReusableSlider from "../components/ReusableSlider";
 import Movie from "../components/Movie";
 import { KidsData } from "../data/MovieData";
+import { categoriesData } from "../static/data";
 
 const Kids = () => {
   const images = [
@@ -13,40 +14,46 @@ const Kids = () => {
     { url: "https://m.media-amazon.com/images/I/91rGokbdWVL._AC_SY500_.jpg" },
     // Add more images as needed
   ];
+  const kidsCategory = categoriesData.find((category) => category.id === 8); // Find the "Women" category
 
-  const menItems = [
-    { path: "tees-tank-tops", label: "Kids's Tees & Tank Tops" },
-    { path: "shirts", label: "Kids's Shirts" },
-    { path: "pants", label: "Kids's Pants" },
-    { path: "polos", label: "Kids's Polos" },
-    { path: "graphic-collection", label: "Graphic Collection" },
-    { path: "active", label: "Kids's Active" },
-    { path: "shorts", label: "Kids's Shorts" },
-    { path: "chic-collection", label: "Kids's Chic Collection" },
-    { path: "hoodies-sweatshirts", label: "Kids's Hoodies & Sweatshirts" },
-    { path: "outerwear", label: "Kids's Outerwear" },
-    { path: "sweaters-cardigans", label: "Kids's Sweaters & Cardigans" },
-    { path: "plus-size", label: "Kids's Plus Size" },
-    { path: "sleepwear-loungewear", label: "Kids's Sleepwear & Loungewear" },
-    { path: "accessories", label: "Kids's Accessories" },
-    { path: "underwear", label: "Kids's Underwear" },
-    { path: "clearance", label: "Clearance" },
-    { path: "custom-clothing", label: "Kids's Custom Clothing" },
-    { path: "christmas", label: "Kids's Christmas Clothing" },
-  ];
-
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Layout>
       <div className="flex gap-2 p-4">
         <NavLink to="/" className="text-sm text-[#6f6e6e] font-medium">
           Home &gt;
         </NavLink>
-        <DropdownMenu
-          title="Kids's Clothing"
-          basePath="/mens-clothing"
-          itemCount="3000"
-          items={menItems}
-        />
+        <div
+          className="relative inline-block"
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
+        >
+          <NavLink
+            to="/kids"
+            className="text-black font-bold text-sm no-underline hover:text-red-500"
+          >
+            Kid's Clothing{" "}
+            <span className="text-sm text-[#6f6e6e] font-medium">
+              (3000 products)
+            </span>
+          </NavLink>
+          {isOpen && (
+            <div className="absolute top-full left-0 bg-white border border-gray-300 shadow-lg z-10 p-2 w-64">
+              <ul className="list-none p-0 m-0">
+                {kidsCategory?.items.map((item, index) => (
+                  <li key={index} className="my-1">
+                    <NavLink
+                      to={`/products?category=${item.title}`}
+                      className="text-gray-700 text-sm hover:text-black hover:underline font-normal"
+                    >
+                      {item.title}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="relative z-[5]">

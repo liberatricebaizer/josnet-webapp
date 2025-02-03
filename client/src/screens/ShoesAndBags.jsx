@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import DropdownMenu from "../components/DropdownMenu";
 import Layout from "../layout/Layout";
 import ReusableSlider from "../components/ReusableSlider";
 import Movie from "../components/Movie";
 import { ShoesAndBagsData } from "../data/MovieData";
+import { categoriesData } from "../static/data";
 
 const ShoesAndBags = () => {
   const images = [
@@ -13,30 +14,48 @@ const ShoesAndBags = () => {
     { url: "https://m.media-amazon.com/images/I/91rGokbdWVL._AC_SY500_.jpg" },
     // Add more images as needed
   ];
-  const menItems = [
-    { path: "hot-sale", label: "Hot Sale" },
-    { path: "women-shoes", label: "Women'Shoes" },
-    { path: "men-shoes", label: "Men's Shoes" },
-    { path: "bags", label: "Bags" },
-    { path: "dance-shoes", label: "Dance Shoes" },
-    { path: "kids-shoes", label: "Kids' Shoes" },
-    { path: "Graphic-printShoes&Bags", label: "Graphic Print Shoes & Bags" },
-    { path: "fashion-accessories", label: "Fashion Accessories" },
-    { path: "shoes-accessories", label: "Shoes Accessories" },
-    { path: "boots", label: "Boots" },
-  ];
+  const shoesAndBagsCategory = categoriesData.find(
+    (category) => category.id === 4
+  ); // Find the "Women" category
+
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Layout>
       <div className="flex gap-2 p-4">
         <NavLink to="/" className="text-sm text-[#6f6e6e] font-medium">
           Home &gt;
         </NavLink>
-        <DropdownMenu
-          title="ShoesAndBags's Clothing"
-          basePath="/mens-clothing"
-          itemCount="3000"
-          items={menItems}
-        />
+        <div
+          className="relative inline-block"
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
+        >
+          <NavLink
+            to="/shoesAndBags"
+            className="text-black font-bold text-sm no-underline hover:text-red-500"
+          >
+            Shoes&Bags's Clothing{" "}
+            <span className="text-sm text-[#6f6e6e] font-medium">
+              (3000 products)
+            </span>
+          </NavLink>
+          {isOpen && (
+            <div className="absolute top-full left-0 bg-white border border-gray-300 shadow-lg z-10 p-2 w-64">
+              <ul className="list-none p-0 m-0">
+                {shoesAndBagsCategory?.items.map((item, index) => (
+                  <li key={index} className="my-1">
+                    <NavLink
+                      to={`/products?category=${item.title}`}
+                      className="text-gray-700 text-sm hover:text-black hover:underline font-normal"
+                    >
+                      {item.title}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="relative z-[5]">

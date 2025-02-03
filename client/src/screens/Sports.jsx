@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import DropdownMenu from "../components/DropdownMenu";
 import Layout from "../layout/Layout";
 import ReusableSlider from "../components/ReusableSlider";
 import Movie from "../components/Movie";
 import { SportsData } from "../data/MovieData";
+import { categoriesData } from "../static/data";
 
 const Sports = () => {
   const images = [
@@ -14,26 +15,9 @@ const Sports = () => {
     // Add more images as needed
   ];
 
-  const menItems = [
-    { path: "tees-tank-tops", label: "Sports's Tees & Tank Tops" },
-    { path: "shirts", label: "Sports's Shirts" },
-    { path: "pants", label: "Sports's Pants" },
-    { path: "polos", label: "Sports's Polos" },
-    { path: "graphic-collection", label: "Graphic Collection" },
-    { path: "active", label: "Sports's Active" },
-    { path: "shorts", label: "Sports's Shorts" },
-    { path: "chic-collection", label: "Sports's Chic Collection" },
-    { path: "hoodies-sweatshirts", label: "Sports's Hoodies & Sweatshirts" },
-    { path: "outerwear", label: "Sports's Outerwear" },
-    { path: "sweaters-cardigans", label: "Sports's Sweaters & Cardigans" },
-    { path: "plus-size", label: "Sports's Plus Size" },
-    { path: "sleepwear-loungewear", label: "Sports's Sleepwear & Loungewear" },
-    { path: "accessories", label: "Sports's Accessories" },
-    { path: "underwear", label: "Sports's Underwear" },
-    { path: "clearance", label: "Clearance" },
-    { path: "custom-clothing", label: "Sports's Custom Clothing" },
-    { path: "christmas", label: "Sports's Christmas Clothing" },
-  ];
+  const sportsCategory = categoriesData.find((category) => category.id === 9); // Find the "Women" category
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Layout>
@@ -41,12 +25,37 @@ const Sports = () => {
         <NavLink to="/" className="text-sm text-[#6f6e6e] font-medium">
           Home &gt;
         </NavLink>
-        <DropdownMenu
-          title="Sports's Clothing"
-          basePath="/mens-clothing"
-          itemCount="3000"
-          items={menItems}
-        />
+        <div
+          className="relative inline-block"
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
+        >
+          <NavLink
+            to="/sports"
+            className="text-black font-bold text-sm no-underline hover:text-red-500"
+          >
+            Sport's Clothing{" "}
+            <span className="text-sm text-[#6f6e6e] font-medium">
+              (3000 products)
+            </span>
+          </NavLink>
+          {isOpen && (
+            <div className="absolute top-full left-0 bg-white border border-gray-300 shadow-lg z-10 p-2 w-64">
+              <ul className="list-none p-0 m-0">
+                {sportsCategory?.items.map((item, index) => (
+                  <li key={index} className="my-1">
+                    <NavLink
+                      to={`/products?category=${item.title}`}
+                      className="text-gray-700 text-sm hover:text-black hover:underline font-normal"
+                    >
+                      {item.title}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="relative z-[5]">

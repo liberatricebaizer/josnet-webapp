@@ -541,6 +541,7 @@ const CreateProduct = () => {
   const [data, setData] = useState({
     name: "",
     category: "",
+    item: "",
     tags: "",
     image: "",
     originalPrice: "",
@@ -561,6 +562,7 @@ const CreateProduct = () => {
       setData({
         name: "",
         category: "",
+        item: "",
         tags: "",
         image: "",
         originalPrice: "",
@@ -605,6 +607,7 @@ const CreateProduct = () => {
       name,
       image,
       category,
+      item,
       tags,
       originalPrice,
       discountPrice,
@@ -616,6 +619,7 @@ const CreateProduct = () => {
       !name ||
       !image ||
       !category ||
+      !item ||
       !tags ||
       !originalPrice ||
       !discountPrice ||
@@ -631,6 +635,7 @@ const CreateProduct = () => {
         name,
         description,
         category,
+        item,
         tags,
         originalPrice,
         discountPrice,
@@ -671,6 +676,25 @@ const CreateProduct = () => {
                 {category.title}
               </option>
             ))}
+          </select>
+        </div>
+
+        <div>
+          <label className="block text-gray-700">Item</label>
+          <select
+            name="item"
+            value={data.item}
+            onChange={handleChange}
+            className="w-full border border-gray-300 rounded-lg p-2"
+          >
+            <option value="">Select item</option>
+            {categoriesData
+              .find((c) => c.title === data.category)
+              ?.items.map((item) => (
+                <option key={item.id} value={item.title}>
+                  {item.title}
+                </option>
+              ))}
           </select>
         </div>
 

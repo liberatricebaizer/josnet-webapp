@@ -71,9 +71,14 @@ const SideBar = ({ children }) => {
             All Categories
           </h1>
           <div className="  flex lg:block justify-center flex-wrap lg:flex-row py-1 ">
-            {SideLinks.map((link, index) => (
+            {/* {SideLinks.map((link, index) => (
               <NavLink to={link.link} key={index} className={Hover}>
                 <p>{link.name}</p>
+              </NavLink>
+            ))} */}
+            {categoriesData.map((category, index) => (
+              <NavLink to={category.link} key={index} className={Hover}>
+                <p>{category.title}</p>
               </NavLink>
             ))}
           </div>

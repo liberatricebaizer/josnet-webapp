@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import DropdownMenu from "../components/DropdownMenu";
 import Layout from "../layout/Layout";
 import ReusableSlider from "../components/ReusableSlider";
 import Movie from "../components/Movie";
 import { ElectronicsData } from "../data/MovieData";
+import { categoriesData } from "../static/data";
 
 const Electronics = () => {
   const images = [
@@ -13,46 +14,48 @@ const Electronics = () => {
     { url: "https://m.media-amazon.com/images/I/91rGokbdWVL._AC_SY500_.jpg" },
     // Add more images as needed
   ];
+  const electronicsCategory = categoriesData.find(
+    (category) => category.id === 7
+  ); // Find the "Women" category
 
-  const menItems = [
-    { path: "tees-tank-tops", label: "Electronics's Tees & Tank Tops" },
-    { path: "shirts", label: "Electronics's Shirts" },
-    { path: "pants", label: "Electronics's Pants" },
-    { path: "polos", label: "Electronics's Polos" },
-    { path: "graphic-collection", label: "Graphic Collection" },
-    { path: "active", label: "Electronics's Active" },
-    { path: "shorts", label: "Electronics's Shorts" },
-    { path: "chic-collection", label: "Electronics's Chic Collection" },
-    {
-      path: "hoodies-sweatshirts",
-      label: "Electronics's Hoodies & Sweatshirts",
-    },
-    { path: "outerwear", label: "Electronics's Outerwear" },
-    { path: "sweaters-cardigans", label: "Electronics's Sweaters & Cardigans" },
-    { path: "plus-size", label: "Electronics's Plus Size" },
-    {
-      path: "sleepwear-loungewear",
-      label: "Electronics's Sleepwear & Loungewear",
-    },
-    { path: "accessories", label: "Electronics's Accessories" },
-    { path: "underwear", label: "Electronics's Underwear" },
-    { path: "clearance", label: "Clearance" },
-    { path: "custom-clothing", label: "Electronics's Custom Clothing" },
-    { path: "christmas", label: "Electronics's Christmas Clothing" },
-  ];
-
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Layout>
       <div className="flex gap-2 p-4">
         <NavLink to="/" className="text-sm text-[#6f6e6e] font-medium">
           Home &gt;
         </NavLink>
-        <DropdownMenu
-          title="Electronics's Clothing"
-          basePath="/mens-clothing"
-          itemCount="3000"
-          items={menItems}
-        />
+        <div
+          className="relative inline-block"
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
+        >
+          <NavLink
+            to="/electronics"
+            className="text-black font-bold text-sm no-underline hover:text-red-500"
+          >
+            Electronics's Clothing
+            <span className="text-sm text-[#6f6e6e] font-medium">
+              (3000 products)
+            </span>
+          </NavLink>
+          {isOpen && (
+            <div className="absolute top-full left-0 bg-white border border-gray-300 shadow-lg z-10 p-2 w-64">
+              <ul className="list-none p-0 m-0">
+                {electronicsCategory?.items.map((item, index) => (
+                  <li key={index} className="my-1">
+                    <NavLink
+                      to={`/products?category=${item.title}`}
+                      className="text-gray-700 text-sm hover:text-black hover:underline font-normal"
+                    >
+                      {item.title}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="relative z-[5]">

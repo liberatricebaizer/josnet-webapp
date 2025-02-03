@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import DropdownMenu from "../components/DropdownMenu";
 import Layout from "../layout/Layout";
 import ReusableSlider from "../components/ReusableSlider";
 import Movie from "../components/Movie";
 import { PhonesData } from "../data/MovieData";
+import { categoriesData } from "../static/data";
 
 const Phones = () => {
   const images = [
@@ -14,39 +15,46 @@ const Phones = () => {
     // Add more images as needed
   ];
 
-  const menItems = [
-    { path: "tees-tank-tops", label: "Phones's Tees & Tank Tops" },
-    { path: "shirts", label: "Phones's Shirts" },
-    { path: "pants", label: "Phones's Pants" },
-    { path: "polos", label: "Phones's Polos" },
-    { path: "graphic-collection", label: "Graphic Collection" },
-    { path: "active", label: "Phones's Active" },
-    { path: "shorts", label: "Phones's Shorts" },
-    { path: "chic-collection", label: "Phones's Chic Collection" },
-    { path: "hoodies-sweatshirts", label: "Phones's Hoodies & Sweatshirts" },
-    { path: "outerwear", label: "Phones's Outerwear" },
-    { path: "sweaters-cardigans", label: "Phones's Sweaters & Cardigans" },
-    { path: "plus-size", label: "Phones's Plus Size" },
-    { path: "sleepwear-loungewear", label: "Phones's Sleepwear & Loungewear" },
-    { path: "accessories", label: "Phones's Accessories" },
-    { path: "underwear", label: "Phones's Underwear" },
-    { path: "clearance", label: "Clearance" },
-    { path: "custom-clothing", label: "Phones's Custom Clothing" },
-    { path: "christmas", label: "Phones's Christmas Clothing" },
-  ];
+  const phonesCategory = categoriesData.find((category) => category.id === 12); // Find the "Women" category
 
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Layout>
       <div className="flex gap-2 p-4">
         <NavLink to="/" className="text-sm text-[#6f6e6e] font-medium">
           Home &gt;
         </NavLink>
-        <DropdownMenu
-          title="Phones's Clothing"
-          basePath="/mens-clothing"
-          itemCount="3000"
-          items={menItems}
-        />
+        <div
+          className="relative inline-block"
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
+        >
+          <NavLink
+            to="/phones"
+            className="text-black font-bold text-sm no-underline hover:text-red-500"
+          >
+            Phone's Clothing{" "}
+            <span className="text-sm text-[#6f6e6e] font-medium">
+              (3000 products)
+            </span>
+          </NavLink>
+          {isOpen && (
+            <div className="absolute top-full left-0 bg-white border border-gray-300 shadow-lg z-10 p-2 w-64">
+              <ul className="list-none p-0 m-0">
+                {phonesCategory?.items.map((item, index) => (
+                  <li key={index} className="my-1">
+                    <NavLink
+                      to={`/products?category=${item.title}`}
+                      className="text-gray-700 text-sm hover:text-black hover:underline font-normal"
+                    >
+                      {item.title}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="relative z-[5]">

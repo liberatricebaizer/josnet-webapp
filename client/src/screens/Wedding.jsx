@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import DropdownMenu from "../components/DropdownMenu";
 import Layout from "../layout/Layout";
 import ReusableSlider from "../components/ReusableSlider";
 import Movie from "../components/Movie";
 import { WeddingData } from "../data/MovieData";
+import { categoriesData } from "../static/data"; // Import the categoriesData from the static data
 
 const Wedding = () => {
   const images = [
@@ -14,17 +15,9 @@ const Wedding = () => {
     // Add more images as needed
   ];
 
-  const weddingItems = [
-    { path: "mother-of-the-bride", label: "Mother of the Bride" },
-    { path: "wedding-store", label: "The Wedding Store" },
-    { path: "tuxedos-suits", label: "Tuxedos & Suits" },
-    { path: "special-occasion-dresses", label: "Special Occasion Dresses" },
-    { path: "wedding-party-accessories", label: "Wedding & Party Accessories" },
-    { path: "dancewear-dance-shoes", label: "Dancewear & Dance Shoes" },
-    { path: "new-arrivals", label: "New Arrivals" },
-    { path: "hot-sale", label: "Hot Sale" },
-    { path: "trending-2024", label: "Trending 2024" },
-  ];
+  const weddingCategory = categoriesData.find((category) => category.id === 3); // Find the "Women" category
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Layout>
@@ -32,12 +25,37 @@ const Wedding = () => {
         <NavLink to="/" className="text-sm text-[#6f6e6e] font-medium">
           Home &gt;
         </NavLink>
-        <DropdownMenu
-          title="Wedding's Clothing"
-          basePath="/mens-clothing"
-          itemCount="3000"
-          items={weddingItems}
-        />
+        <div
+          className="relative inline-block"
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
+        >
+          <NavLink
+            to="/wedding"
+            className="text-black font-bold text-sm no-underline hover:text-red-500"
+          >
+            Wedding's Clothing{" "}
+            <span className="text-sm text-[#6f6e6e] font-medium">
+              (3000 products)
+            </span>
+          </NavLink>
+          {isOpen && (
+            <div className="absolute top-full left-0 bg-white border border-gray-300 shadow-lg z-10 p-2 w-64">
+              <ul className="list-none p-0 m-0">
+                {weddingCategory?.items.map((item, index) => (
+                  <li key={index} className="my-1">
+                    <NavLink
+                      to={`/products?category=${item.title}`}
+                      className="text-gray-700 text-sm hover:text-black hover:underline font-normal"
+                    >
+                      {item.title}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="relative z-[5]">

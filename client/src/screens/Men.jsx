@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import DropdownMenu from "../components/DropdownMenu";
 import Layout from "../layout/Layout";
 import ReusableSlider from "../components/ReusableSlider";
 import Movie from "../components/Movie";
 import { MenData } from "../data/MovieData";
+import { categoriesData } from "../static/data";
 
 const Men = () => {
   const images = [
@@ -14,39 +15,46 @@ const Men = () => {
     // Add more images as needed
   ];
 
-  const menItems = [
-    { path: "tees-tank-tops", label: "Men's Tees & Tank Tops" },
-    { path: "shirts", label: "Men's Shirts" },
-    { path: "pants", label: "Men's Pants" },
-    { path: "polos", label: "Men's Polos" },
-    { path: "graphic-collection", label: "Graphic Collection" },
-    { path: "active", label: "Men's Active" },
-    { path: "shorts", label: "Men's Shorts" },
-    { path: "chic-collection", label: "Men's Chic Collection" },
-    { path: "hoodies-sweatshirts", label: "Men's Hoodies & Sweatshirts" },
-    { path: "outerwear", label: "Men's Outerwear" },
-    { path: "sweaters-cardigans", label: "Men's Sweaters & Cardigans" },
-    { path: "plus-size", label: "Men's Plus Size" },
-    { path: "sleepwear-loungewear", label: "Men's Sleepwear & Loungewear" },
-    { path: "accessories", label: "Men's Accessories" },
-    { path: "underwear", label: "Men's Underwear" },
-    { path: "clearance", label: "Clearance" },
-    { path: "custom-clothing", label: "Men's Custom Clothing" },
-    { path: "christmas", label: "Men's Christmas Clothing" },
-  ];
+  const menCategory = categoriesData.find((category) => category.id === 2); // Find the "Women" category
 
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Layout>
       <div className="flex gap-2 p-4">
         <NavLink to="/" className="text-sm text-[#6f6e6e] font-medium">
           Home &gt;
         </NavLink>
-        <DropdownMenu
-          title="Men's Clothing"
-          basePath="/mens-clothing"
-          itemCount="3000"
-          items={menItems}
-        />
+        <div
+          className="relative inline-block"
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
+        >
+          <NavLink
+            to="/men"
+            className="text-black font-bold text-sm no-underline hover:text-red-500"
+          >
+            Men's Clothing{" "}
+            <span className="text-sm text-[#6f6e6e] font-medium">
+              (3000 products)
+            </span>
+          </NavLink>
+          {isOpen && (
+            <div className="absolute top-full left-0 bg-white border border-gray-300 shadow-lg z-10 p-2 w-64">
+              <ul className="list-none p-0 m-0">
+                {menCategory?.items.map((item, index) => (
+                  <li key={index} className="my-1">
+                    <NavLink
+                      to={`/products?category=${item.title}`}
+                      className="text-gray-700 text-sm hover:text-black hover:underline font-normal"
+                    >
+                      {item.title}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="relative z-[5]">
