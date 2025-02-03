@@ -84,6 +84,9 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { loadSeller, loadUser } from "./redux/actions/user";
 import Store from "./redux/store";
+import MoneyGuaranteePage from "./screens/MoneyGuaranteePage.jsx";
+import CustomerValuePage from "./screens/CustomerValuePage.jsx";
+import QuickResponsePage from "./screens/QuickResponsePage.jsx";
 function App() {
   const [stripeApikey, setStripeApiKey] = useState("");
 
@@ -363,6 +366,9 @@ function App() {
           <Route path="/beautyHair" element={<BeautyHair />} />
           <Route path="/computer" element={<Computer />} />
           <Route path="/phones" element={<Phones />} />
+          <Route path="/quick-response" element={<QuickResponsePage />} />
+          <Route path="/customer-value" element={<CustomerValuePage />} />
+          <Route path="/money-guarantee" element={<MoneyGuaranteePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </FavoritesProvider>
