@@ -42,7 +42,7 @@ const Home = ({ toggleDrawer }) => {
       <Services />
       <div className="flex my-10 px-[10px] lg:px-8 ">
         <div className="flex  justify-between  gap-2   ">
-          <div className=" hidden lg:flex gap-3">
+          <div className=" hidden lg:flex max-h-[97%] max-w-[30%] gap-3">
             <div className=" col-span-2 sticky bg-white shadow  border border-gray-100   rounded-md">
               <div className="flex bg-[#F3B600] justify-center items-center py-2 px-4">
                 <div className="flex justify-center items-center gap-2">
@@ -55,23 +55,23 @@ const Home = ({ toggleDrawer }) => {
                 </div>
               </div>
               <img src={AvatarImage3} alt="" className="w-full " />
-              <h3 className="text-center font-bold pt-2">
+              <h3 className="text-center font-bold pt-8">
                 Select Everything you want
               </h3>
-              <p className="font-bold text-sm  flex gap-4 justify-center  items-center  ">
+              <p className="font-bold text-sm pt-4 flex gap-4 justify-center  items-center  ">
                 <span className="line-through"> 00.00$</span>
                 <span className="text-[#FF3F07]"> 50.00$</span>
               </p>
-              <div className="px-4 py-4">
+              <div className="px-4 py-8">
                 {" "}
                 <div className="w-[80%] border border-black"></div>
                 <p className="pt-2">Available : 40</p>
               </div>
-              <p className="text-center font-bold">
+              <p className="text-center pt-2 font-bold">
                 <span className="text-[#F4C033] text-2xl">Hurry Up!</span>{" "}
                 offers end in:
               </p>
-              <div className="flex  py-2 gap-2 justify-center items-center">
+              <div className="flex  pt-10 gap-2 justify-center px-2 items-center">
                 <div>
                   <div className="w-12 flex justify-center   items-center h-12 border border-[#FFECC1] rounded-full">
                     40
@@ -105,7 +105,7 @@ const Home = ({ toggleDrawer }) => {
               <p className="text-xl mb-8 lg:mb-0 text-[#17dd1f]">
                 Deals of the Week
               </p>
-              <div className="flex gap-2 lg:gap-10">
+              <div className="flex gap-4">
                 <Link className={Hover} onClick={() => navigateToPage("women")}>
                   Featured Products
                 </Link>

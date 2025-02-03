@@ -51,13 +51,13 @@ const Footer = () => {
               <div className=" text-black mt-4">
                 <p className="text-white">Follow Us On</p>
                 <div className="flex pt-2 gap-4">
-                  <div className=" bg-white hover:bg-[#FF3F07] hover:text-[#FFffff] w-8 flex justify-center items-center rounded-full h-8">
+                  <div className=" bg-white hover:bg-[#FF3F07] cursor-pointer hover:text-[#000000] w-8 flex justify-center items-center rounded-full h-8">
                     <FaInstagram />
                   </div>{" "}
-                  <div className="bg-white hover:bg-[#FF3F07] hover:text-[#FFffff] w-8 flex justify-center items-center rounded-full h-8">
+                  <div className="bg-white hover:bg-[#FF3F07] cursor-pointer hover:text-[#000000] w-8 flex justify-center items-center rounded-full h-8">
                     <FaFacebook />
                   </div>
-                  <div className="bg-white hover:bg-[#FF3F07] hover:text-[#FFffff] w-8 flex justify-center items-center rounded-full h-8">
+                  <div className="bg-white hover:bg-[#FF3F07] cursor-pointer hover:text-[#000000] w-8 flex justify-center items-center rounded-full h-8">
                     <FaTwitter />
                   </div>
                 </div>
@@ -77,16 +77,18 @@ const Footer = () => {
             </div>
           </div>
           <div className="text-white mb-8 md:mb-0">
-            <h2 className="font-semibold">Quick Links</h2>
+            <h2 className="font-semibold">Company Policies</h2>
             <span className=" bg-[#FF3F07] h-[1px] w-14  mx-1  :content-[''] inline-block font-semibold"></span>
 
             <div className="pt-4 flex gap-4 text-[#B7B7BA] flex-col">
-              <NavLink to="/about">About Us</NavLink>
-              <NavLink to="/order-tracking">Order Tracking</NavLink>
-              <NavLink to="/contact-us">Contact Us</NavLink>
-              <NavLink to="">Blog & News</NavLink>
-              <NavLink to="">Best Sellers</NavLink>
-              <NavLink to="">Shipping & Return</NavLink>
+              <NavLink to="/about">Cookie Notice</NavLink>
+              <NavLink to="/order-tracking">
+                Intellectual Property Policy
+              </NavLink>
+              <NavLink to="/contact-us">Privacy Policy</NavLink>
+              <NavLink to="">Return Policy</NavLink>
+              <NavLink to="">Terms of Use</NavLink>
+              {/* <NavLink to="">Shipping & Return</NavLink> */}
             </div>
           </div>
           <div className="text-white ">

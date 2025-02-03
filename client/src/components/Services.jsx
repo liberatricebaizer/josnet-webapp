@@ -4,9 +4,15 @@ import { FaCar } from "react-icons/fa";
 import { FcBusinessman, FcMoneyTransfer } from "react-icons/fc";
 
 const Services = () => {
+  const navigate = useNavigate();
+
+  const handleCardClick = (path) => {
+    navigate(path);
+  };
   return (
-    <div className=" lg:flex  px-8  py-20  gap-14">
-      <div className="shadow bg-[#FFF5E1] p-4 hidden  lg:flex gap-8 ">
+    // <div className=" lg:flex  px- justify-center  py-20  gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="shadow bg-[#FFF5E1] p-4 hidden  lg:flex justify-center gap-8 ">
         <div className="">
           <div className="flex items-center ">
             <span className=" bg-groon h-[1px] w-16  mx-1 my-2 :content-[''] inline-block font-semibold"></span>
@@ -26,34 +32,56 @@ const Services = () => {
         <img src={AvatarImage} alt="" className="h-28" />
         {/* </div> */}
       </div>
-      <div className="shadow bg-white border border-gray-200 mb-8 md:mb-0 lg:w-[20%] p-4">
-        <div className=" flex items-center text-3xl  justify-center">
-          <FaCar className="text-[#F3B600]" />
+      <div
+        className="bg-white shadow-md rounded-lg cursor-pointer hover:shadow-lg transition-shadow duration-300"
+        onClick={() => handleCardClick("/quick-response")}
+      >
+        <div className="p-6">
+          <div className="flex justify-center mb-4">
+            <img src="/taxi.svg" alt="Quick Response" className="w-12 h-12" />
+          </div>
+          <h3 className="text-xl font-semibold mb-2">Quick Response</h3>
+          <p className="text-gray-600">
+            Get a quick response from our team to address your needs.
+          </p>
         </div>
-        <h2 className="text-center  font-bold pt-4">Quick Response</h2>
-        <p className="text-sm text-center pt-4">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, amet.
-        </p>
-      </div>{" "}
-      <div className="shadow bg-white mb-8 border md:mb-0  border-gray-200 lg:w-[20%] p-4  ">
-        <div className=" flex items-center text-3xl  justify-center">
-          <FcBusinessman />
+      </div>
+
+      <div
+        className="bg-white shadow-md rounded-lg cursor-pointer hover:shadow-lg transition-shadow duration-300"
+        onClick={() => handleCardClick("/customer-value")}
+      >
+        <div className="p-6">
+          <div className="flex justify-center mb-4">
+            <img
+              src="/customer.svg"
+              alt="Customer Value"
+              className="w-12 h-12"
+            />
+          </div>
+          <h3 className="text-xl font-semibold mb-2">Customer Value</h3>
+          <p className="text-gray-600">
+            Discover the value we provide to our customers.
+          </p>
         </div>
-        <h2 className="text-center font-bold pt-4">Customer Value</h2>
-        <p className="text-sm text-center pt-4">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, amet.
-        </p>
-      </div>{" "}
-      <div className="shadow bg-white border border-gray-200 lg:w-[20%] p-4  ">
-        <div className=" flex items-center text-3xl  justify-center">
-          <FcMoneyTransfer />
+      </div>
+
+      <div
+        className="bg-white shadow-md rounded-lg cursor-pointer hover:shadow-lg transition-shadow duration-300"
+        onClick={() => handleCardClick("/money-guarantee")}
+      >
+        <div className="p-6">
+          <div className="flex justify-center mb-4">
+            <img src="/money.svg" alt="Money Guarantee" className="w-12 h-12" />
+          </div>
+          <h3 className="text-xl font-semibold mb-2">Money Guarantee</h3>
+          <p className="text-gray-600">
+            We guarantee your money's worth with our services.
+          </p>
         </div>
-        <h2 className="text-center font-bold pt-4">Money Quarantee</h2>
-        <p className="text-sm text-center pt-4">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, amet.
-        </p>
-      </div>{" "}
+      </div>
     </div>
+    // </div>
   );
 };
 

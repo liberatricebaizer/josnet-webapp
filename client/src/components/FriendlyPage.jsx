@@ -16,7 +16,7 @@ import Computer from "./Computer";
 import Speaker from "./Speaker";
 import AllProducts from "./Shop/AllProducts";
 const FriendlyPage = () => {
-  const [currentPage, setCurrentPage] = useState("AllProducts");
+  const [currentPage, setCurrentPage] = useState("HeadPhone");
   const navigateToPage = (page) => {
     setCurrentPage(page);
   };
@@ -28,8 +28,8 @@ const FriendlyPage = () => {
     isActive ? `${active} ${inActive}` : `${inActive} ${hover}`;
   return (
     <Fragment>
-      <div className="lg:flex px-8  py-20 gap-8">
-        <div className="py-10  rounded  px-4  shadow-md   border mb-8 lg:mb-0  lg:w-[27rem]   ">
+      <div className="lg:flex justify-center px-4  py-20 gap-8">
+        <div className="py-10  rounded  px-4  shadow-md   border mb-8 lg:mb-0  lg:w[27rem]   ">
           <h2 className="text-3xl  font-semibold">
             JosNetExpress Use Friendly App Available
           </h2>
@@ -54,7 +54,7 @@ const FriendlyPage = () => {
             </div>
           </div>
         </div>
-        <div className="py-10 rounded flex gap-60 px-8 lg:px-20 bg-[#070707] lg:w-[55rem] ">
+        <div className="py-10 rounded flex gap-60 px-8  bg-[#070707]  ">
           <div>
             <div className="flex items-center   gap-2 ">
               <span className=" bg-[#F3B600] h-[1px] w-16  mx-1 my-2 :content-[''] inline-block font-semibold"></span>
@@ -110,12 +110,6 @@ const FriendlyPage = () => {
             Top Categories Products
           </p>
           <div className="flex gap-4 lg:gap-10">
-            <Link
-              className={Hover}
-              onClick={() => navigateToPage("AllProducts")}
-            >
-              All Products
-            </Link>
             <Link className={Hover} onClick={() => navigateToPage("HeadPhone")}>
               Head Phone
             </Link>
@@ -130,7 +124,6 @@ const FriendlyPage = () => {
             </Link>{" "}
           </div>
         </div>
-        {currentPage === "AllProducts" && <AllProducts />}
         {currentPage === "HeadPhone" && <HeadPhone />}
         {currentPage === "Skirts" && <Skirts />}
         {currentPage === "Computer" && <Computer />}

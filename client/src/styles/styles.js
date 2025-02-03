@@ -15,7 +15,7 @@ const styles = {
   cart_button:
     "px-[20px] h-[38px] rounded-[20px] bg-[#f63b60] flex items-center justify-center cursor-pointer",
   cart_button_text: "text-[#fff] text-[16px] font-[600]",
-  input: "w-full border bg-[#000000] p-1 border-[#f63b60] rounded-[5px]",
+  input: "w-full border bg-slate-100 p-1 border-[#f63b60] rounded-[5px]",
   inputSecond: "w-full border bg-white p-1  rounded-[5px]",
   activeStatus:
     "w-[10px] h-[10px] rounded-full absolute top-0 right-1 bg-[#40d132]",
