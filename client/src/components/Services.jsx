@@ -20,7 +20,7 @@ const Services = () => {
   return (
     // <div className=" lg:flex  px- justify-center  py-20  gap-4">
     <div className="grid grid-cols-1 md:grid-cols-4 gap-2 my-20 mx-4  justify-center">
-      <div className="shadow bg-[#FFF5E1] py-4 px-2 hidden  lg:flex justify-center gap- ">
+      <div className="shadow bg-[#FFF5E1] py-4 px-2  lg:flex justify-center gap- ">
         <div className="">
           <div className="flex items-center ">
             <span className=" bg-groon h-[1px] w-16  mx-1 my-2 :content-[''] inline-block font-semibold"></span>
@@ -37,7 +37,7 @@ const Services = () => {
           </button>
         </div>
         {/* <div className="bg-red-300"> */}{" "}
-        <img src={AvatarImage} alt="" className="h-28" />
+        <img src={AvatarImage} alt="" className="hidden lg:flex h-28" />
         {/* </div> */}
       </div>
       <div

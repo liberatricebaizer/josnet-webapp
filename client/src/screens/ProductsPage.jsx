@@ -11,19 +11,20 @@ import Product from "../components/Product";
 const ProductsPage = () => {
   const [searchParams] = useSearchParams();
   const categoryData = searchParams.get("category");
-  const { products, isLoading } = useSelector((state) => state.products);
+  const { allProducts, isLoading } = useSelector((state) => state.products);
   const [data, setData] = useState([]);
 
   useEffect(() => {
     if (categoryData === null) {
-      const d = products;
+      const d = allProducts;
       setData(d);
     } else {
-      const d = products && products.filter((i) => i.category === categoryData);
+      const d =
+        allProducts && allProducts.filter((i) => i.category === categoryData);
       setData(d);
     }
     //    window.scrollTo(0,0);
-  }, [products]);
+  }, [allProducts]);
 
   return (
     <>

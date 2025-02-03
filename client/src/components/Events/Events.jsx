@@ -11,23 +11,44 @@ const Events = () => {
   const { events, isLoading } = useSelector((state) => state.events);
 
   useEffect(() => {
-    console.log("Events:", events);
-    const allEvents = events ? [...events] : [];
-    console.log("All Events:", allEvents);
-    const sortedEvents = events.sort((a, b) => b.sold_out - a.sold_out);
-    console.log("Sorted Events:", sortedEvents);
-    const firstFive = sortedEvents.slice(0, 5);
-    console.log("Top 5 Events:", firstFive);
+    if (events) {
+      console.log("Events:", events);
 
-    setData(firstFive);
+      const allEventsData = events ? [...events] : [];
+      console.log("All Events:", allEventsData);
+
+      const sortedEvents = allEventsData.sort(
+        (a, b) => b.sold_out - a.sold_out
+      );
+      console.log("Sorted Events:", sortedEvents);
+      const firstFive = sortedEvents.slice(0, 5);
+      console.log("Top 5 Events:", firstFive);
+
+      setData(firstFive);
+    }
   }, [events]);
+
+  // useEffect(() => {
+  //   console.log("Events:", allEvents);
+
+  //   const allEvents = allEvents ? [...allEvents] : [];
+  //   console.log("All Events:", allEvents);
+
+  //   const sortedEvents = allEvents.sort((a, b) => b.sold_out - a.sold_out);
+  //   console.log("Sorted Events:", sortedEvents);
+
+  //   const firstFive = sortedEvents.slice(0, 5);
+  //   console.log("Top 5 Events:", firstFive);
+
+  //   setData(firstFive);
+  // }, [allEvents]);
   return (
-    <div>
+    <>
       {isLoading ? (
         <Loader />
       ) : (
         <div className={`${styles.section}`}>
-          <Header activeHeading={4} />
+          {/* <Header activeHeading={4} /> */}
           <div className={`${styles.heading} text-black`}>
             <h1>Popular Events</h1>
           </div>
@@ -44,8 +65,38 @@ const Events = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
 export default Events;
+
+// import React, { useEffect } from "react";
+// import { useSelector } from "react-redux";
+// import styles from "../../styles/styles";
+// import EventCard from "./EventCard";
+
+// const Events = () => {
+//   const { allEvents, isLoading } = useSelector((state) => state.events);
+//   console.log("Events:", allEvents);
+//   return (
+//     <div>
+//       {!isLoading && (
+//         <div className={`${styles.section}`}>
+//           <div className={`${styles.heading}`}>
+//             <h1>Popular Events</h1>
+//           </div>
+
+//           <div className="w-full grid">
+//             {allEvents.length !== 0 && (
+//               <EventCard data={allEvents && allEvents[0]} />
+//             )}
+//             <h4>{allEvents?.length === 0 && "No Events have!"}</h4>
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default Events;

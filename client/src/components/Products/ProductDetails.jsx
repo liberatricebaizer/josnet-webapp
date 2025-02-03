@@ -262,7 +262,7 @@ const ProductDetails = ({ data }) => {
 };
 
 const ProductDetailsInfo = ({
-  data,
+  data = { reviews: [] },
   products,
   totalReviewsLength,
   averageRating,
@@ -322,9 +322,9 @@ const ProductDetailsInfo = ({
 
       {active === 2 ? (
         <div className="w-full min-h-[40vh] flex flex-col items-center py-3 overflow-y-scroll">
-          {data &&
+          {data && data.reviews && data.reviews.length > 0 ? (
             data.reviews.map((item, index) => (
-              <div className="w-full flex my-2">
+              <div className="w-full flex my-2" key={index}>
                 <img
                   src={`${item.user.avatar?.url}`}
                   alt=""
@@ -338,13 +338,12 @@ const ProductDetailsInfo = ({
                   <p>{item.comment}</p>
                 </div>
               </div>
-            ))}
-
-          <div className="w-full flex justify-center">
-            {data && data.reviews.length === 0 && (
+            ))
+          ) : (
+            <div className="w-full flex justify-center">
               <h5>No Reviews have for this product!</h5>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       ) : null}
 

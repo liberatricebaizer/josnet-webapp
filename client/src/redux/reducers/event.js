@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const eventSlice = createSlice({
-  name: "events",
+  name: "event",
   initialState,
   reducers: {
     eventCreateRequest: (state) => {
@@ -19,7 +19,7 @@ const eventSlice = createSlice({
     },
     eventCreateSuccess: (state, action) => {
       state.isLoading = false;
-      state.event = action.payload;
+      state.event = [...action.payload];
       state.success = true;
     },
     eventCreateFail: (state, action) => {
@@ -34,7 +34,7 @@ const eventSlice = createSlice({
     },
     getAllEventsShopSuccess: (state, action) => {
       state.isLoading = false;
-      state.events = action.payload;
+      state.events = [...action.payload];
     },
     getAllEventsShopFailed: (state, action) => {
       state.isLoading = false;
@@ -60,7 +60,7 @@ const eventSlice = createSlice({
     },
     getAllEventsSuccess: (state, action) => {
       state.isLoading = false;
-      state.allEvents = action.payload;
+      state.allEvents = [...action.payload];
     },
     getAllEventsFailed: (state, action) => {
       state.isLoading = false;

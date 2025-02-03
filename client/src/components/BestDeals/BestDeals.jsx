@@ -48,22 +48,22 @@ import Loader from "../../layout/Loader";
 
 const BestDeals = () => {
   const [data, setData] = useState([]);
-  const { products, isLoading } = useSelector((state) => state.products);
+  const { allProducts, isLoading } = useSelector((state) => state.products);
 
   useEffect(() => {
-    console.log("All Products:", products); // Log products to see what is fetched
+    console.log("All Products:", allProducts); // Log allProducts to see what is fetched
 
-    const allProductsData = products ? [...products] : [];
+    const allProductsData = allProducts ? [...allProducts] : [];
     console.log("All Products Data:", allProductsData); // Log the data array
 
     const sortedData = allProductsData.sort((a, b) => b.sold_out - a.sold_out);
     console.log("Sorted Data:", sortedData); // Log sorted data
 
     const firstFive = sortedData.slice(0, 5);
-    console.log("Top 5 Products:", firstFive); // Log the top 5 products
+    console.log("Top 5 Products:", firstFive); // Log the top 5 allProducts
 
     setData(firstFive);
-  }, [products]);
+  }, [allProducts]);
 
   return (
     <>

@@ -71,8 +71,8 @@ const DashboardMessages = () => {
   useEffect(() => {
     if (seller) {
       const sellerId = seller?._id;
-      socketId.emit("addUser", sellerId);
-      socketId.on("getUsers", (data) => {
+      socketIo.emit("addUser", sellerId);
+      socketIo.on("getUsers", (data) => {
         setOnlineUsers(data);
       });
     }
@@ -114,7 +114,7 @@ const DashboardMessages = () => {
       (member) => member.id !== seller._id
     );
 
-    socketId.emit("sendMessage", {
+    socketIo.emit("sendMessage", {
       senderId: seller._id,
       receiverId,
       text: newMessage,
@@ -138,7 +138,7 @@ const DashboardMessages = () => {
   };
 
   const updateLastMessage = async () => {
-    socketId.emit("updateLastMessage", {
+    socketIo.emit("updateLastMessage", {
       lastMessage: newMessage,
       lastMessageId: seller._id,
     });
@@ -175,7 +175,7 @@ const DashboardMessages = () => {
       (member) => member !== seller._id
     );
 
-    socketId.emit("sendMessage", {
+    socketIo.emit("sendMessage", {
       senderId: seller._id,
       receiverId,
       images: e,

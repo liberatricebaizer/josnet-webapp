@@ -74,7 +74,7 @@ const Product = ({ data, isEvent }) => {
               ? `/product/${data._id}?isEvent=true`
               : `/product/${data._id}`
           }`}
-          className="w-20 h-12  "
+          className="w-20 h-8  "
         >
           <img
             src={`${data.images && data.images[0]?.url}`}
@@ -129,7 +129,7 @@ const Product = ({ data, isEvent }) => {
             : `/product/${data._id}`
         }`}
       >
-        <h4 className="pb-8 pt-1 text-red-600 font-[500]">
+        <h4 className="pb-2 pt-1 text-red-600 font-[500]">
           {data.name.length > 40 ? data.name.slice(0, 40) + "..." : data.name}
         </h4>
         <div className="flex gap-2 text-sm">
@@ -143,7 +143,7 @@ const Product = ({ data, isEvent }) => {
           <Ratings rating={data?.ratings} />
         </div> */}
 
-        <div className="py-4 flex items-center justify-between">
+        <div className="py-3 flex items-center justify-between">
           <div className="flex">
             <h5 className={`${styles.productDiscountPrice}`}>
               {data.originalPrice === 0
