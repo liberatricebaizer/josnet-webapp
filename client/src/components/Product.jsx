@@ -129,14 +129,15 @@ const Product = ({ data, isEvent }) => {
             : `/product/${data._id}`
         }`}
       >
-        <h4 className="pb-2 pt-1 text-red-600 font-[500]">
+        <h4 className="pb-2 pt-1 text-red-600 text-sm font-[500]">
           {data.name.length > 40 ? data.name.slice(0, 40) + "..." : data.name}
+          {/* {data.name} */}
         </h4>
         <div className="flex gap-2 text-sm">
           <div className="flex gap-1 text-star">
             <Ratings value={data?.ratings} />
           </div>
-          <p className="text-[#989EAF]">{data?.reviews}K Reviews</p>
+          <p className="text-[#989EAF]">{data?.reviews}100K Reviews</p>
         </div>
 
         {/* <div className="flex">

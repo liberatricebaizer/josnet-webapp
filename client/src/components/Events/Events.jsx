@@ -8,13 +8,13 @@ import Header from "../../layout/Header";
 
 const Events = () => {
   const [data, setData] = useState([]);
-  const { events, isLoading } = useSelector((state) => state.events);
+  const { allEvents, isLoading } = useSelector((state) => state.events);
 
   useEffect(() => {
-    if (events) {
-      console.log("Events:", events);
+    if (allEvents) {
+      console.log("Events:", allEvents);
 
-      const allEventsData = events ? [...events] : [];
+      const allEventsData = allEvents ? [...allEvents] : [];
       console.log("All Events:", allEventsData);
 
       const sortedEvents = allEventsData.sort(
@@ -26,7 +26,7 @@ const Events = () => {
 
       setData(firstFive);
     }
-  }, [events]);
+  }, [allEvents]);
 
   // useEffect(() => {
   //   console.log("Events:", allEvents);

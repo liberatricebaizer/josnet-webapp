@@ -10,9 +10,9 @@ const Ratings = ({ rating }) => {
       stars.push(
         <AiFillStar
           key={i}
-          size={20}
+          size={16}
           color="#f6b100"
-          className="mr-2 cursor-pointer"
+          className="mr-1 cursor-pointer"
         />
       );
     } else if (i === Math.ceil(rating) && !Number.isInteger(rating)) {
@@ -21,16 +21,16 @@ const Ratings = ({ rating }) => {
           key={i}
           size={17}
           color="#f6ba00"
-          className="mr-2 cursor-pointer"
+          className="mr-1 cursor-pointer"
         />
       );
     } else {
       stars.push(
         <AiOutlineStar
           key={i}
-          size={20}
+          size={16}
           color="#f6ba00"
-          className="mr-2 cursor-pointer"
+          className="mr-1 cursor-pointer"
         />
       );
     }

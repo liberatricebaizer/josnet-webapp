@@ -77,7 +77,7 @@ const Login = () => {
   return (
     <>
       <div className="grid md:grid-cols-2 md:h-screen bg-[#131315] justify-between h-screen w-full">
-        <div className="bg-red-500 flex justify-center items-center md:bg-[url('src/images/bg.jpeg')] bg-cover bg-center">
+        <div className="bg-red-500 flex justify-center items-center md:bg-[url('src/images/watch.png')] bg-cover bg-center">
           <div className="hidden md:flex flex-col">
             <h3 className="text-3xl font-bold text-[#EEEEF1]">JosNetExpress</h3>
             <p>Buy anything with our web Application</p>
