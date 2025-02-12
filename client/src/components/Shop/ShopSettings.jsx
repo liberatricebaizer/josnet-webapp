@@ -86,7 +86,7 @@ const ShopSettings = () => {
                   : ""
               }
               alt=""
-              className="w-[200px] h-[200px] rounded-full cursor-pointer"
+              className="w-[100px] h-[100px] rounded-full cursor-pointer"
             />
             <div className="w-[30px] h-[30px] bg-[#E3E9EE] rounded-full flex items-center justify-center cursor-pointer absolute bottom-[10px] right-[15px]">
               <input
@@ -117,7 +117,7 @@ const ShopSettings = () => {
               placeholder={name}
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className={`${styles.input} !w-[95%] mb-2 800px:mb-0`}
+              className={`${styles.input} !w-[95%] mb-1 800px:mb-0`}
               required
             />
           </div>
@@ -130,7 +130,7 @@ const ShopSettings = () => {
               placeholder={description}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className={`${styles.input} !w-[95%] mb-2 800px:mb-0`}
+              className={`${styles.input} !w-[95%] mb-1 800px:mb-0`}
             />
           </div>
           <div className="w-[100%] flex items-center flex-col 800px:w-[50%] mt-2">
@@ -142,7 +142,7 @@ const ShopSettings = () => {
               placeholder={address}
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              className={`${styles.input} !w-[95%] mb-2 800px:mb-0`}
+              className={`${styles.input} !w-[95%] mb-1 800px:mb-0`}
               required
             />
           </div>
@@ -156,7 +156,7 @@ const ShopSettings = () => {
               placeholder={phoneNumber}
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`${styles.input} !w-[95%] mb-1 800px:mb-0`}
               required
             />
           </div>

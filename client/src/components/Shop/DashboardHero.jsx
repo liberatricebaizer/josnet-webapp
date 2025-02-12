@@ -88,8 +88,8 @@ const DashboardHero = () => {
   return (
     <div className="w-full p-8">
       <h3 className="text-[22px] font-Poppins pb-2">Overview</h3>
-      <div className="w-full block 800px:flex items-center justify-between">
-        <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-white shadow rounded px-2 py-5">
+      <div className="grid grid-cols-3 gap-4 ">
+        <div className="   bg-green-50 shadow rounded px-2 py-3">
           <div className="flex items-center">
             <AiOutlineMoneyCollect
               size={30}
@@ -107,11 +107,11 @@ const DashboardHero = () => {
             ${availableBalance}
           </h5>
           <Link to="/dashboard-withdraw-money">
-            <h5 className="pt-4 pl-[2] text-[#077f9c]">Withdraw Money</h5>
+            <h5 className="pt-2 pl-[2] text-[#077f9c]">Withdraw Money</h5>
           </Link>
         </div>
 
-        <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-white shadow rounded px-2 py-5">
+        <div className="   bg-slate-100 shadow rounded px-2 py-3">
           <div className="flex items-center">
             <MdBorderClear size={30} className="mr-2" fill="#00000085" />
             <h3
@@ -124,11 +124,11 @@ const DashboardHero = () => {
             {orders?.length}
           </h5>
           <Link to="/dashboard-orders">
-            <h5 className="pt-4 pl-2 text-[#077f9c]">View Orders</h5>
+            <h5 className="pt-2 pl-2 text-[#077f9c]">View Orders</h5>
           </Link>
         </div>
 
-        <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-white shadow rounded px-2 py-5">
+        <div className="   bg-orange-50 shadow rounded px-2 py-3">
           <div className="flex items-center">
             <AiOutlineMoneyCollect
               size={30}
@@ -145,7 +145,7 @@ const DashboardHero = () => {
             {products?.length}
           </h5>
           <Link to="/dashboard-products">
-            <h5 className="pt-4 pl-2 text-[#077f9c]">View Products</h5>
+            <h5 className="pt-2 pl-2 text-[#077f9c]">View Products</h5>
           </Link>
         </div>
       </div>

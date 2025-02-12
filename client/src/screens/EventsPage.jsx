@@ -6,8 +6,8 @@ import Loader from "../layout/Loader";
 import Footer from "../layout/Footer";
 
 const EventsPage = () => {
-  const { events, isLoading } = useSelector((state) => state.events);
-  console.log("Events:", events);
+  const { allEvents, isLoading } = useSelector((state) => state.events);
+  console.log("Events:", allEvents);
   return (
     <>
       {isLoading ? (
@@ -18,7 +18,7 @@ const EventsPage = () => {
           <br />
           <br />
           <div>
-            <EventCard active={true} data={events && events[0]} />
+            <EventCard active={true} data={allEvents && allEvents[0]} />
           </div>
           <Footer />
         </div>

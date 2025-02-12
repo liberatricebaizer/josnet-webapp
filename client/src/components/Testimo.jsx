@@ -2,7 +2,7 @@ import React from "react";
 import { Movies, Testimonials } from "../data/MovieData";
 export const Testimo = () => {
   return (
-    <div className="lg:grid flex-wrap  gap-4 m-auto w-[90%] lg:w-[80%] pt-8 grid-cols-3 ">
+    <div className="lg:grid flex-wrap  gap-4 m-auto w-full pt-8 grid-cols-3 ">
       {Testimonials.map((testimo, index) => (
         <div
           key={index}

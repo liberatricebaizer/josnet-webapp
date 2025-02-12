@@ -28,7 +28,7 @@ const FriendlyPage = () => {
     isActive ? `${active} ${inActive}` : `${inActive} ${hover}`;
   return (
     <Fragment>
-      <div className="lg:flex justify-center px-4  py-20 gap-8">
+      <div className="lg:flex justify-center   py-20 gap-4">
         <div className="py-10  rounded  px-4  shadow-md   border mb-8 lg:mb-0  lg:w[27rem]   ">
           <h2 className="text-3xl  font-semibold">
             JosNetExpress Use Friendly App Available
@@ -103,8 +103,8 @@ const FriendlyPage = () => {
           </div>
         </div>
       </div>
-      <div className=" py-12 px-4 lg:p-12">
-        <div className="lg:flex  lg:gap-[24.5rem]">
+      <div className=" py-12 ">
+        <div className="lg:flex  justify-between">
           {" "}
           <p className="mb-8 lg:mb-0 text-[#17dd1f] text-xl">
             Top Categories Products

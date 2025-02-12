@@ -306,7 +306,7 @@ const Header = ({ activeHeading }) => {
       </div>
       <div
         className={`${
-          active === true ? "shadow-sm fixed  top-0 left-0 z-10" : null
+          active === true ? "shadow-sm  top-0 left-0 z-10" : null
         } transition hidden  md:flex  items-center  w-full bg-white border-b h-[70px]`}
       >
         <div className="w-full px-4">

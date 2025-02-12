@@ -8,6 +8,7 @@ import AvatarImage from "../images/watch.png";
 
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
 import { GrView } from "react-icons/gr";
+import { Link } from "react-router-dom";
 const FeaturedPro = () => {
   return (
     <div className=" py-8 flex justify-center  gap-4">
@@ -72,9 +73,11 @@ const FeaturedPro = () => {
               Electronics Products Discount{" "}
               <span className="text-[#ff3f07]">40% OFF</span>
             </p>
-            <button className="px-4  rounded py-2 bg-black text-white text-sm  mt-4  ">
-              Shop Now
-            </button>
+            <Link to="/products" className="inline-block">
+              <button className="px-4  rounded py-2 bg-black text-white text-sm  mt-4  ">
+                Shop Now
+              </button>
+            </Link>
           </div>
           <div className=" flex justify-end">
             <img

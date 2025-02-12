@@ -9,7 +9,7 @@ import { BiMessageSquareDetail } from "react-icons/bi";
 const DashboardHeader = () => {
   const { seller } = useSelector((state) => state.seller);
   return (
-    <div className="w-full h-[80px] bg-white text-black  border-b sticky top-0 left-0 z-30 flex items-center justify-between px-4">
+    <div className="w-full h-[80px]  text-black  border- bg-whit  flex items-center justify-between px-4">
       <div>
         <Link to="/">
           <img src="../../../images/LOGO.png" alt="" />
@@ -20,32 +20,28 @@ const DashboardHeader = () => {
           <Link to="/dashboard-coupouns" className="800px:block hidden">
             <AiOutlineGift
               color="#555"
-              size={30}
-              className="mx-5 cursor-pointer"
+              className="mx-5 text-2xl cursor-pointer"
             />
           </Link>
           <Link to="/dashboard-events" className="800px:block hidden">
             <MdOutlineLocalOffer
               color="#555"
-              size={30}
-              className="mx-5 cursor-pointer"
+              className="mx-5 text-2xl cursor-pointer"
             />
           </Link>
           <Link to="/dashboard-products" className="800px:block hidden">
             <FiShoppingBag
               color="#555"
-              size={30}
-              className="mx-5 cursor-pointer"
+              className="mx-5 text-2xl cursor-pointer"
             />
           </Link>
           <Link to="/dashboard-orders" className="800px:block hidden">
-            <FiPackage color="#555" size={30} className="mx-5 cursor-pointer" />
+            <FiPackage color="#555" className="mx-5 text-2xl cursor-pointer" />
           </Link>
           <Link to="/dashboard-messages" className="800px:block hidden">
             <BiMessageSquareDetail
               color="#555"
-              size={30}
-              className="mx-5 cursor-pointer"
+              className="mx-5 text-2xl cursor-pointer"
             />
           </Link>
           {/* <Link to={`/shop/${seller._id}`}> */}

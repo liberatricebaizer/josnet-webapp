@@ -19,12 +19,12 @@ const Services = () => {
   };
   return (
     // <div className=" lg:flex  px- justify-center  py-20  gap-4">
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-2 my-20 mx-4  justify-center">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-2 my-20 mx-  justify-center">
       <div className="shadow bg-[#FFF5E1] py-4 px-2  lg:flex justify-center gap- ">
         <div className="">
           <div className="flex items-center ">
-            <span className=" bg-groon h-[1px] w-16  mx-1 my-2 :content-[''] inline-block font-semibold"></span>
-            <span className="text-black italic text-sm   font-bold">
+            <span className=" bg-[#FF3F07] h-[1px] w-16  mx-1 my-2 :content-[''] inline-block font-semibold"></span>
+            <span className="text-[#FF3F07] italic text-sm   font-bold">
               Special Offer
             </span>
           </div>

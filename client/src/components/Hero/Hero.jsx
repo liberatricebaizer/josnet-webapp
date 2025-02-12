@@ -13,31 +13,35 @@ const Hero = () => {
     // Add more images as needed
   ];
   return (
-    <div className=" flex px-4 py-8  lgp-8  gap-2">
+    <div className=" flex  py-8  lgp-8  gap-3">
       <SideBar />
-      <div className="relative max-w-[786px] rounded  z-[5]">
+      <div className="relative max-w-[696px] rounded  z-[5]">
         <ReusableSlider images={images} slidesPerView={4} delay={4000} />
       </div>
-      <div className="bg-groon rounded w-60 p-2 hidden lg:block h-52 flex-col">
-        <div className="p-4">
-          <h3 className="text-center text-xl text-white font-medium">
-            Welcome
-          </h3>
-          <p className="text-sm text-white">Trust in Us For Your Style</p>
-        </div>
-        <div className="mb-2">
-          <div className="bg-slate-50 text-center mb-2 rounded px-4 py-1">
-            <NavLink to="/SignIn" className="text-[18px]  text-[#000000b7]">
-              Sign In
-            </NavLink>
+      <div className="   hidden lg:block  flex-col">
+        <div className="py-4 px-4 w-full bg-groon rounded">
+          <div className="py-2">
+            <h3 className="text-center text-xl text-white font-medium">
+              Welcome
+            </h3>
+            <p className="text-sm text-center text-white">
+              Trust in Us For Your Style
+            </p>
           </div>
-          <div className="bg-main rounded-md px-4 py-1 text-center text-white">
-            <NavLink to="/sign-up" className="text-[18px]  ">
-              Register
-            </NavLink>
+          <div className="mb-2">
+            <div className="bg-slate-50 text-center mb-2 rounded px-4 py-1">
+              <NavLink to="/SignIn" className="text-[18px]  text-[#000000b7]">
+                Sign In
+              </NavLink>
+            </div>
+            <div className="bg-main rounded-md px-4 py-1 text-center text-white">
+              <NavLink to="/sign-up" className="text-[18px]  ">
+                Register
+              </NavLink>
+            </div>
           </div>
         </div>
-        <div className="bg-slate-200 rounded w-60 p-6 text-black mt-24 h-52 ">
+        <div className="bg-slate-200 rounded h-52 p-6 text-black  mt-[60px] ">
           IMAGE
         </div>
       </div>

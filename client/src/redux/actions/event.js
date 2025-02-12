@@ -20,21 +20,6 @@ export const createEvent = createAsyncThunk(
   }
 );
 
-// Get all events of a shop
-// export const getAllEventsShop = createAsyncThunk(
-//   "events/getAllShop",
-//   async (shopId, { rejectWithValue }) => {
-//     try {
-//       const response = await axios.get(
-//         `${server}/event/get-all-events/${shopId}`
-//       );
-//       return response.data.events;
-//     } catch (error) {
-//       return rejectWithValue(error.response.data.message);
-//     }
-//   }
-// );
-
 export const getAllEventsShop = (shopId) => async (dispatch) => {
   try {
     dispatch(getAllEventsShopRequest());

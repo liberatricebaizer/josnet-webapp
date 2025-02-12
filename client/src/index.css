@@ -38,6 +38,16 @@ select {
   top: -9%;
   cursor: pointer;
 }
+
+/* Add to your CSS file */
+.slider-container {
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Prevent overflow */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

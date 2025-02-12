@@ -7,10 +7,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 
 const ReusableSlider = ({ images, delay = 3000 }) => {
   return (
-    <div
-      className="slider-container"
-      style={{ maxWidth: "", margin: "0 auto" }}
-    >
+    <div className="slider-container mx-auto max-w-[800px] w-full">
       <Swiper
         modules={[Navigation, Autoplay]}
         spaceBetween={10}
