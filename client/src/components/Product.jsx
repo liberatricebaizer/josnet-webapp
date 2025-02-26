@@ -63,7 +63,7 @@ const Product = ({ data, isEvent }) => {
   }
 
   return (
-    <div className="hover:scale-95 transitions p-4 border shadow-md rounded-md overflow-hidden">
+    <div className="hover:scale-95 transitions p-4 border bg-whit shadow-md rounded-md overflow-hidden">
       <div className="flex justify-between items-start">
         {/* <div className="bg-[#FF3F07] text-[10px] text-white text-center w-24 flex items-center px-2 m-4 rounded">
           On Sale
@@ -74,12 +74,13 @@ const Product = ({ data, isEvent }) => {
               ? `/product/${data._id}?isEvent=true`
               : `/product/${data._id}`
           }`}
-          className="w-20 h-8  "
+          // className="w-20 h-8  "
+          className="w-full h-[100px] flex justify-center items-center"
         >
           <img
             src={`${data.images && data.images[0]?.url}`}
             alt={data?.name}
-            className="w-full object-cover"
+            className="w-full h-full object-cover rounded-md"
           />
         </Link>
 
