@@ -202,13 +202,14 @@ const ProfileContent = ({ active }) => {
 
 const AllOrders = () => {
   const { user } = useSelector((state) => state.user);
-  const { orders } = useSelector((state) => state.order);
+  const { orders = [] } = useSelector((state) => state.order);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllOrdersOfUser(user._id));
-  }, []);
-
+    if (user) {
+      dispatch(getAllOrdersOfUser(user._id));
+    }
+  }, [user, dispatch]);
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 150, flex: 0.7 },
 
@@ -287,12 +288,17 @@ const AllOrders = () => {
 
 const AllRefundOrders = () => {
   const { user } = useSelector((state) => state.user);
-  const { orders } = useSelector((state) => state.order);
+  const { orders = [] } = useSelector((state) => state.order);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllOrdersOfUser(user._id));
-  }, []);
+    if (user) {
+      dispatch(getAllOrdersOfUser(user._id));
+    }
+  }, [user, dispatch]);
+
+  if (!user) return <div>Loading user data...</div>; // Handle loading state for user
+  if (!orders) return <div>Loading orders...</div>; // Handle loading state for orders
 
   const eligibleOrders =
     orders && orders.filter((item) => item.status === "Processing refund");
@@ -375,12 +381,14 @@ const AllRefundOrders = () => {
 
 const TrackOrder = () => {
   const { user } = useSelector((state) => state.user);
-  const { orders } = useSelector((state) => state.order);
+  const { orders = [] } = useSelector((state) => state.order);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllOrdersOfUser(user._id));
-  }, []);
+    if (user) {
+      dispatch(getAllOrdersOfUser(user._id));
+    }
+  }, [user, dispatch]);
 
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 150, flex: 0.7 },

@@ -6,7 +6,7 @@ const SideBar = ({ children }) => {
   const active = "bg-dryGray text-groon";
   const hover = "hover:text-black hover:bg-slate-100";
   const inActive =
-    " font-medium text-sm transitions flex lg:gap-1 items-center py-2 mx- lg:px-20";
+    " font-medium text-sm transitions flex lg:gap-1 items-center py-1 mx- lg:px-20";
   const Hover = ({ isActive }) =>
     isActive ? `${active} ${inActive}` : `${inActive} ${hover}`;
 
@@ -17,7 +17,7 @@ const SideBar = ({ children }) => {
           <h1 className="bg-[#5DBBFF] text-white p-2 flex text-2xl font-medium items-center justify-center">
             All Categories
           </h1>
-          <div className="flex lg:block justify-center flex-wrap lg:flex-row py-1">
+          <div className="flex lg:block justify-center flex-wrap lg:flex-row py-">
             {categoriesData.map((category, index) => (
               <NavLink to={category.link} key={index} className={Hover}>
                 <p>{category.title}</p>

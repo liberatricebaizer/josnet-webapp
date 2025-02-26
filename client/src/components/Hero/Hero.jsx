@@ -6,20 +6,50 @@ import AvatarImage from "../../images/avatar.jpeg";
 import AvatarImage2 from "../../images/avatar2.jpeg";
 import ReusableSlider from "../ReusableSlider";
 const Hero = () => {
-  const images = [
-    { url: "https://m.media-amazon.com/images/I/91rGokbdWVL._AC_SY500_.jpg" },
-    { url: "https://m.media-amazon.com/images/I/51s+YXXvXYL._AC_SY575_.jpg" },
-    { url: "https://m.media-amazon.com/images/I/91rGokbdWVL._AC_SY500_.jpg" },
-    // Add more images as needed
+  // const images = [
+  //   { url: "https://m.media-amazon.com/images/I/91rGokbdWVL._AC_SY500_.jpg" },
+  //   { url: "https://m.media-amazon.com/images/I/51s+YXXvXYL._AC_SY575_.jpg" },
+  //   { url: "https://m.media-amazon.com/images/I/91rGokbdWVL._AC_SY500_.jpg" },
+  //   // Add more images as needed
+  // ];
+  const cards = [
+    {
+      title: "Stylish Dress",
+      description: "Perfect for winter wear.",
+      imageUrl:
+        "https://m.media-amazon.com/images/I/91rGokbdWVL._AC_SY500_.jpg",
+      date: "  Storewide Sale Until 02/28/2025",
+    },
+    {
+      title: "Elegant Dress",
+      description: "Look stunning at any event.",
+      imageUrl:
+        "https://m.media-amazon.com/images/I/51s+YXXvXYL._AC_SY575_.jpg",
+      date: "  Storewide Sale Until 03/4/2025",
+    },
+    {
+      title: "Shoes",
+      description: "Comfort meets style.",
+      imageUrl:
+        "https://m.media-amazon.com/images/I/91rGokbdWVL._AC_SY500_.jpg",
+      date: "  Storewide Sale Until 03/1/2025",
+    },
+    {
+      title: "Trendy Sunglasses",
+      description: "Complete your look.",
+      imageUrl:
+        "https://m.media-amazon.com/images/I/51s+YXXvXYL._AC_SY575_.jpg",
+      date: "  Storewide Sale Until 03/3/2025",
+    },
   ];
   return (
     <div className=" flex  py-8  lgp-8  gap-3">
       <SideBar />
       <div className="relative max-w-[696px] rounded  z-[5]">
-        <ReusableSlider images={images} slidesPerView={4} delay={4000} />
+        <ReusableSlider cards={cards} slidesPerView={4} delay={4000} />
       </div>
       <div className="   hidden lg:block  flex-col">
-        <div className="py-4 px-4 w-full bg-groon rounded">
+        <div className="py-4 px-4 bg-groon rounded">
           <div className="py-2">
             <h3 className="text-center text-xl text-white font-medium">
               Welcome
@@ -41,7 +71,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="bg-slate-200 rounded h-52 p-6 text-black  mt-[60px] ">
+        <div className="bg-slate-200 rounded h-36 p-6 text-black  mt-4 ">
           IMAGE
         </div>
       </div>
