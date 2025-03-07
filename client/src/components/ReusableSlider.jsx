@@ -61,7 +61,7 @@ const ReusableSlider = ({ cards, delay = 3000 }) => {
         loop={true}
         className="relative"
       >
-        {cards.map((card, index) => (
+        {cards?.map((card, index) => (
           <SwiperSlide key={index}>
             <div className="relative flex h-96">
               {/* Left content */}
