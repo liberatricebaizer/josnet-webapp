@@ -4,7 +4,14 @@ import styles from "../../styles/styles";
 import SideBar from "../../screens/dashboard/SideBar";
 import AvatarImage from "../../images/avatar.jpeg";
 import AvatarImage2 from "../../images/avatar2.jpeg";
+import undraw from "../../images/undraw.svg";
+import undraw2 from "../../images/undraw2.svg";
+import undraw3 from "../../images/undraw3.svg";
+import undraw4 from "../../images/undraw4.svg";
+import undraw5 from "../../images/undraw5.svg";
+import undraw6 from "../../images/undraw6.svg";
 import ReusableSlider from "../ReusableSlider";
+import Undraw from "../undraw/Undraw";
 const Hero = () => {
   // const images = [
   //   { url: "https://m.media-amazon.com/images/I/91rGokbdWVL._AC_SY500_.jpg" },
@@ -42,6 +49,33 @@ const Hero = () => {
       date: "  Storewide Sale Until 03/3/2025",
     },
   ];
+  const undraws = [
+    {
+      title: "Stylish Dress",
+
+      imageUrl: "../../images/undraw.svg",
+    },
+    {
+      title: "Elegant Dress",
+      imageUrl: "../../images/undraw2.svg",
+    },
+    {
+      title: "Shoes",
+      imageUrl: "../../images/undraw3.svg",
+    },
+    {
+      title: "Trendy Sunglasses",
+      imageUrl: "../../images/undraw4.svg",
+    },
+    {
+      title: "Trendy Sunglasses",
+      imageUrl: "../../images/undraw5.svg",
+    },
+    {
+      title: "Trendy Sunglasses",
+      imageUrl: "../../images/undraw6.svg",
+    },
+  ];
   return (
     <div className=" flex  py-8  lgp-8  gap-3">
       <SideBar />
@@ -72,7 +106,8 @@ const Hero = () => {
           </div>
         </div>
         <div className="bg-slate-200 rounded h-36 p-6 text-black  mt-4 ">
-          IMAGE
+          <img src={undraw3} alt="undrow" />
+          {/* <Undraw undraws={undraws} slidesPerView={6} delay={4000} /> */}
         </div>
       </div>
       {/* <div className="flex mt-8 lg:mt-0  h-[30.5rem]  shadow border-gray-300  rounded-md bg-[#0B0414]">
