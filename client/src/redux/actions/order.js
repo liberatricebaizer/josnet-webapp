@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { server } from "../../server";
+// import { server } from "../../server";
 
 // Get all orders of user
 export const getAllOrdersOfUser = createAsyncThunk(
@@ -8,7 +8,7 @@ export const getAllOrdersOfUser = createAsyncThunk(
   async (userId, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        `${server}/order/get-all-orders/${userId}`
+        `${process.env.REACT_APP_SERVER_DOMIN}/order/get-all-orders/${userId}`
       );
       return response.data.orders;
     } catch (error) {
@@ -24,7 +24,7 @@ export const getAllOrdersOfShop = createAsyncThunk(
   async (shopId, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        `${server}/order/get-seller-all-orders/${shopId}`
+        `${process.env.REACT_APP_SERVER_DOMIN}/order/get-seller-all-orders/${shopId}`
       );
       return response.data.orders;
     } catch (error) {
@@ -39,7 +39,7 @@ export const getAllOrdersOfAdmin = createAsyncThunk(
   "orders/getAllAdmin",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`${server}/order/admin-all-orders`, {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_DOMIN}/order/admin-all-orders`, {
         withCredentials: true,
       });
       return response.data.orders;

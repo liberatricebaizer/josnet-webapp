@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { server } from "../../server";
+// import { server } from "../../server";
 import styles from "../../styles/styles";
 import Loader from "../../layout/Loader";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,7 +18,7 @@ const ShopInfo = ({ isOwner }) => {
     dispatch(getAllProductsShop(id));
     setIsLoading(true);
     axios
-      .get(`${server}/shop/get-shop-info/${id}`)
+      .get(`${process.env.REACT_APP_SERVER_DOMIN}/shop/get-shop-info/${id}`)
       .then((res) => {
         setData(res.data.shop);
         setIsLoading(false);
@@ -30,7 +30,7 @@ const ShopInfo = ({ isOwner }) => {
   }, []);
 
   const logoutHandler = async () => {
-    axios.get(`${server}/shop/logout`, {
+    axios.get(`${process.env.REACT_APP_SERVER_DOMIN}/shop/logout`, {
       withCredentials: true,
     });
     window.location.reload();

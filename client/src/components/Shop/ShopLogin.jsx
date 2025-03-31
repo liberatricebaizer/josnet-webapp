@@ -4,7 +4,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "../../styles/styles";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { server } from "../../server";
+// import { server } from "../../server";
 import { toast } from "react-toastify";
 import { loadSeller, loadUser } from "../../redux/actions/user";
 import { LoadSellerSuccess } from "../../redux/reducers/seller";
@@ -22,7 +22,7 @@ const ShopLogin = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        `${server}/shop/login-shop`,
+        `${process.env.REACT_APP_SERVER_DOMIN}/shop/login-shop`,
         {
           email,
           password,

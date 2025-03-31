@@ -44,7 +44,7 @@
 // export default sellersSlice.reducer;
 
 import axios from "axios";
-import { server } from "../../server";
+// import { server } from "../../server";
 import {
   LoadSellerRequest,
   LoadSellerSuccess,
@@ -59,7 +59,7 @@ export const getAllSellers = () => async (dispatch) => {
   try {
     dispatch(getAllSellersRequest());
 
-    const { data } = await axios.get(`${server}/shop/admin-all-sellers`, {
+    const { data } = await axios.get(`${process.env.REACT_APP_SERVER_DOMIN}/shop/admin-all-sellers`, {
       withCredentials: true,
     });
 
@@ -78,7 +78,7 @@ export const loadSeller = () => async (dispatch) => {
   try {
     dispatch(LoadSellerRequest());
 
-    const { data } = await axios.get(`${server}/shop/getSeller`, {
+    const { data } = await axios.get(`${process.env.REACT_APP_SERVER_DOMIN}/shop/getSeller`, {
       withCredentials: true,
     });
     console.log(data);

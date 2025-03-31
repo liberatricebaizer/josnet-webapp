@@ -8,14 +8,14 @@ import { getAllProductsShop } from "../../redux/actions/product";
 import { deleteProduct } from "../../redux/actions/product";
 import Loader from "../../layout/Loader";
 import axios from "axios";
-import { server } from "../../server";
+// import { server } from "../../server";
 import { useState } from "react";
 
 const AllProducts = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get(`${server}/product/admin-all-products`, {withCredentials: true}).then((res) => {
+    axios.get(`${process.env.REACT_APP_SERVER_DOMIN}/product/admin-all-products`, {withCredentials: true}).then((res) => {
         setData(res.data.products);
     })
   }, []);

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { server } from "../../server";
+// import { server } from "../../server";
 import {
   productCreateRequest,
   productCreateSuccess,
@@ -33,7 +33,7 @@ export const createProduct =
     try {
       dispatch(productCreateRequest());
 
-      const { data } = await axios.post(`${server}/product/create-product`, {
+      const { data } = await axios.post(`${process.env.REACT_APP_SERVER_DOMIN}/product/create-product`, {
         name,
         description,
         category,
@@ -60,7 +60,7 @@ export const getAllProductsShop = (id) => async (dispatch) => {
       throw new Error("Shop ID is required"); // Handle missing shop ID
     }
     const { data } = await axios.get(
-      `${server}/product/get-all-products-shop/${id}`
+      `${process.env.REACT_APP_SERVER_DOMIN}/product/get-all-products-shop/${id}`
     );
 
     dispatch(getAllProductsShopSuccess(data.products));
@@ -77,7 +77,7 @@ export const deleteProduct = (id) => async (dispatch) => {
     dispatch(deleteProductRequest());
 
     const { data } = await axios.delete(
-      `${server}/product/delete-shop-product/${id}`,
+      `${process.env.REACT_APP_SERVER_DOMIN}/product/delete-shop-product/${id}`,
       {
         withCredentials: true,
       }
@@ -94,7 +94,7 @@ export const getAllProducts = () => async (dispatch) => {
   try {
     dispatch(getAllProductsRequest());
 
-    const { data } = await axios.get(`${server}/product/get-all-products`);
+    const { data } = await axios.get(`${process.env.REACT_APP_SERVER_DOMIN}/product/get-all-products`);
     dispatch(getAllProductsSuccess(data.products));
   } catch (error) {
     dispatch(getAllProductsFailed(error.response.data.message));

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { server } from "../../server";
+// import { server } from "../../server";
 import {
   getAllEventsShopFailed,
   getAllEventsShopRequest,
@@ -12,7 +12,7 @@ export const createEvent = createAsyncThunk(
   "events/create",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`${server}/event/create-event`, data);
+      const response = await axios.post(`${process.env.REACT_APP_SERVER_DOMIN}/event/create-event`, data);
       return response.data.event;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -29,7 +29,7 @@ export const getAllEventsShop = (shopId) => async (dispatch) => {
     }
 
     const { data } = await axios.get(
-      `${server}/event/get-all-events/${shopId}`
+      `${process.env.REACT_APP_SERVER_DOMIN}/event/get-all-events/${shopId}`
     );
 
     dispatch(getAllEventsShopSuccess(data.events));
@@ -46,7 +46,7 @@ export const deleteEvent = createAsyncThunk(
   async (eventId, { rejectWithValue }) => {
     try {
       const response = await axios.delete(
-        `${server}/event/delete-shop-event/${eventId}`,
+        `${process.env.REACT_APP_SERVER_DOMIN}/event/delete-shop-event/${eventId}`,
         {
           withCredentials: true,
         }
@@ -63,7 +63,7 @@ export const getAllEvents = createAsyncThunk(
   "events/getAll",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`${server}/event/get-all-events`);
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_DOMIN}/event/get-all-events`);
       return response.data.events;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

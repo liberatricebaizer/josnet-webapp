@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { server } from "../server";
+// import { server } from "../server";
 
 const SellerActivationPage = () => {
   const { activation_token } = useParams();
@@ -12,7 +12,7 @@ const SellerActivationPage = () => {
     if (activation_token) {
       const sendRequest = async () => {
         await axios
-          .post(`${server}/shop/activation`, {
+          .post(`${process.env.REACT_APP_SERVER_DOMIN}/shop/activation`, {
             activation_token,
           })
           .then((res) => {

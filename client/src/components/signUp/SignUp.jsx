@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { RxAvatar } from "react-icons/rx";
 import { BiShow, BiHide } from "react-icons/bi";
 import axios from "axios";
-import { server } from "../../server";
+// import { server } from "../../server";
 import { Spinner } from "react-bootstrap";
 const SignUp = () => {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ const SignUp = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post(`${server}/user/create-user`, {
+      const res = await axios.post(`${process.env.REACT_APP_SERVER_DOMIN}/user/create-user`, {
         name,
         email,
         password,

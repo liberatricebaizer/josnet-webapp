@@ -3,7 +3,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "../../styles/styles";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { server } from "../../server";
+// import { server } from "../../server";
 import { toast } from "react-toastify";
 import { RxAvatar } from "react-icons/rx";
 import { Spinner } from "react-bootstrap";
@@ -22,7 +22,7 @@ const ShopCreate = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post(`${server}/shop/create-shop`, {
+      const res = await axios.post(`${process.env.REACT_APP_SERVER_DOMIN}/shop/create-shop`, {
         name,
         email,
         password,

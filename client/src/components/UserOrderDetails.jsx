@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../styles/styles";
 import { getAllOrdersOfUser } from "../redux/actions/order";
-import { server } from "../server";
+// import { server } from "../server";
 import { RxCross1 } from "react-icons/rx";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import axios from "axios";
@@ -30,7 +30,7 @@ const UserOrderDetails = () => {
   const reviewHandler = async (e) => {
     await axios
       .put(
-        `${server}/product/create-new-review`,
+        `${process.env.REACT_APP_SERVER_DOMIN}/product/create-new-review`,
         {
           user,
           rating,
@@ -53,7 +53,7 @@ const UserOrderDetails = () => {
   };
   
   const refundHandler = async () => {
-    await axios.put(`${server}/order/order-refund/${id}`,{
+    await axios.put(`${process.env.REACT_APP_SERVER_DOMIN}/order/order-refund/${id}`,{
       status: "Processing refund"
     }).then((res) => {
        toast.success(res.data.message);

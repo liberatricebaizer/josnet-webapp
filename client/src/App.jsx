@@ -79,7 +79,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { getAllProducts } from "./redux/actions/product";
 import { getAllEvents } from "./redux/actions/event";
 import axios from "axios";
-import { server } from "./server";
+// import { server } from "./server";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { loadSeller, loadUser } from "./redux/actions/user";
@@ -91,7 +91,7 @@ function App() {
   const [stripeApikey, setStripeApiKey] = useState("");
 
   async function getStripeApikey() {
-    const { data } = await axios.get(`${server}/payment/stripeapikey`);
+    const { data } = await axios.get(`${process.env.REACT_APP_SERVER_DOMIN}/payment/stripeapikey`);
     setStripeApiKey(data.stripeApikey);
   }
   useEffect(() => {

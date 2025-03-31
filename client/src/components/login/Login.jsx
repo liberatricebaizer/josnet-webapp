@@ -3,7 +3,7 @@ import { React, useState, useEffect } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { server } from "../../server";
+// import { server } from "../../server";
 import { toast } from "react-toastify";
 import socketIO from "socket.io-client";
 import { FcGoogle } from "react-icons/fc";
@@ -39,7 +39,7 @@ const Login = () => {
     setLoading(true); // Set loading to true when login starts
     try {
       const res = await axios.post(
-        `${server}/user/login-user`,
+        `${process.env.REACT_APP_SERVER_DOMIN}/user/login-user`,
         {
           email,
           password,
